@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/de18f9756a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -14,6 +15,7 @@
     <div class="nav-container">
         <nav>
             <h1 class="logo">Giovanni Ruocco</h1>
+            <button class="burger-menu" id="burger-button"><i class="fa-solid fa-bars"></i></button>
             <ul class="nav-links-container">
                 <li class="nav-link">Home</li>
                 <li class="nav-link">Portfolio</li>
@@ -24,7 +26,7 @@
 
     <main>
         <!-- header section -->
-        <section>
+        <section class="header">
             <header class="container header-container">
                 <ul class="features-list">
                     <li class="feature f1">front end developer</li>
@@ -38,22 +40,41 @@
         </section>
 
         <!-- portfolio preview -->
-        <section>
+        <section class="portfolio">
             <div class="container portfolio-preview">
                 <h1>Here are some of my projects</h1>
                 <div id="project-preview">
                     <figure>
                         <img src="./assets/images/calculator.png" alt="" class="portfolio-project-img" id="project-img">
                     </figure>
-                    <h2 id="project-title">Project Title</h2>
+                    <h3 id="project-title">Project Title</h3>
                     <!-- <p id="project-desc">Project description</p> -->
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <h1>FOOTER</h1>
+        <div class="footer-content-container">
+            <div class="copyright">
+                <p>&copy; 2023 Giovanni Ruocco. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-codepen"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-free-code-camp"></i>
+                </a>
+            </div>
+        </div>
     </footer>
+    <script  src="./assets/javascript/navbar.js"></script>
     <script  src="./assets/javascript/home_header.js"></script>
     <script  src="./assets/javascript/home_portfolio.js"></script>
 </body>

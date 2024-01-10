@@ -1,6 +1,6 @@
 @use './general';
 @use './navbar';
-
+@use './footer';
 
 @mixin flex_layout($dir: row, $just: center, $align: center) {
     display: flex;
@@ -9,57 +9,112 @@
     align-items: $align;
 }
 
-img {
-    width: 250px;
-    border-radius: 10px;
+
+section.header{
+    margin-top: 50px;
+
 }
 
+/* header */
 header {
-    @include flex_layout(row, space-between, center);
-    padding: 50px 0;
+    //@include flex_layout(row, center, stretch);
+    @include flex_layout(column, center, stretch);
+    height: 60vh;
+
 
     .features-list {
-        @include flex_layout(column, center, flex-end);
+        order: 2;
+        @include flex_layout(column, center, center);
         list-style-type: none;
-        flex-grow: 1;
+        flex: 1;
         gap: 15px;
-    }
+    
 
-    .feature{
-        display: inline-block; /* Keep elements on the same line */
-        width: 250px; /* Set a fixed width */
-        font-size: 16px;
-        transition: all 1s ease-in-out;
-
+        .feature{
+            display: inline-block; /* Keep elements on the same line */
+            font-size: 1.2rem;
+            transition: all 1s ease-in-out;
+        }
     }
 
     figure {
-        flex-grow: 1;
+        flex: 1;
         display: flex;
         justify-content: center;
+        align-items: center;
+    
+        img {
+            max-width: 300px;
+            object-fit:cover;
+            border-radius: 15px;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+
+        @include flex_layout(row, center, stretch);
+
+        .features-list {
+            order: 0;
+        }
+
+
+        .feature{
+            font-size: 1.4rem;
+        }
+
+        img{
+            max-width: 300px;
+        }
     }
 }
 
 
+
+/* portfolio */
+
+section.portfolio{
+    height: 70vh;
+}
+
 .portfolio-preview {
     @include flex_layout(column, center, center);
-    height: 600px;
+    height: 100%;
     gap: 15px;
 
     h1 {
-        font-size: 36px;
+        font-size: 1.5rem;
         margin-bottom: 50px;
     }
 
+    figure{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     img {
-        width: 350px;
-        height: 350px;
-        object-fit: contain;
+        width: 100%;
+        object-fit:contain;
+        border-radius: 10px;
     }
 
     #project-preview {
+        height: 350px;
         @include flex_layout(column, center, center);
         gap: 15px;
         transition: opacity 1s ease-in-out;
+    }
+
+    h3{
+        font-size: 1.3rem;
+    }
+
+    @media screen and (min-width: 769px) {
+        img {
+            width: 500px;
+            object-fit:contain;
+            border-radius: 10px;
+        }
     }
 }
