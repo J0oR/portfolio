@@ -1,0 +1,29 @@
+.nav-container {
+    background-color: lightgray;
+}
+
+nav {
+
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    h1{
+        margin-left: 100px;
+        font-size: 17px;
+    }
+
+    .nav-links-container{
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        margin-right: 100px;
+    }
+
+    .nav-link{
+        margin-left: 50px;
+    }
+}

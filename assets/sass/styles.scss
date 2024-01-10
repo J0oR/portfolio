@@ -1,0 +1,65 @@
+@use './general';
+@use './navbar';
+
+
+@mixin flex_layout($dir: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    align-items: $align;
+}
+
+img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+header {
+    @include flex_layout(row, space-between, center);
+    padding: 50px 0;
+
+    .features-list {
+        @include flex_layout(column, center, flex-end);
+        list-style-type: none;
+        flex-grow: 1;
+        gap: 15px;
+    }
+
+    .feature{
+        display: inline-block; /* Keep elements on the same line */
+        width: 250px; /* Set a fixed width */
+        font-size: 16px;
+        transition: all 1s ease-in-out;
+
+    }
+
+    figure {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.portfolio-preview {
+    @include flex_layout(column, center, center);
+    height: 600px;
+    gap: 15px;
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    img {
+        width: 350px;
+        height: 350px;
+        object-fit: contain;
+    }
+
+    #project-preview {
+        @include flex_layout(column, center, center);
+        gap: 15px;
+        transition: opacity 1s ease-in-out;
+    }
+}
