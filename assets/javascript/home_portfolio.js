@@ -2,6 +2,10 @@
 const projectsArray = [
     { title: 'Javascript Calculator', img: './assets/images/calculator.png' },
     { title: 'Javascript Drum Machine', img: './assets/images/drum_machine.png' },
+    { title: 'Markdown Previewer', img: './assets/images/markdown.png' },
+    { title: 'Quote Generator', img: './assets/images/quote.png' },
+    { title: 'Work Clock', img: './assets/images/work clock.png' },
+    { title: 'Tecnical Documentation Page', img: './assets/images/techpage.png' },
 ];
 
 // Get the h1 element by its ID

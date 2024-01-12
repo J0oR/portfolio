@@ -37,13 +37,14 @@ header {
         }
     }
 
-    figure {
+    //figure {
+    #scroll-image {
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
     
-        img {
+        .test {
             max-width: 300px;
             object-fit:cover;
             border-radius: 15px;
