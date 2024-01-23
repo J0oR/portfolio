@@ -22,12 +22,14 @@ header {
     height: 60vh;
 
 
+
     .features-list {
         order: 2;
         @include flex_layout(column, center, center);
         list-style-type: none;
         flex: 1;
         gap: 15px;
+        color: lightcoral;
     
 
         .feature{
@@ -92,12 +94,15 @@ section.portfolio{
         display: flex;
         justify-content: center;
         align-items: center;
+       
     }
 
     img {
         width: 100%;
         object-fit:contain;
         border-radius: 10px;
+        border: 1px solid lightgrey;
+       
     }
 
     #project-preview {

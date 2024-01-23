@@ -1,1 +1,260 @@
-*{box-sizing:border-box;padding:0;margin:0;border:1px solid #000}html{font-size:14px}section{width:100%}.container{max-width:1100px;margin:0 auto}.nav-container{background-color:#d3d3d3}nav{display:flex;align-items:center;height:80px;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}nav .logo{margin-left:10%;font-size:1.5rem;flex:1;display:flex}@media screen and (max-width: 768px){.burger-menu{margin-right:10%;display:flex;justify-content:center;align-items:center;height:35%;width:40px}.nav-links-container{display:none}.nav-links-container.show{display:flex;flex-direction:column;align-items:center;list-style-type:none;width:100%;background-color:#333;position:absolute;top:81px;left:0}.nav-link{height:45px;display:flex;align-items:center;justify-content:center}}@media screen and (min-width: 769px){.burger-menu{display:none}.nav-links-container{display:flex;flex:1;margin-right:100px;justify-content:flex-end;gap:15px;list-style-type:none}}footer{height:20vh;background-color:#f08080}.copyright p{font-size:1.1rem}.footer-content-container{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;max-width:1100px;margin:0 auto}.social-icons{width:80%;display:flex;justify-content:space-between}.social-icons i{font-size:2rem}form{max-width:1100px;margin:0 auto;padding:100px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px}@media screen and (max-width: 768px){form{padding:0;margin:10% 10%}}form .field{width:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px}form label{width:100%}form input{height:50px;width:100%}form textarea{width:100%;resize:none}.name-container{width:100%;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:50px}.name-container div{width:50%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px}@media screen and (max-width: 768px){.name-container{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px}.name-container div{width:100%}}.name-container input{width:100%}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-size: 16px;
+}
+
+section {
+  margin: 100px 0;
+  width: 100%;
+}
+section .section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 100px;
+}
+
+.nav-container {
+  background-color: lightgray;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 100px;
+}
+nav .logo {
+  font-size: 1.5rem;
+  flex: 1;
+  display: flex;
+}
+
+/* Phone */
+@media screen and (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    width: 40px;
+  }
+  .nav-links-container {
+    display: none;
+  }
+  .nav-links-container.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 81px;
+    left: 0;
+  }
+  .nav-link {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 769px) {
+  .burger-menu {
+    display: none; /* Show burger menu button */
+  }
+  .nav-links-container {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 15px;
+    list-style-type: none;
+  }
+}
+footer {
+  height: 20vh;
+  background-color: lightcoral;
+}
+
+.copyright p {
+  font-size: 1.1rem;
+}
+
+.footer-content-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.social-icons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.social-icons i {
+  font-size: 2rem;
+}
+
+/* ABOUT ME */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.about-container p {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+/* PROFILES */
+.profiles-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.profiles-container .online-profile {
+  text-align: center;
+  width: 80%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid lightcoral;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .profiles-container .online-profile {
+    width: 100%;
+  }
+}
+.profiles-container span {
+  width: 50%;
+  text-align: right;
+}
+.profiles-container i {
+  width: 50%;
+  text-align: left;
+}
+
+/* FORM */
+.contact-headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  height: 150px !important;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+@media screen and (max-width: 768px) {
+  form {
+    padding: 0;
+    margin: 10% 10%;
+  }
+}
+form .field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+form label {
+  padding: 20px;
+  width: 100%;
+}
+form textarea, form input {
+  padding: 20px;
+  border: 2px solid lightcoral;
+  border-radius: 10px;
+}
+form input {
+  height: 50px;
+  width: 100%;
+}
+form textarea {
+  width: 100%;
+  resize: none;
+}
+form .form-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.name-container div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+.name-container input {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .name-container div {
+    width: 100%;
+  }
+}

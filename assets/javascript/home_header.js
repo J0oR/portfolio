@@ -3,12 +3,14 @@ let f_index = 0;
 
 function updateFontSize() {
 
-    const fontWeightBase = '400';
-    const fontWeightActive = '500';
+    /* const fontWeightBase = '400';
+    const fontWeightActive = '500'; */
 
     features.forEach((feature, i) => {
+        /* feature.style.transform = (i === f_index) ? 'scale(1.4)' : 'scale(1)';
+        feature.style.fontWeight = (i === f_index) ? fontWeightActive : fontWeightBase; */
         feature.style.transform = (i === f_index) ? 'scale(1.4)' : 'scale(1)';
-        feature.style.fontWeight = (i === f_index) ? fontWeightActive : fontWeightBase;
+        feature.style.fontWeight += (i === f_index) ? 100 : -100;
     });
 
     f_index = (f_index + 1) % features.length;
@@ -16,7 +18,6 @@ function updateFontSize() {
 
 // Initial call to set the initial font size
 updateFontSize();
-
 // Call the updateFontSize function every 3 seconds
 setInterval(updateFontSize, 3000);
 
@@ -27,66 +28,66 @@ setInterval(updateFontSize, 3000);
 
 
 
-startImageTransition();
 
-function startImageTransition() {
-    var images = document.getElementsByClassName("test");
-
-    const imgIndexes = [0, 1, 2];
-    const zindexs = [0, 1, 2];
-
-    for (var i = 0; i < images.length; ++i) {
-        images[i].style.opacity = 1;
-    }
-
-    var currentImg = 2, coveredImg;
-
-    setInterval(changeImage, 3000);
-
-    async function changeImage() {
-
-        stack();
-
-        coveredImg = imgIndexes[2];
-        images[currentImg].style.zIndex = zindexs[2] + 1;
-        images[coveredImg].style.zIndex = zindexs[2];
-
-        await transition();
-
-        images[currentImg].style.opacity = 1;
-        images[currentImg].style.zIndex = zindexs[0];
-        
-        currentImg = imgIndexes[2];
-
-
-    }
-
-    function stack(){
-        for (let j = 0; j < 3; j ++)
-        {
-            imgIndexes[j] = (1 + imgIndexes[j]) % 3;
-        }
-        console.log(imgIndexes);
-    }
-
-    function transition() {
-        return new Promise(function (resolve, reject) {
-            var del = 0.1;
-
-            var id = setInterval(changeOpacity, 100);
-
-            function changeOpacity() {
-                images[currentImg].style.opacity -= del;
-                if (images[currentImg].style.opacity <= 0) {
-                    clearInterval(id);
-                    resolve();
-                }
-            }
-
-        })
-    }
+var images = document.getElementsByClassName("test");
+for (var i = 0; i < images.length; ++i) {
+    images[i].style.opacity = 1;
 }
- 
+
+const imgIndexes = [0, 1, 2];
+const zindexs = [0, 1, 2];
+var currentImg = imgIndexes[2];
+var coveredImg;
+
+setInterval(changeImage, 3000);
+
+async function changeImage() {
+
+    stack();
+
+    coveredImg = imgIndexes[2];
+    images[currentImg].style.zIndex = 2;
+    images[coveredImg].style.zIndex = 1;
+
+    await transition();
+
+    /* reset the opacity of the image we just made disappear  */
+    images[currentImg].style.opacity = 1;
+    /* put the image at the bottom of the stack  */
+    images[currentImg].style.zIndex = 0;
+
+    /* update the stack top image */
+    currentImg = imgIndexes[2];
+}
+
+/* rearrange the images index order */
+function stack() {
+    for (let j = 0; j < 3; j++) {
+        imgIndexes[j] = (1 + imgIndexes[j]) % 3;
+    }
+    console.log(imgIndexes);
+}
+
+/* reduce gradually current image transiton down to 0 */
+function transition() {
+    return new Promise(resolve => {
+
+        var id = setInterval(changeOpacity, 100);
+
+        function changeOpacity() {
+            images[currentImg].style.opacity -= 0.1;
+            if (images[currentImg].style.opacity <= 0) {
+                clearInterval(id);
+                resolve();
+                return;
+            }
+        }
+    })
+}
+
+
+
+
 
 
 

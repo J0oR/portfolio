@@ -11,47 +11,108 @@
 
 <body>
 
-    <!-- nav bar -->
+    <!-- NAV BAR -->
     <div class="nav-container">
         <nav>
             <h1 class="logo">Giovanni Ruocco</h1>
             <button class="burger-menu" id="burger-button"><i class="fa-solid fa-bars"></i></button>
             <ul class="nav-links-container">
-                <li class="nav-link"><a href="../index.html">Home</a></li>
+                <li class="nav-link"><a href="/">Home</a></li>
                 <li class="nav-link"><a href="./portfolio.html">Portfolio</a></li>
                 <li class="nav-link"><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
 
+
     <main>
-        <form action="">
-            <div class="name-container">
-                <div class="field">
-                    <label for="username">Username:</label>
-                    <input type="text" placeholder="Enter your name">
+
+
+        <!-- INTRO -->
+        <section>
+            <h1 class="section-title">About Me</h1>
+            <div class="container about-container">
+                <p>I followed a university course in psychology, specializing in social, work and organizational
+                    psychology.
+                </p>
+                <p>
+                    Between my bachelor's and master's degrees I became passionate about programming, I started studying
+                    independently and eventually entered Ecole 42 in Paris.
+                </p>
+
+                <p>
+                    At the moment I am attending the start2impact master's degree in front end development.
+                </p>
+                <p>
+                    Now I want to become a full-fledged front end developer and UI designer.
+                </p>
+            </div>
+
+
+
+        </section>
+
+        <!-- ONLINE PROFILE -->
+        <section>
+            <h2 class="section-title">My Online Profiles</h2>
+            <div class="container profiles-container">
+                <a class="online-profile">
+                    <span>Linkedin</span>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a class="online-profile">
+                    <span>Github</span>
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a class="online-profile">
+                    <span>Codepen</span>
+                    <i class="fa-brands fa-codepen"></i>
+                </a>
+                <a class="online-profile">
+                    <span>freeCodeCamp</span>
+                    <i class="fa-brands fa-free-code-camp"></i>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- CONTACT FORM -->
+        <section>
+            <div class="section-title contact-headline container">
+                <h2 >Contact me</h2>
+                <p>If you wish to conctact me, please feel free to leave a message using the form below.</p>
+            </div>
+            <form action="" class="container">
+                <div class="name-container">
+                    <div class="field">
+                        <label for="username">First Name</label>
+                        <input type="text" placeholder="Enter your name">
+                    </div>
+                    <div class="field">
+                        <label for="username">Last Name</label>
+                        <input type="text" placeholder="Enter your last name">
+                    </div>
                 </div>
                 <div class="field">
-                    <label for="username">Username:</label>
-                    <input type="text" placeholder="Enter your last name">
+                    <label for="username">Email address</label>
+                    <input type="email" placeholder="Enter your email">
                 </div>
-            </div>
-            <div class="field">
-                <label for="username">Username:</label>
-                <input type="text" placeholder="Subject of your message">
-            </div>
-            <div class="field">
-                <label for="username">Username:</label>
-                <input type="email" placeholder="Enter your email">
-            </div>
-            <div class="field">
-                <label for="username">Username:</label>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Leave your message here"></textarea>
-            </div>
-            <button>Submit</button>
-        </form>
+                <div class="field">
+                    <label for="username">Subject</label>
+                    <input type="text" placeholder="Subject of your message">
+                </div>
+                <div class="field">
+                    <label for="username">Message</label>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Leave your message here"></textarea>
+                </div>
+                <button class="form-btn">Submit</button>
+            </form>
+        </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content-container">
             <div class="copyright">
@@ -73,6 +134,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- SCRIPTS -->
     <script src="../assets/javascript/navbar.js"></script>
 </body>
 
