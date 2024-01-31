@@ -109,7 +109,11 @@ section.portfolio{
         height: 350px;
         @include flex_layout(column, center, center);
         gap: 15px;
-        transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 
     h3{

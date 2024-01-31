@@ -10,6 +10,8 @@ html {
 
 body {
   font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
 }
 
 section {
@@ -40,24 +42,42 @@ section .section-title {
 
 nav {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
-  justify-content: space-between;
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 100px;
 }
 nav .logo {
+  height: 80%;
   font-size: 1.5rem;
   flex: 1;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+nav .nav-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+nav .active-link {
+  border-bottom: 2px solid black;
+  /* Border color when the link is active */
 }
 
 /* Phone */
 @media screen and (max-width: 768px) {
   .burger-menu {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 35%;
@@ -69,36 +89,45 @@ nav .logo {
   .nav-links-container.show {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     list-style-type: none;
     width: 100%;
-    background-color: #333;
+    background-color: lightblue;
     position: absolute;
     top: 81px;
     left: 0;
+    height: 200px;
   }
   .nav-link {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 50px;
+    background-color: lightblue;
   }
 }
 @media screen and (min-width: 769px) {
   .burger-menu {
-    display: none; /* Show burger menu button */
+    display: none;
+    /* Show burger menu button */
   }
   .nav-links-container {
     display: flex;
     flex: 1;
     justify-content: flex-end;
-    gap: 15px;
-    list-style-type: none;
+    gap: 50px;
+    height: 80%;
+  }
+  .nav-link {
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  .nav-link:hover {
+    transform: translateX(-1px) translateY(5px) scale(1.2);
+    height: 85%;
   }
 }
 footer {
   height: 20vh;
-  background-color: lightcoral;
+  background-color: lightcyan;
 }
 
 .copyright p {
@@ -217,7 +246,10 @@ section.portfolio {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+}
+.portfolio-preview #project-preview:hover {
+  transform: scale(1.2);
 }
 .portfolio-preview h3 {
   font-size: 1.3rem;
