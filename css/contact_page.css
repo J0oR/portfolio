@@ -15,7 +15,7 @@ body {
 }
 
 section {
-  margin: 100px 0;
+  margin: 50px 0;
   width: 100%;
 }
 section .section-title {
@@ -31,6 +31,13 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
+}
+.container p {
+  font-size: 1.5rem;
+}
+
+.tags-container .tag, form .form-btn {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .nav-container {
@@ -167,6 +174,34 @@ footer {
   font-size: 1.5rem;
 }
 
+/* TAG list */
+.tags-container .tags-list {
+  margin-top: 50px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* display: grid;
+  grid-template-columns: repeat(5, 1fr); */
+  flex-wrap: wrap;
+  gap: 40px;
+  /* @media only screen and (max-width: 991px) {
+      grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+  } */
+}
+.tags-container .tag {
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid lightblue;
+  background-color: lightblue;
+  width: 100px;
+  text-align: center;
+}
+
 /* PROFILES */
 .profiles-container {
   display: flex;
@@ -177,7 +212,7 @@ footer {
 }
 .profiles-container .online-profile {
   text-align: center;
-  width: 80%;
+  width: 50%;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -186,21 +221,21 @@ footer {
   gap: 10px;
   border: 2px solid lightcoral;
   border-radius: 10px;
+  transition: all 0.5s ease-in-out;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+  .profiles-container .online-profile {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 768px) {
   .profiles-container .online-profile {
     width: 100%;
   }
 }
-.profiles-container span {
-  width: 50%;
-  text-align: right;
+.profiles-container .online-profile:hover {
+  transform: scale(1.2);
 }
-.profiles-container i {
-  width: 50%;
-  text-align: left;
-}
-
 /* FORM */
 .contact-headline {
   display: flex;
@@ -253,6 +288,12 @@ form .form-btn {
   width: 150px;
   height: 50px;
   border-radius: 10px;
+  border: none;
+  transition: all 0.05s ease-in-out;
+}
+form .form-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
 .name-container {

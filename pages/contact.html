@@ -36,24 +36,38 @@
         <section>
             <h1 class="section-title">About Me</h1>
             <div class="container about-container">
-                <p>I followed a university course in psychology, specializing in social, work and organizational
-                    psychology.
+                <p>I followed a university path in the social sciences field, specializing in social, work and
+                    organizational psychology.</p>
+                <p>Between my bachelor's and master's degrees I became passionate about programming, I started studying
+                    independently and eventually entered Ecole 42 in Paris, where I studied algorithms and graphic in C,
+                    system administration and web development.
                 </p>
-                <p>
-                    Between my bachelor's and master's degrees I became passionate about programming, I started studying
-                    independently and eventually entered Ecole 42 in Paris.
-                </p>
-
-                <p>
-                    At the moment I am attending the start2impact master's degree in front end development.
-                </p>
-                <p>
-                    Now I want to become a full-fledged front end developer and UI designer.
+                <p>At the moment I am attending the start2impact master's degree in front end development, with the
+                    purpose to become a full-fledged front end developer and UI designer.
                 </p>
             </div>
+        </section>
 
 
-
+        <!-- SKILLS -->
+        <section>
+            <div class="container tags-container">
+                <h2 class="section-title">Languages</h2>
+                <p>Explore a diverse spectrum of languages, frameworks, and technologies I've encountered along my
+                    professional journey.</p>
+                <ul class="tags-list">
+                    <li class="tag">HTML</li>
+                    <li class="tag">CSS</li>
+                    <li class="tag">Javascript</li>
+                    <li class="tag">Vue Js</li>
+                    <li class="tag">C</li>
+                    <li class="tag">Php</li>
+                    <li class="tag">Python</li>
+                    <li class="tag">Django</li>
+                    <li class="tag">Unix Shell</li>
+                    <li class="tag">Docker</li>
+                </ul>
+            </div>
         </section>
 
         <!-- ONLINE PROFILE -->
@@ -93,27 +107,26 @@
                 <div class="name-container">
                     <div class="field">
                         <label for="">First Name</label>
-                        <input type="text" placeholder="Enter your name" id="user_name" name="user_name">
+                        <input type="text" placeholder="Enter your name" id="user_firstname" name="user_name" required>
                     </div>
-                    <!-- <div class="field">
+                    <div class="field">
                         <label for="">Last Name</label>
-                        <input type="text" placeholder="Enter your last name">
-                    </div> -->
+                        <input type="text" placeholder="Enter your last name" id="user_lastname" required>
+                    </div>
                 </div>
                 <div class="field">
                     <label for="">Email address</label>
-                    <input type="email" placeholder="Enter your email" name="user_email" id="user_email">
+                    <input type="email" placeholder="Enter your email" name="user_email" id="user_email" required>
                 </div>
                 <div class="field">
                     <label for="">Subject</label>
-                    <input type="text" placeholder="Subject of your message" id="subject">
+                    <input type="text" placeholder="Subject of your message" id="subject" required>
                 </div>
                 <div class="field">
                     <label for="username">Message</label>
-                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="message"
-                        id="message"></textarea>
+                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="message" id="message" required></textarea>
                 </div>
-                <button class="form-btn" type="submit" onclick="sendMail()">Submit</button>
+                <button class="form-btn" type="submit" onclick="validateForm()">Submit</button>
 
             </form>
         </section>

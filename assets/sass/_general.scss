@@ -18,7 +18,7 @@ body{
 }
 
 section {
-    margin: 100px 0;
+    margin: 50px 0;
     width: 100%;
 
     .section-title{
@@ -37,5 +37,9 @@ section {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 100px;
+
+    p{
+        font-size: 1.5rem;
+    }
 
 }

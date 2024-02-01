@@ -15,7 +15,7 @@ body {
 }
 
 section {
-  margin: 100px 0;
+  margin: 50px 0;
   width: 100%;
 }
 section .section-title {
@@ -31,6 +31,13 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
+}
+.container p {
+  font-size: 1.5rem;
+}
+
+.portfolio-preview figure {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .nav-container {
@@ -164,7 +171,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  height: 60vh;
+  height: 90vh;
 }
 header .features-list {
   order: 2;
@@ -178,7 +185,8 @@ header .features-list {
   color: lightcoral;
 }
 header .features-list .feature {
-  display: inline-block; /* Keep elements on the same line */
+  display: inline-block;
+  /* Keep elements on the same line */
   font-size: 1.2rem;
   transition: all 1s ease-in-out;
 }
@@ -199,6 +207,7 @@ header #scroll-image .test {
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
+    height: 60vh;
   }
   header .features-list {
     order: 0;
@@ -211,7 +220,7 @@ header #scroll-image .test {
   }
 }
 
-/* portfolio */
+/***************************** Home portfolio preview ***********************************/
 section.portfolio {
   height: 70vh;
 }
@@ -223,36 +232,45 @@ section.portfolio {
   align-items: center;
   height: 100%;
   gap: 15px;
+  /* h3{
+      font-size: 1.3rem;
+  } */
 }
 .portfolio-preview h1 {
   font-size: 1.5rem;
   margin-bottom: 50px;
 }
-.portfolio-preview figure {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.portfolio-preview img {
-  width: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 1px solid lightgrey;
-}
 .portfolio-preview #project-preview {
   height: 350px;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+  text-decoration: none;
+  height: fit-content;
+}
+.portfolio-preview #project-preview:hover {
+  transform: scale(1.1);
+}
+.portfolio-preview figure {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  border-radius: 4px;
+  background-color: lightblue;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
 }
-.portfolio-preview #project-preview:hover {
-  transform: scale(1.2);
+.portfolio-preview figure img {
+  max-width: 450px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
 }
-.portfolio-preview h3 {
+.portfolio-preview figure figcaption {
   font-size: 1.3rem;
+  color: black;
 }
 @media screen and (min-width: 769px) {
   .portfolio-preview img {

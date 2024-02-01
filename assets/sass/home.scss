@@ -10,7 +10,7 @@
 }
 
 
-section.header{
+section.header {
     margin-top: 50px;
 
 }
@@ -19,7 +19,7 @@ section.header{
 header {
     //@include flex_layout(row, center, stretch);
     @include flex_layout(column, center, stretch);
-    height: 60vh;
+    height: 90vh;
 
 
 
@@ -30,10 +30,11 @@ header {
         flex: 1;
         gap: 15px;
         color: lightcoral;
-    
 
-        .feature{
-            display: inline-block; /* Keep elements on the same line */
+
+        .feature {
+            display: inline-block;
+            /* Keep elements on the same line */
             font-size: 1.2rem;
             transition: all 1s ease-in-out;
         }
@@ -45,10 +46,10 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
         .test {
             max-width: 300px;
-            object-fit:cover;
+            object-fit: cover;
             border-radius: 15px;
         }
     }
@@ -56,17 +57,18 @@ header {
     @media screen and (min-width: 769px) {
 
         @include flex_layout(row, center, stretch);
+        height: 60vh;
 
         .features-list {
             order: 0;
         }
 
 
-        .feature{
+        .feature {
             font-size: 1.4rem;
         }
 
-        img{
+        img {
             max-width: 300px;
         }
     }
@@ -74,9 +76,9 @@ header {
 
 
 
-/* portfolio */
+/***************************** Home portfolio preview ***********************************/
 
-section.portfolio{
+section.portfolio {
     height: 70vh;
 }
 
@@ -90,40 +92,56 @@ section.portfolio{
         margin-bottom: 50px;
     }
 
-    figure{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-       
-    }
-
-    img {
-        width: 100%;
-        object-fit:contain;
-        border-radius: 10px;
-        border: 1px solid lightgrey;
-       
-    }
 
     #project-preview {
         height: 350px;
-        @include flex_layout(column, center, center);
-        gap: 15px;
-        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        //@include flex_layout(column, center, center);
 
-        &:hover{
-            transform: scale(1.2);
+        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        text-decoration: none;
+        height: fit-content;
+
+        &:hover {
+            transform: scale(1.1);
         }
     }
 
-    h3{
-        font-size: 1.3rem;
+    figure {
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        border-radius: 4px;
+        background-color: lightblue;
+        padding: 20px;
+        @include flex_layout(column, center, center);
+        gap: 15px;
+        @extend %shadow-effect;
+
+        img {
+            max-width: 450px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid lightgrey;
+
+        }
+
+        figcaption {
+            font-size: 1.3rem;
+            color: black;
+        }
     }
+
+
+
+
+    /* h3{
+        font-size: 1.3rem;
+    } */
 
     @media screen and (min-width: 769px) {
         img {
             width: 500px;
-            object-fit:contain;
+            object-fit: contain;
             border-radius: 10px;
         }
     }

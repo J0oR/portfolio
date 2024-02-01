@@ -1,6 +1,7 @@
 @use './general';
 @use './navbar';
 @use './footer';
+@use './reusables';
 
 @mixin flex_layout($dir: row, $just: center, $align: center) {
     display: flex;
@@ -22,6 +23,36 @@
     }
 }
 
+/* TAG list */
+.tags-container {
+    .tags-list{
+        margin-top: 50px;
+        list-style-type: none;
+        @include flex_layout(row, center, center);
+        /* display: grid;
+        grid-template-columns: repeat(5, 1fr); */
+        flex-wrap: wrap;
+        gap: 40px;
+
+        /* @media only screen and (max-width: 991px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        } */
+
+    }
+    .tag{
+        padding: 7px 10px;
+        border-radius: 10px;
+        border: 1px solid lightblue;
+        background-color: lightblue;
+        width: 100px;
+        text-align: center;
+        @extend %shadow-effect;  
+    }
+    
+}
 
 
 
@@ -32,27 +63,35 @@
 
     .online-profile{
         text-align: center;
-        width: 80%;
+        width: 50%;
         height: 50px;
         @include flex_layout(row, center, center);
         gap: 10px;
         border: 2px solid lightcoral;
         border-radius: 10px;
+        transition: all 0.5s ease-in-out;
 
+        @media only screen and (min-width:769px) and (max-width: 991px) {
+            width: 60%;
+        }
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 768px) {
             width: 100%;
+        }
+
+        &:hover{
+            transform: scale(1.2);
         }
         
     }
 
     span{
-        width: 50%;
-        text-align: right;
+        //width: 50%;
+        //text-align: right;
     }
     i{
-        width: 50%;
-        text-align: left;
+        //width: 50%;
+        //text-align: left;
     }
 }
 
@@ -113,6 +152,14 @@ form {
         width: 150px;
         height: 50px;
         border-radius: 10px;
+        border: none;
+        @extend %shadow-effect;
+        transition: all 0.05s ease-in-out;
+
+        &:active{
+            transform: translateY(4px);
+            box-shadow: none;
+        }
     }
 }
 
