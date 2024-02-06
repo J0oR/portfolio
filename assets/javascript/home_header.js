@@ -72,7 +72,7 @@ function stack() {
 function transition() {
     return new Promise(resolve => {
 
-        var id = setInterval(changeOpacity, 100);
+        var id = setInterval(changeOpacity, 50);
 
         function changeOpacity() {
             images[currentImg].style.opacity -= 0.1;

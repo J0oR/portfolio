@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  background-color: #F4F4F4;
   font-size: 16px;
   font-family: "Nunito", sans-serif;
   font-weight: 400;
@@ -35,9 +36,53 @@ section .section-title {
 .container p {
   font-size: 1.5rem;
 }
+@media screen and (max-width: 450px) {
+  .container {
+    padding: 0;
+  }
+}
 
-.tags-container .tag, form .form-btn {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+.tags-container .tag, .profiles-container .online-profile:hover, form .form-btn, .portfolio-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
+}
+
+.portfolio-card {
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  text-decoration: none;
+}
+.portfolio-card figure {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  padding-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.portfolio-card img {
+  width: 450px;
+  object-fit: cover;
+  border: 1px solid lightgrey;
+  border-radius: 0;
+  height: 220px;
+}
+@media screen and (max-width: 450px) {
+  .portfolio-card img {
+    width: 100%;
+  }
+}
+.portfolio-card figcaption {
+  font-size: 1.3rem;
+  color: black;
+  padding: 25px;
+}
+.portfolio-card:hover {
+  transform: scale(1.02);
+}
+.portfolio-card:hover figure {
+  background-color: #FFFFFF;
 }
 
 .nav-container {
@@ -136,29 +181,48 @@ footer {
   height: 20vh;
   background-color: lightcyan;
 }
-
-.copyright p {
-  font-size: 1.1rem;
+@media screen and (max-width: 768px) {
+  footer {
+    height: 30vh;
+  }
 }
 
 .footer-content-container {
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-between;
+  gap: 50px;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 100px;
+}
+@media screen and (max-width: 768px) {
+  .footer-content-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+.copyright p {
+  font-size: 1.1rem;
 }
 
 .social-icons {
-  width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 40px;
+  height: fit-content !important;
+  height: 50px;
 }
 .social-icons i {
   font-size: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .social-icons {
+    align-items: center;
+  }
 }
 
 /* ABOUT ME */
@@ -221,6 +285,7 @@ footer {
   gap: 10px;
   border: 2px solid lightcoral;
   border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   transition: all 0.5s ease-in-out;
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -235,6 +300,7 @@ footer {
 }
 .profiles-container .online-profile:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 /* FORM */
 .contact-headline {

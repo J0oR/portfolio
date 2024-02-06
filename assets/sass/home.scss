@@ -1,13 +1,11 @@
 @use './general';
 @use './navbar';
 @use './footer';
+@use './reusables';
 
-@mixin flex_layout($dir: row, $just: center, $align: center) {
-    display: flex;
-    flex-direction: $dir;
-    justify-content: $just;
-    align-items: $align;
-}
+
+
+/***************************** Home header ***********************************/
 
 
 section.header {
@@ -18,14 +16,14 @@ section.header {
 /* header */
 header {
     //@include flex_layout(row, center, stretch);
-    @include flex_layout(column, center, stretch);
+    @include reusables.flex(column, center, stretch);
     height: 90vh;
 
 
 
     .features-list {
         order: 2;
-        @include flex_layout(column, center, center);
+        @include reusables.flex(column, center, center);
         list-style-type: none;
         flex: 1;
         gap: 15px;
@@ -56,7 +54,7 @@ header {
 
     @media screen and (min-width: 769px) {
 
-        @include flex_layout(row, center, stretch);
+        @include reusables.flex(row, center, stretch);
         height: 60vh;
 
         .features-list {
@@ -76,73 +74,19 @@ header {
 
 
 
-/***************************** Home portfolio preview ***********************************/
+/************************ Home portfolio preview ***********************************/
 
 section.portfolio {
     height: 70vh;
 }
 
 .portfolio-preview {
-    @include flex_layout(column, center, center);
+    @include reusables.flex(column, center, center);
     height: 100%;
     gap: 15px;
 
     h1 {
         font-size: 1.5rem;
         margin-bottom: 50px;
-    }
-
-
-    #project-preview {
-        height: 350px;
-        //@include flex_layout(column, center, center);
-
-        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-        text-decoration: none;
-        height: fit-content;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-
-    figure {
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-        border-radius: 4px;
-        background-color: lightblue;
-        padding: 20px;
-        @include flex_layout(column, center, center);
-        gap: 15px;
-        @extend %shadow-effect;
-
-        img {
-            max-width: 450px;
-            object-fit: contain;
-            border-radius: 10px;
-            border: 1px solid lightgrey;
-
-        }
-
-        figcaption {
-            font-size: 1.3rem;
-            color: black;
-        }
-    }
-
-
-
-
-    /* h3{
-        font-size: 1.3rem;
-    } */
-
-    @media screen and (min-width: 769px) {
-        img {
-            width: 500px;
-            object-fit: contain;
-            border-radius: 10px;
-        }
     }
 }

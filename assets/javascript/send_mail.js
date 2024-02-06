@@ -17,6 +17,9 @@ function validateForm() {
     var subject = document.getElementById("subject").value;
     var message = document.getElementById("message").value;
 
+    // TODO check every field
+
+
     if (userFirstName && userLastName && userEmail && subject && message) {
         // All fields are filled, you can proceed to send the email or perform other actions
         sendMail();

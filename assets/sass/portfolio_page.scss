@@ -3,12 +3,7 @@
 @use './footer';
 @use './reusables';
 
-@mixin flex_layout($dir: row, $just: center, $align: center) {
-    display: flex;
-    flex-direction: $dir;
-    justify-content: $just;
-    align-items: $align;
-}
+
 
 .portfolio-title {
     text-align: center;
@@ -18,81 +13,69 @@
 /* portfolio */
 .portfolio-grid {
 
-    display: flex;
     max-width: 1100px;
-    flex-wrap: wrap;
     margin: 100px auto;
+    @include reusables.flex(row, space-around, center);
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 0 100px;
 
+    .portfolio-card
+    {
+        width: 45%;
+        
+        @media screen and (min-width: 320px) and (max-width: 768px) {
+            width: 100%;
+        }
 
-    @include flex_layout(row, space-between, center);
+        figcaption{
+            @include reusables.flex(column, center, center);
+            gap: 20px;
+        }
 
+        figure{
+            height: object-fit;
+        }
+
+       
+    
+        img{
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+
+    
+
+    
 }
 
 
 
-.portfolio-project {
-    height: fit-content;
-    //@include flex_layout(column, center, center);
+.tags-list{
+    list-style-type: none;
+    @include reusables.flex(row, center, center);
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr); */
+    flex-wrap: wrap;
+    gap: 10px;
 
-    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-    text-decoration: none;
-    height: fit-content;
-    
-
-    &:hover {
-        transform: scale(1.1);
+    /* @media only screen and (max-width: 991px) {
+        grid-template-columns: repeat(3, 1fr);
     }
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    } */
 
+}
+.tag{
+    padding: 2px 10px;
+    border-radius: 10px;
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    width: fit-content;
+    text-align: center;
+    font-size: 1rem; 
 
-    figure {
-        /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    @extend %shadow-effect;
-
-        border-radius: 4px;
-        background-color: lightblue;
-        padding: 20px;
-        @include flex_layout(column, center, center);
-        gap: 15px;
-        
-
-        img {
-            max-width: 450px;
-            object-fit: contain;
-            border-radius: 10px;
-            //border: 1px solid lightgrey;
-
-        }
-
-        figcaption {
-            font-size: 1.3rem;
-            color: black;
-        }
-
-
-        /* .project {
-            min-width: 300px;
-            max-width: 50%;
-            @include flex_layout(column, center, center);
-            gap: 30px;
-            padding: 50px;
-
-
-
-        }
- */
-        /* .project-img {
-            width: 100%;
-            border-radius: 4px;
-            //@extend %shadow-effect;
-
-        } */
-
-        @media screen and (max-width: 768px) {
-            .project {
-                min-width: 100%;
-            }
-        }
-    }
 }
