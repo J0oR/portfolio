@@ -1,0 +1,122 @@
+@use './general';
+@use './navbar';
+@use './footer';
+@use './reusables';
+
+@mixin flex_layout($dir: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    align-items: $align;
+}
+
+
+/* ABOUT ME */
+.about-container {
+    @include flex_layout(column, space-between, center);
+    gap: 20px;
+
+    p {
+        width: 100%;
+        font-size: 1.5rem;
+
+    }
+}
+
+/* TAG list */
+.tags-container {
+    .tags-list {
+        margin-top: 50px;
+        list-style-type: none;
+        @include flex_layout(row, center, center);
+        /* display: grid;
+        grid-template-columns: repeat(5, 1fr); */
+        flex-wrap: wrap;
+        gap: 40px;
+
+        /* @media only screen and (max-width: 991px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        } */
+
+    }
+
+    .tag {
+        padding: 7px 10px;
+        border-radius: 10px;
+        border: 1px solid lightblue;
+        background-color: lightblue;
+        width: 100px;
+        text-align: center;
+        @extend %shadow-effect;
+    }
+
+}
+
+
+/* CV timeline */
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    position: relative;
+
+    .vertical {
+        position: absolute;
+        height: 80vh;
+        width: 20px;
+        border: 2px solid lightblue;
+        border-radius: 20px;
+        background-color: lightblue;
+        z-index: 3;
+        margin: 0 auto;
+        left: 49%;
+    }
+}
+
+
+
+
+.horizontal {
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &.n1, &.n3 {
+        left: 50%;
+        
+        p{
+            align-self: flex-end;
+            text-align: right;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        word-wrap: break-word;
+        width: 80%;
+    }
+
+    .line {
+        height: 10px;
+        border-radius: 20px;
+        background-color: lightgreen;
+        z-index: 2;
+        width: 100%;
+    }
+
+
+
+    
+
+}
+

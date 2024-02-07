@@ -38,6 +38,8 @@
         padding: 10px;
             padding-bottom: 20px;
         transition: all 0.3s ease-in-out;
+        background-color: #FFFFFF;
+
     }
 
     img {
@@ -65,10 +67,7 @@
         transform: scale(1.02);
         @extend %shadow-effect;
 
-        figure {
-            background-color: #FFFFFF;
-            
-        }
+       
     }
 
 }

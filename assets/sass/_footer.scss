@@ -26,10 +26,20 @@ footer{
         justify-content: center;
         gap: 40px;
     }
+
+    @media screen and (max-width: 576px) {
+        padding: 20px;
+        
+    }
 }
 
 .copyright p{
     font-size: 1.1rem;
+
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        
+    }
 }
 
 .social-icons{
@@ -45,6 +55,12 @@ footer{
 
     @media screen and (max-width: 768px) {
         align-items: center;
+        
+    }
+
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        justify-content: center;
         
     }
 }

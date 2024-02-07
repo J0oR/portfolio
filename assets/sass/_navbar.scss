@@ -2,6 +2,7 @@
 
 .nav-container {
     background-color: lightgray;
+
     position: sticky;
     top: 0;
     z-index: 100;
@@ -17,7 +18,7 @@ nav {
     padding: 0 100px;
 
     .logo {
-        height: 80%;
+        height: 60%;
         font-size: 1.5rem;
         flex: 1;
         @include reusables.flex(row, flex-start,center);
@@ -87,7 +88,7 @@ nav {
         flex: 1;
         justify-content: flex-end;
         gap: 50px;
-        height: 80%;
+        height: 60%;
     }
 
     .nav-link {
