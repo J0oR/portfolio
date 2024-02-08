@@ -1,14 +1,11 @@
+
+document.addEventListener('DOMContentLoaded', function() {
 const features = document.querySelectorAll('.feature');
 let f_index = 0;
 
 function updateFontSize() {
 
-    /* const fontWeightBase = '400';
-    const fontWeightActive = '500'; */
-
     features.forEach((feature, i) => {
-        /* feature.style.transform = (i === f_index) ? 'scale(1.4)' : 'scale(1)';
-        feature.style.fontWeight = (i === f_index) ? fontWeightActive : fontWeightBase; */
         feature.style.transform = (i === f_index) ? 'scale(1.4)' : 'scale(1)';
         feature.style.fontWeight += (i === f_index) ? 100 : -100;
     });
@@ -20,6 +17,7 @@ function updateFontSize() {
 updateFontSize();
 // Call the updateFontSize function every 3 seconds
 setInterval(updateFontSize, 3000);
+});
 
 
 
@@ -27,7 +25,7 @@ setInterval(updateFontSize, 3000);
 
 
 
-
+document.addEventListener('DOMContentLoaded', function() {
 
 var images = document.getElementsByClassName("test");
 for (var i = 0; i < images.length; ++i) {
@@ -84,7 +82,7 @@ function transition() {
         }
     })
 }
-
+});
 
 
 
