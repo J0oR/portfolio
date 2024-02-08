@@ -262,7 +262,7 @@ footer {
 .portfolio-grid .portfolio-card {
   width: 45%;
 }
-@media screen and (min-width: 320px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .portfolio-grid .portfolio-card {
     width: 100%;
   }
