@@ -283,6 +283,9 @@ header #scroll-image .test {
   object-fit: cover;
   border-radius: 15px;
 }
+header #scroll-image .test.n1, header #scroll-image .test.n2 {
+  opacity: 0;
+}
 @media screen and (min-width: 769px) {
   header {
     display: flex;

@@ -49,6 +49,10 @@ header {
             max-width: 300px;
             object-fit: cover;
             border-radius: 15px;
+
+            &.n1, &.n2 {
+                opacity: 0;
+            }
         }
     }
 

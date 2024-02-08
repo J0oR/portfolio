@@ -33,7 +33,6 @@ for (var i = 0; i < images.length; ++i) {
 }
 
 const imgIndexes = [0, 1, 2];
-const zindexs = [0, 1, 2];
 var currentImg = imgIndexes[2];
 var coveredImg;
 
@@ -63,7 +62,6 @@ function stack() {
     for (let j = 0; j < 3; j++) {
         imgIndexes[j] = (1 + imgIndexes[j]) % 3;
     }
-    console.log(imgIndexes);
 }
 
 /* reduce gradually current image transiton down to 0 */
@@ -77,7 +75,6 @@ function transition() {
             if (images[currentImg].style.opacity <= 0) {
                 clearInterval(id);
                 resolve();
-                return;
             }
         }
     })
