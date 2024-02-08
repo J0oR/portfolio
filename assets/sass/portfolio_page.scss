@@ -5,20 +5,14 @@
 
 
 
-.portfolio-title {
-    text-align: center;
-    margin: 100px auto;
-}
+
 
 /* portfolio */
 .portfolio-grid {
 
-    max-width: 1100px;
-    margin: 100px auto;
     @include reusables.flex(row, space-around, center);
     flex-wrap: wrap;
     gap: 50px;
-    padding: 0 100px;
 
     .portfolio-card
     {

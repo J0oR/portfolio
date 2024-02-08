@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border: 1px solid rgb(165, 199, 210);
 }
 
 html {
@@ -16,8 +17,8 @@ body {
 }
 
 section {
-  margin: 50px 0;
   width: 100%;
+  margin-bottom: 50px;
 }
 section .section-title {
   display: flex;
@@ -42,6 +43,11 @@ section .section-title {
 @media screen and (max-width: 768px) {
   .container {
     padding: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 0px;
   }
 }
 
@@ -91,6 +97,7 @@ section .section-title {
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-bottom: 60px;
 }
 
 nav {
@@ -181,6 +188,7 @@ nav .active-link {
 footer {
   height: 20vh;
   background-color: lightcyan;
+  margin-top: 100px;
 }
 @media screen and (max-width: 768px) {
   footer {
@@ -243,38 +251,33 @@ footer {
 }
 
 /***************************** Home header ***********************************/
-section.header {
-  margin-top: 50px;
-}
-
-/* header */
 header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  height: 90vh;
+  justify-content: space-between;
+  align-items: center;
+  height: 75vh;
+  /* from tablets and up */
 }
 header .features-list {
-  order: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  order: 2;
   list-style-type: none;
-  flex: 1;
   gap: 15px;
   color: lightcoral;
 }
 header .features-list .feature {
   display: inline-block;
-  /* Keep elements on the same line */
   font-size: 1.2rem;
   transition: all 1s ease-in-out;
 }
 header #scroll-image {
   flex: 1;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -282,8 +285,10 @@ header #scroll-image .test {
   max-width: 300px;
   object-fit: cover;
   border-radius: 15px;
+  opacity: 0;
+  position: absolute;
 }
-header #scroll-image .test.n1, header #scroll-image .test.n2 {
+header #scroll-image .test.n3 {
   opacity: 0;
 }
 @media screen and (min-width: 769px) {
@@ -292,10 +297,11 @@ header #scroll-image .test.n1, header #scroll-image .test.n2 {
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    height: 60vh;
+    height: 58vh;
   }
   header .features-list {
     order: 0;
+    flex: 1;
   }
   header .feature {
     font-size: 1.4rem;
@@ -306,10 +312,6 @@ header #scroll-image .test.n1, header #scroll-image .test.n2 {
 }
 
 /************************ Home portfolio preview ***********************************/
-section.portfolio {
-  height: 70vh;
-}
-
 .portfolio-preview {
   display: flex;
   flex-direction: column;

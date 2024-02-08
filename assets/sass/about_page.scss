@@ -11,9 +11,9 @@
 }
 
 
-/* ABOUT ME */
+/************************************* ABOUT ME *************************************/
 .about-container {
-    @include flex_layout(column, space-between, center);
+    @include reusables.flex(column, space-between, center);
     gap: 20px;
 
     p {
@@ -23,12 +23,12 @@
     }
 }
 
-/* TAG list */
+/************************************* TAG LIST *************************************/
 .tags-container {
     .tags-list {
         margin-top: 50px;
         list-style-type: none;
-        @include flex_layout(row, center, center);
+        @include reusables.flex(row, center, center);
         /* display: grid;
         grid-template-columns: repeat(5, 1fr); */
         flex-wrap: wrap;
@@ -51,26 +51,29 @@
         width: 100px;
         text-align: center;
         @extend %shadow-effect;
+        border: 1px solid black;
     }
 
 }
 
 
-/* CV timeline */
+/************************************ CV TIMELINE *************************************/
+
+.container.timeline{
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 .timeline {
-    display: flex;
-    justify-content: center;
+    height: 70vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100vh;
-    position: relative;
+    @include reusables.flex(column, center, space-between);
+    gap: 40px;
+    
 
     .vertical {
         position: absolute;
-        height: 80vh;
+        height: 100%;
         width: 20px;
         border: 2px solid lightblue;
         border-radius: 20px;
@@ -78,45 +81,40 @@
         z-index: 3;
         margin: 0 auto;
         left: 49%;
+        border: 1px solid black;
+        @extend %shadow-effect;
     }
-}
 
+    .horizontal {
+        width: 50%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
+        &.n1, &.n3 {
+            left: 50%;
 
+            p {
+                align-self: flex-end;
+                text-align: right;
+            }
+        }
 
-.horizontal {
-    width: 50%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+        p {
+            font-size: 1rem;
+            word-wrap: break-word;
+            width: 80%;
+        }
 
-    &.n1, &.n3 {
-        left: 50%;
-        
-        p{
-            align-self: flex-end;
-            text-align: right;
+        .line {
+            height: 10px;
+            border-radius: 20px;
+            background-color: lightgreen;
+            z-index: 2;
+            width: 100%;
+            border: 1px solid black;
+            @extend %shadow-effect;
         }
     }
-
-    p {
-        font-size: 1rem;
-        word-wrap: break-word;
-        width: 80%;
-    }
-
-    .line {
-        height: 10px;
-        border-radius: 20px;
-        background-color: lightgreen;
-        z-index: 2;
-        width: 100%;
-    }
-
-
-
-    
-
 }
-
