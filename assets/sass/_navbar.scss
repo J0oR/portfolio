@@ -1,18 +1,18 @@
 @use './reusables';
 
 .nav-container {
-    background-color: lightgray;
-
     position: sticky;
     top: 0;
     z-index: 100;
     margin-bottom: 60px;
+    transition: background-color 0.3s ease-out;
+
 }
 
 nav {
 
     @include reusables.flex(row, space-between,center);
-    height: 80px;
+    height: 100px;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
@@ -65,7 +65,7 @@ nav {
         width: 100%;
         background-color: lightblue;
         position: absolute;
-        top: 81px;
+        top: 100px;
         left: 0;
         height: 200px;
     }

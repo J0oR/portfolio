@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 const features = document.querySelectorAll('.feature');
 let f_index = 0;
@@ -18,6 +17,15 @@ updateFontSize();
 // Call the updateFontSize function every 3 seconds
 setInterval(updateFontSize, 3000);
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Trigger the animation when the DOM is fully loaded
+    var animatedElement = document.getElementById('scroll-image');
+    animatedElement.classList.add('animate-topdown');
+});
+
 
 
 

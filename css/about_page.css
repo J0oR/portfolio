@@ -1,3 +1,41 @@
+.tags-container .tag, .timeline .vertical, .timeline .horizontal .line {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
+}
+
+.portfolio-card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.35s ease-in-out;
+  text-decoration: none;
+}
+.portfolio-card figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  padding-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: #FFFFFF;
+}
+.portfolio-card img {
+  width: 450px;
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 220px;
+}
+@media screen and (max-width: 450px) {
+  .portfolio-card img {
+    width: 100%;
+  }
+}
+.portfolio-card figcaption {
+  font-size: 1.3rem;
+  color: black;
+  padding: 25px;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,6 +44,7 @@
 
 html {
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -22,8 +61,8 @@ section {
 section .section-title {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100px;
   width: 100%;
 }
@@ -32,9 +71,6 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
-  /*  @media screen and (max-width: 450px) {
-       padding: 20px;
-   } */
 }
 .container p {
   font-size: 1.5rem;
@@ -50,53 +86,12 @@ section .section-title {
   }
 }
 
-.tags-container .tag, .timeline .vertical, .timeline .horizontal .line, .portfolio-card:hover {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
-}
-
-.portfolio-card {
-  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-  text-decoration: none;
-}
-.portfolio-card figure {
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 10px;
-  padding-bottom: 20px;
-  transition: all 0.3s ease-in-out;
-  background-color: #FFFFFF;
-}
-.portfolio-card img {
-  width: 450px;
-  object-fit: cover;
-  border: 1px solid lightgrey;
-  border-radius: 0;
-  height: 220px;
-}
-@media screen and (max-width: 450px) {
-  .portfolio-card img {
-    width: 100%;
-  }
-}
-.portfolio-card figcaption {
-  font-size: 1.3rem;
-  color: black;
-  padding: 25px;
-}
-.portfolio-card:hover {
-  transform: scale(1.02);
-}
-
 .nav-container {
-  background-color: lightgray;
   position: sticky;
   top: 0;
   z-index: 100;
   margin-bottom: 60px;
+  transition: background-color 0.3s ease-out;
 }
 
 nav {
@@ -104,7 +99,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 100px;
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
@@ -154,7 +149,7 @@ nav .active-link {
     width: 100%;
     background-color: lightblue;
     position: absolute;
-    top: 81px;
+    top: 100px;
     left: 0;
     height: 200px;
   }
@@ -186,7 +181,7 @@ nav .active-link {
 }
 footer {
   height: 20vh;
-  background-color: lightcyan;
+  background-color: lightgoldenrodyellow;
   margin-top: 100px;
 }
 @media screen and (max-width: 768px) {
@@ -310,13 +305,12 @@ footer {
   position: absolute;
   height: 100%;
   width: 20px;
-  border: 2px solid lightblue;
   border-radius: 20px;
   background-color: lightblue;
   z-index: 3;
   margin: 0 auto;
   left: 49%;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 .timeline .horizontal {
   width: 50%;
@@ -340,8 +334,8 @@ footer {
 .timeline .horizontal .line {
   height: 10px;
   border-radius: 20px;
-  background-color: lightgreen;
+  background-color: lightblue;
   z-index: 2;
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
 }

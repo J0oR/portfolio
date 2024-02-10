@@ -1,3 +1,5 @@
+@use './reusables';
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -8,30 +10,24 @@
 
 html{
     font-size: 14px;
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: #F4F4F4;
-    //color: lightcoral;
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
 }
 
 section {
-    //margin: 50px 0;
     width: 100%;
     margin-bottom: 50px;
 
     .section-title{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
+        @include reusables.flex(column, center, center);
         height: 100px;
         width: 100%;
-
     }
 }
 
@@ -43,11 +39,6 @@ section {
     p{
         font-size: 1.5rem;
     }
-
-   /*  @media screen and (max-width: 450px) {
-        padding: 20px;
-    } */
-
     @media screen and (max-width: 768px) {
         padding: 20px;
     }

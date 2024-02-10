@@ -17,6 +17,13 @@
     .portfolio-card
     {
         width: 45%;
+
+        &:hover {
+            transform: scale(1.02);
+            @extend %shadow-effect;
+    
+           
+        }
         
         @media screen and (max-width: 768px) {
             width: 100%;
@@ -38,11 +45,7 @@
             object-fit: contain;
             width: 100%;
         }
-    }
-
-    
-
-    
+    }  
 }
 
 

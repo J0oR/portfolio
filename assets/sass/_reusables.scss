@@ -5,55 +5,39 @@
     align-items: $align;
 }
 
+
 %shadow-effect {
-    box-shadow: 
-    rgba(0, 0, 0, 0.09) 0px 2px 1px, 
-    rgba(0, 0, 0, 0.09) 0px 4px 2px, 
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, 
-    rgba(0, 0, 0, 0.09) 0px 16px 8px;
+    box-shadow:
+        rgba(0, 0, 0, 0.09) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px,
+        rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px;
 }
 
 
-
-
 .portfolio-card {
-
-   // box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
-    //@include flex_layout(column, center, center);
-
-    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+    transition: all 0.35s ease-in-out;
     text-decoration: none;
 
-    
-
-
-   
-
-
     figure {
-        //background-color: #FFFFFF;
-        padding-bottom: 20px;
         @include flex(column, center, center);
         gap: 20px;
         padding: 10px;
-            padding-bottom: 20px;
+        padding-bottom: 20px;
         transition: all 0.3s ease-in-out;
         background-color: #FFFFFF;
-
     }
 
     img {
         width: 450px;
         object-fit: cover;
-        border: 1px solid lightgrey;
-        border-radius: 0;
+        border: 1px solid black;
+        border-radius: 4px;
         height: 220px;
-
         @media screen and (max-width: 450px) {
             width: 100%;
         }
-
-
     }
 
     figcaption {
@@ -61,13 +45,4 @@
         color: black;
         padding: 25px;
     }
-
-
-    &:hover {
-        transform: scale(1.02);
-        @extend %shadow-effect;
-
-       
-    }
-
 }

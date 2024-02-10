@@ -6,3 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
         navMenu.classList.toggle("show");
     });
 });
+
+document.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.nav-container');
+    var scrollPosition = window.scrollY;
+
+    // Adjust this value to determine when the background color should change
+    var scrollThreshold = 100;
+
+    if (scrollPosition > scrollThreshold) {
+        navbar.style.backgroundColor = 'lightgray'; // Change to your desired background color
+    } else {
+        navbar.style.backgroundColor = 'transparent';
+    }
+});
