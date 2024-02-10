@@ -1,12 +1,12 @@
 @use './reusables';
 
 :root{
-    --background: #F8F0E5;
+    --background: #e5e4e3;
     --card-color: #ede5db;
     --card-border: #EAD7BB;
-    --navbar: #ABC4AA;
-    --footer: #ABC4AA;
-    --features-box: #C63D2F;
+    --navbar: #8CB9BD;
+    --footer: #8CB9BD;
+    --features-box: #718b70;
     --footer-text: black;
 }
 
@@ -14,7 +14,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    //border: 1px solid rgb(165, 199, 210);
+    //border: 1px solid rgb(255, 4, 4);
     
 }
 
@@ -26,8 +26,8 @@ html{
 
 body{
     background-color: var(--background);
-    font-size: 16px;
-    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-family: 'Hind', sans-serif;
     font-weight: 400;
 }
 

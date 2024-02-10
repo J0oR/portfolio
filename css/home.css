@@ -15,7 +15,7 @@ header .image-container .images-list .test.n3, .portfolio-preview .portfolio-car
   align-items: center;
   gap: 20px;
   padding: 12px;
-  background-color: var(--card-color);
+  background-color: whitesmoke;
   width: 100%;
   height: 100%;
 }
@@ -38,12 +38,12 @@ header .image-container .images-list .test.n3, .portfolio-preview .portfolio-car
 }
 
 :root {
-  --background: #F8F0E5;
+  --background: #e5e4e3;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
-  --navbar: #ABC4AA;
-  --footer: #ABC4AA;
-  --features-box: #C63D2F;
+  --navbar: #8CB9BD;
+  --footer: #8CB9BD;
+  --features-box: #718b70;
   --footer-text: black;
 }
 
@@ -61,8 +61,8 @@ html {
 
 body {
   background-color: var(--background);
-  font-size: 16px;
-  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-family: "Hind", sans-serif;
   font-weight: 400;
 }
 
@@ -372,6 +372,12 @@ header {
   background-color: var(--footer);
 }
 
+@media screen and (max-width: 768px) {
+  .containr.header-container {
+    padding: 0;
+  }
+}
+
 header {
   height: 60vh;
   display: flex;
@@ -379,13 +385,13 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 80vh;
+    height: 75vh;
   }
 }
 header .features-box {
@@ -416,11 +422,12 @@ header .features-box .feature {
     order: 2;
     width: 100vw;
     animation: rotateAnimation 0.3s ease-in-out forwards;
-    flex: 1;
+    flex-basis: 20%;
   }
   header .features-box .features-list {
     height: 100%;
     width: 100%;
+    gap: 5px;
   }
 }
 @media screen and (min-width: 769px) {
@@ -436,11 +443,6 @@ header .image-container {
   flex-basis: 60%;
   width: 100%;
   height: 100%;
-}
-@media screen and (max-width: 768px) {
-  header .image-container {
-    flex: 2;
-  }
 }
 header .image-container .images-list {
   display: flex;

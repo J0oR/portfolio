@@ -1,4 +1,4 @@
-.portfolio-grid .portfolio-card:hover {
+.portfolio-grid .portfolio-project {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
@@ -15,7 +15,7 @@
   align-items: center;
   gap: 20px;
   padding: 12px;
-  background-color: var(--card-color);
+  background-color: whitesmoke;
   width: 100%;
   height: 100%;
 }
@@ -38,12 +38,12 @@
 }
 
 :root {
-  --background: #F8F0E5;
+  --background: #e5e4e3;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
-  --navbar: #ABC4AA;
-  --footer: #ABC4AA;
-  --features-box: #C63D2F;
+  --navbar: #8CB9BD;
+  --footer: #8CB9BD;
+  --features-box: #718b70;
   --footer-text: black;
 }
 
@@ -61,8 +61,8 @@ html {
 
 body {
   background-color: var(--background);
-  font-size: 16px;
-  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-family: "Hind", sans-serif;
   font-weight: 400;
 }
 
@@ -271,31 +271,63 @@ footer {
 .portfolio-grid {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-.portfolio-grid .portfolio-card {
-  width: 45%;
-  transition: all 0.3s ease-in-out;
-}
-.portfolio-grid .portfolio-card:hover {
-  transform: scale(1.02);
-}
-@media screen and (max-width: 768px) {
-  .portfolio-grid .portfolio-card {
-    width: 100%;
-  }
-}
-.portfolio-grid .portfolio-card figcaption {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
+.portfolio-grid .portfolio-project {
+  position: relative;
+  overflow: hidden;
+  flex-basis: 400px;
+  height: 300px;
+}
+.portfolio-grid .portfolio-project:hover .portfolio-project-caption {
+  opacity: 1;
+}
+.portfolio-grid .portfolio-project:hover img {
+  transform: scale(1.05);
+}
+.portfolio-grid .portfolio-project img {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+  object-position: -90px;
+  transition: opacity 6s ease, transform 0.3s ease-in-out;
+  animation: moveLeftToRight 6s linear infinite; /* Adjust duration and other properties as needed */
+}
+.portfolio-grid .portfolio-project .portfolio-project-caption {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  color: wheat;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
 
+@keyframes moveLeftToRight {
+  0% {
+    object-position: left; /* Initial position on the left */
+    opacity: 0;
+  }
+  50% {
+    object-position: center;
+    opacity: 1;
+  }
+  100% {
+    object-position: right; /* Final position on the right */
+    opacity: 0;
+  }
+}
 .tags-list {
   list-style-type: none;
   display: flex;

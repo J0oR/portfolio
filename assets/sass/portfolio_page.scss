@@ -10,47 +10,87 @@
 /* portfolio */
 .portfolio-grid {
 
-    @include reusables.flex(row, space-around, center);
+    @include reusables.flex(row, center, center);
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 20px;
 
-    .portfolio-card
-    {
-        width: 45%;
-        transition: all 0.3s ease-in-out;
+    .portfolio-project {
+        position: relative;
+        overflow: hidden;
+        flex-basis: 400px;
+        height: 300px;
+        @extend %shadow-effect;
+        
 
         &:hover {
-            transform: scale(1.02);
-            @extend %shadow-effect;
-        }
-        
-        @media screen and (max-width: 768px) {
-            width: 100%;
+            .portfolio-project-caption {
+                opacity: 1;
+            }
+            img{
+                transform: scale(1.05);
+            }
+            
         }
 
-        figcaption{
-            @include reusables.flex(column, center, center);
-            gap: 20px;
+
+        img {
+            height: 300px;
+            width: 400px;
+            object-fit: cover;
+            object-position: -90px;
+            transition: opacity 6s ease, transform 0.3s ease-in-out;
+            animation: moveLeftToRight 6s linear infinite; /* Adjust duration and other properties as needed */
         }
-    }  
+
+        .portfolio-project-caption {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            color: wheat;
+            font-size: 1.5rem;
+            @include reusables.flex(row, center, center);
+            transition: opacity 0.3s ease,;
+        }
+    }
+}
+
+@keyframes moveLeftToRight {
+    0% {
+        object-position: left; /* Initial position on the left */
+        opacity: 0;
+    }
+    50%{
+        object-position: center;
+        opacity: 1;
+    }
+    100% {
+        object-position: right; /* Final position on the right */
+        opacity: 0;
+    }
 }
 
 
 
-.tags-list{
+.tags-list {
     list-style-type: none;
     @include reusables.flex(row, center, center);
     flex-wrap: wrap;
     gap: 10px;
 
 }
-.tag{
+
+.tag {
     padding: 2px 10px;
     border-radius: 10px;
     border: 1px solid lightblue;
     background-color: lightblue;
     width: fit-content;
     text-align: center;
-    font-size: 1rem; 
+    font-size: 1rem;
 
 }

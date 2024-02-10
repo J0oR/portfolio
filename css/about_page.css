@@ -15,7 +15,7 @@
   align-items: center;
   gap: 20px;
   padding: 12px;
-  background-color: var(--card-color);
+  background-color: whitesmoke;
   width: 100%;
   height: 100%;
 }
@@ -38,12 +38,12 @@
 }
 
 :root {
-  --background: #F8F0E5;
+  --background: #e5e4e3;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
-  --navbar: #ABC4AA;
-  --footer: #ABC4AA;
-  --features-box: #C63D2F;
+  --navbar: #8CB9BD;
+  --footer: #8CB9BD;
+  --features-box: #718b70;
   --footer-text: black;
 }
 
@@ -61,8 +61,8 @@ html {
 
 body {
   background-color: var(--background);
-  font-size: 16px;
-  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-family: "Hind", sans-serif;
   font-weight: 400;
 }
 
