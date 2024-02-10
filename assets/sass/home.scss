@@ -7,28 +7,80 @@
 
 /***************************** Home header ***********************************/
 
+/*
+.header {
+    background-color: var(--footer);
+}
+
 header {
     @include reusables.flex(column, space-between, center);
-    height: 60vh;
+    gap: 50px;
+    height: 80vh;
+    position: relative;
+
+
+    @media screen and (max-width: 769px) {
+        height: 100vh;
+    }
+
+    .features-box {
+        position: absolute;
+        background-color: var(--footer-text);
+        
+        border-radius: 4px;
+        height: 140vh;
+        top: -180px;
+        z-index: 10;
+        left: 0;
+        @include reusables.flex(column, center, center);
+
+        @media screen and (max-width: 769px) {
+            width: 50vw;
+        }
+        
+    }
 
     .features-list {
-        @include reusables.flex(column, center, center);
-        order: 2;
+
         list-style-type: none;
+        order: 2;
+        @include reusables.flex(column, center, center);
         gap: 15px;
-        color: lightcoral;
+        color: var(--footer);
+
+        flex: 2;
 
         .feature {
             display: inline-block;
             font-size: 1.2rem;
             transition: all 1s ease-in-out;
         }
+
+        
+        @media screen and (min-width: 769px) {
+
+            position: relative;
+            left: 50%;
+            top: 30%;
+
+
+            .features-list {
+                order: 0;
+                flex: 2;
+            }
+
+            .feature {
+                font-size: 1.4rem;
+            }
+
+        }
     }
 
     //figure {
     #scroll-image {
-        flex: 1;
         @include reusables.flex(row, center, center);
+        width: 50%;
+        height: 100%;
 
         .test {
             max-width: 300px;
@@ -41,39 +93,117 @@ header {
                 opacity: 0;
             }
         }
+
+        @media screen and (min-width: 769px) {
+
+            img {
+                max-width: 300px;
+            }
+        }
     }
 
-    /* from tablets and up */
-    @media screen and (min-width: 769px) {
 
-        @include reusables.flex(row, center, stretch);
-        height: 58vh;
 
-        .features-list {
-            order: 0;
-            flex: 1;
+
+}
+*/
+.header-section {
+    background-color: var(--footer);
+}
+
+header{
+    height: 60vh;
+    @include reusables.flex(row, space-around, center);
+
+    @media screen and (max-width: 769px) {
+        @include reusables.flex(column, space-around, center);
+        height: 80vh;
+    }
+
+    .features-box{
+        //flex: 1;
+        flex-basis: 40%;
+        position: relative;
+        height: 80vh;
+        @include reusables.flex(column, center, center);
+        background-color: var(--features-box);
+
+        .features-list{
+            list-style-type: none;
+            @include reusables.flex(column, center, center);
+            gap: 20px;
         }
 
         .feature {
-            font-size: 1.4rem;
+            //display: inline-block;
+            font-size: 1.2rem;
+            transition: all 1s ease-in-out;
+            color: lightgray;
         }
 
-        img {
-            max-width: 300px;
+        @media screen and (max-width: 768px) {
+            order: 2;
+            width: 100vw;
+            animation: rotateAnimation 0.3s ease-in-out forwards;
+            flex: 1;
+
+
+            .features-list{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 769px) {
+            top: 8%;
         }
     }
+
+
+    .image-container{        
+        @include reusables.flex(row, center, center);
+        flex-basis: 60%;
+        width: 100%;
+        height: 100%;
+
+        @media screen and (max-width: 768px) {
+            flex: 2
+        }
+
+        .images-list {
+            @include reusables.flex(row, center, center);
+    
+            .test {
+                max-width: 300px;
+                border-radius: 10px;
+                opacity: 0;
+                position: absolute;
+                
+                
+
+                &.n3 {
+                    opacity: 0;
+                    @extend %shadow-effect;
+                }
+            }
+        }
+    }
+
+
+    
 }
+
 
 
 .animate-topdown {
 
-    animation: slideFromTop 1.2s ease-in-out;
+    animation: slideFromTop 1.2s linear forwards;
 
     @keyframes slideFromTop {
         from {
             opacity: 0;
             transform: translateY(-30%);
         }
+
         to {
             opacity: 1;
             transform: translateY(0%);
@@ -81,10 +211,23 @@ header {
     }
 }
 
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(90deg); /* Initial rotation */
+        //background-color: var(--footer-text);
+    }
+    100% {
+        transform: rotate(0deg); /* Final rotation */
+        //background-color: transparent;
+    }
+}
+
 /************************ Home portfolio preview ***********************************/
 
 
 section.portfolio {
+    margin-top: 250px;
     height: 70vh;
 
 }
@@ -102,6 +245,12 @@ section.portfolio {
 
     .portfolio-card {
         position: absolute;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+            @extend %shadow-effect;
+        }
     }
 }
 
@@ -115,6 +264,7 @@ section.portfolio {
             opacity: 0;
             transform: translateX(100%);
         }
+
         to {
             opacity: 1;
             transform: translateX(0%);
@@ -131,6 +281,7 @@ section.portfolio {
             opacity: 1;
             transform: translateX(0%);
         }
+
         to {
             opacity: 0;
             transform: translateX(-100%);

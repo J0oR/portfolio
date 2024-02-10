@@ -1,7 +1,8 @@
 footer{
     height: 20vh;
-    background-color: lightgoldenrodyellow;
+    background-color: var(--footer);
     margin-top: 100px;
+    color: var(--footer-text);
 
     @media screen and (max-width: 768px) {
         height: 30vh;
@@ -35,7 +36,7 @@ footer{
 }
 
 .copyright p{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 
     @media screen and (max-width: 576px) {
         width: 100%;
@@ -52,6 +53,12 @@ footer{
 
     i{
         font-size: 2rem;
+        color: var(--footer-text);
+        transition: transform 0.3s ease-in-out;
+
+        &:hover{
+            transform: scale(1.3);
+        }
     }
 
     @media screen and (max-width: 768px) {

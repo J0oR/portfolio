@@ -1,11 +1,12 @@
 .profiles-container .online-profile:hover, form .form-btn {
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
 .portfolio-card {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
   transition: all 0.35s ease-in-out;
   text-decoration: none;
+  border: 1px solid var(--card-border);
 }
 .portfolio-card figure {
   display: flex;
@@ -13,17 +14,17 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 10px;
-  padding-bottom: 20px;
-  transition: all 0.3s ease-in-out;
-  background-color: #FFFFFF;
+  padding: 12px;
+  background-color: var(--card-color);
+  width: 100%;
+  height: 100%;
 }
 .portfolio-card img {
-  width: 450px;
-  object-fit: cover;
+  object-fit: fill;
   border: 1px solid black;
   border-radius: 4px;
-  height: 220px;
+  max-width: 100%;
+  height: 200px;
 }
 @media screen and (max-width: 450px) {
   .portfolio-card img {
@@ -36,6 +37,16 @@
   padding: 25px;
 }
 
+:root {
+  --background: #F8F0E5;
+  --card-color: #ede5db;
+  --card-border: #EAD7BB;
+  --navbar: #ABC4AA;
+  --footer: #ABC4AA;
+  --features-box: #C63D2F;
+  --footer-text: black;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,10 +56,11 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: #F4F4F4;
+  background-color: var(--background);
   font-size: 16px;
   font-family: "Nunito", sans-serif;
   font-weight: 400;
@@ -71,9 +83,9 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
-}
-.container p {
-  font-size: 1.5rem;
+  /*  p{
+       font-size: 1.5rem;
+   } */
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -104,6 +116,11 @@ nav {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 100px;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
 }
 nav .logo {
   height: 60%;
@@ -181,8 +198,9 @@ nav .active-link {
 }
 footer {
   height: 20vh;
-  background-color: lightgoldenrodyellow;
+  background-color: var(--footer);
   margin-top: 100px;
+  color: var(--footer-text);
 }
 @media screen and (max-width: 768px) {
   footer {
@@ -214,7 +232,7 @@ footer {
 }
 
 .copyright p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 @media screen and (max-width: 576px) {
   .copyright p {
@@ -231,6 +249,11 @@ footer {
 }
 .social-icons i {
   font-size: 2rem;
+  color: var(--footer-text);
+  transition: transform 0.3s ease-in-out;
+}
+.social-icons i:hover {
+  transform: scale(1.3);
 }
 @media screen and (max-width: 768px) {
   .social-icons {

@@ -1,7 +1,12 @@
+header .image-container .images-list .test.n3, .portfolio-preview .portfolio-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
+}
+
 .portfolio-card {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
   transition: all 0.35s ease-in-out;
   text-decoration: none;
+  border: 1px solid var(--card-border);
 }
 .portfolio-card figure {
   display: flex;
@@ -9,17 +14,17 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 10px;
-  padding-bottom: 20px;
-  transition: all 0.3s ease-in-out;
-  background-color: #FFFFFF;
+  padding: 12px;
+  background-color: var(--card-color);
+  width: 100%;
+  height: 100%;
 }
 .portfolio-card img {
-  width: 450px;
-  object-fit: cover;
+  object-fit: fill;
   border: 1px solid black;
   border-radius: 4px;
-  height: 220px;
+  max-width: 100%;
+  height: 200px;
 }
 @media screen and (max-width: 450px) {
   .portfolio-card img {
@@ -32,6 +37,16 @@
   padding: 25px;
 }
 
+:root {
+  --background: #F8F0E5;
+  --card-color: #ede5db;
+  --card-border: #EAD7BB;
+  --navbar: #ABC4AA;
+  --footer: #ABC4AA;
+  --features-box: #C63D2F;
+  --footer-text: black;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -41,10 +56,11 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: #F4F4F4;
+  background-color: var(--background);
   font-size: 16px;
   font-family: "Nunito", sans-serif;
   font-weight: 400;
@@ -67,9 +83,9 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
-}
-.container p {
-  font-size: 1.5rem;
+  /*  p{
+       font-size: 1.5rem;
+   } */
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -100,6 +116,11 @@ nav {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 100px;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
 }
 nav .logo {
   height: 60%;
@@ -177,8 +198,9 @@ nav .active-link {
 }
 footer {
   height: 20vh;
-  background-color: lightgoldenrodyellow;
+  background-color: var(--footer);
   margin-top: 100px;
+  color: var(--footer-text);
 }
 @media screen and (max-width: 768px) {
   footer {
@@ -210,7 +232,7 @@ footer {
 }
 
 .copyright p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 @media screen and (max-width: 576px) {
   .copyright p {
@@ -227,6 +249,11 @@ footer {
 }
 .social-icons i {
   font-size: 2rem;
+  color: var(--footer-text);
+  transition: transform 0.3s ease-in-out;
+}
+.social-icons i:hover {
+  transform: scale(1.3);
 }
 @media screen and (max-width: 768px) {
   .social-icons {
@@ -241,68 +268,198 @@ footer {
 }
 
 /***************************** Home header ***********************************/
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 60vh;
-  /* from tablets and up */
+/*
+.header {
+    background-color: var(--footer);
 }
-header .features-list {
+
+header {
+    @include reusables.flex(column, space-between, center);
+    gap: 50px;
+    height: 80vh;
+    position: relative;
+
+
+    @media screen and (max-width: 769px) {
+        height: 100vh;
+    }
+
+    .features-box {
+        position: absolute;
+        background-color: var(--footer-text);
+
+        border-radius: 4px;
+        height: 140vh;
+        top: -180px;
+        z-index: 10;
+        left: 0;
+        @include reusables.flex(column, center, center);
+
+        @media screen and (max-width: 769px) {
+            width: 50vw;
+        }
+
+    }
+
+    .features-list {
+
+        list-style-type: none;
+        order: 2;
+        @include reusables.flex(column, center, center);
+        gap: 15px;
+        color: var(--footer);
+
+        flex: 2;
+
+        .feature {
+            display: inline-block;
+            font-size: 1.2rem;
+            transition: all 1s ease-in-out;
+        }
+
+
+        @media screen and (min-width: 769px) {
+
+            position: relative;
+            left: 50%;
+            top: 30%;
+
+
+            .features-list {
+                order: 0;
+                flex: 2;
+            }
+
+            .feature {
+                font-size: 1.4rem;
+            }
+
+        }
+    }
+
+    //figure {
+    #scroll-image {
+        @include reusables.flex(row, center, center);
+        width: 50%;
+        height: 100%;
+
+        .test {
+            max-width: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            opacity: 0;
+            position: absolute;
+
+            &.n3 {
+                opacity: 0;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+
+            img {
+                max-width: 300px;
+            }
+        }
+    }
+
+
+
+
+}
+*/
+.header-section {
+  background-color: var(--footer);
+}
+
+header {
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+  }
+}
+header .features-box {
+  flex-basis: 40%;
+  position: relative;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  order: 2;
-  list-style-type: none;
-  gap: 15px;
-  color: lightcoral;
+  background-color: var(--features-box);
 }
-header .features-list .feature {
-  display: inline-block;
+header .features-box .features-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+header .features-box .feature {
   font-size: 1.2rem;
   transition: all 1s ease-in-out;
+  color: lightgray;
 }
-header #scroll-image {
-  flex: 1;
+@media screen and (max-width: 768px) {
+  header .features-box {
+    order: 2;
+    width: 100vw;
+    animation: rotateAnimation 0.3s ease-in-out forwards;
+    flex: 1;
+  }
+  header .features-box .features-list {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) {
+  header .features-box {
+    top: 8%;
+  }
+}
+header .image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 60%;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  header .image-container {
+    flex: 2;
+  }
+}
+header .image-container .images-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-header #scroll-image .test {
+header .image-container .images-list .test {
   max-width: 300px;
-  object-fit: cover;
-  border-radius: 15px;
+  border-radius: 10px;
   opacity: 0;
   position: absolute;
 }
-header #scroll-image .test.n3 {
+header .image-container .images-list .test.n3 {
   opacity: 0;
-}
-@media screen and (min-width: 769px) {
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    height: 58vh;
-  }
-  header .features-list {
-    order: 0;
-    flex: 1;
-  }
-  header .feature {
-    font-size: 1.4rem;
-  }
-  header img {
-    max-width: 300px;
-  }
 }
 
 .animate-topdown {
-  animation: slideFromTop 1.2s ease-in-out;
+  animation: slideFromTop 1.2s linear forwards;
 }
 @keyframes slideFromTop {
   from {
@@ -315,8 +472,17 @@ header #scroll-image .test.n3 {
   }
 }
 
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(90deg); /* Initial rotation */
+  }
+  100% {
+    transform: rotate(0deg); /* Final rotation */
+  }
+}
 /************************ Home portfolio preview ***********************************/
 section.portfolio {
+  margin-top: 250px;
   height: 70vh;
 }
 
@@ -335,6 +501,10 @@ section.portfolio {
 }
 .portfolio-preview .portfolio-card {
   position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+.portfolio-preview .portfolio-card:hover {
+  transform: scale(1.2);
 }
 
 .animate-right {
