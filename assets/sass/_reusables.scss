@@ -13,38 +13,3 @@
         rgba(0, 0, 0, 0.12) 0px 8px 4px,
         rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
-
-
-.portfolio-card {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
-    transition: all 0.35s ease-in-out;
-    text-decoration: none;
-    border: 1px solid var(--card-border);
-
-    figure {
-        @include flex(column, center, center);
-        gap: 20px;
-        padding: 12px;
-        background-color: whitesmoke;
-        width: 100%;
-        height: 100%;
-        
-    }
-
-    img {
-        object-fit:fill;
-        border: 1px solid black;
-        border-radius: 4px;
-        max-width: 100%;
-        height: 200px;
-        @media screen and (max-width: 450px) {
-            width: 100%;
-        }
-    }
-
-    figcaption {
-        font-size: 1.3rem;
-        color: black;
-        padding: 25px;
-    }
-}

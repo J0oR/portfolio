@@ -58,7 +58,7 @@
 
 /************************************ CV TIMELINE *************************************/
 
-.container.timeline{
+.container.timeline {
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -68,7 +68,7 @@
     position: relative;
     @include reusables.flex(column, center, space-between);
     gap: 40px;
-    
+
 
     .vertical {
         position: absolute;
@@ -90,7 +90,8 @@
         flex-direction: column;
         gap: 10px;
 
-        &.n1, &.n3 {
+        &.n1,
+        &.n3 {
             left: 50%;
 
             p {
@@ -100,9 +101,19 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             word-wrap: break-word;
             width: 80%;
+            transition: all 1s ease-in-out;
+
+        }
+
+        &.marked-phase {
+            color: lightcoral;
+
+            .line{
+                background-color: lightcoral;
+            }
         }
 
         .line {
@@ -113,6 +124,8 @@
             width: 100%;
             border: 1px solid rgb(110, 131, 138);
             @extend %shadow-effect;
+            transition: all 1s ease-in-out;
+
         }
     }
 }

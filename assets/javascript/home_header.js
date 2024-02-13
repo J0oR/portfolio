@@ -1,14 +1,13 @@
+/****************** FEATURES ANIMATION ******************/
+
 document.addEventListener('DOMContentLoaded', function() {
 const features = document.querySelectorAll('.feature');
 let f_index = 0;
 
 function updateFontSize() {
-
     features.forEach((feature, i) => {
-        feature.style.transform = (i === f_index) ? 'scale(1.4)' : 'scale(1)';
-        feature.style.fontWeight += (i === f_index) ? 100 : -100;
+        feature.classList.toggle("marked", i === f_index);
     });
-
     f_index = (f_index + 1) % features.length;
 }
 
@@ -19,18 +18,21 @@ setInterval(updateFontSize, 3000);
 });
 
 
+/****************** PHOTO SLIDING ANIMATION ******************/
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Trigger the animation when the DOM is fully loaded
-    var animatedElement = document.getElementById('scroll-image');
-    animatedElement.classList.add('animate-topdown');
+    var imageBox = document.getElementById('scroll-image');
+    var featuresBox = document.querySelector('.features-box');
+    imageBox.classList.add('animate-topdown');
+    featuresBox.classList.add('animate-bottomup');
 });
 
 
 
 
-
-
+/****************** PHOTO FADING ANIMATION ******************/
 
 
 document.addEventListener('DOMContentLoaded', function() {
