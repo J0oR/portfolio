@@ -168,34 +168,36 @@ section.portfolio {
 }
 
 .portfolio-card {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
     transition: all 0.35s ease-in-out;
     text-decoration: none;
-    border: 1px solid var(--card-border);
+   // border: 1px solid var(--card-border);
     position: absolute;
-    transition: all 0.3s ease-in-out;
 
-    &:hover {
-        transform: scale(1.2);
-        @extend %shadow-effect;
-    }
+   
 
 
     figure {
         @include reusables.flex(column, center, center);
         gap: 20px;
         padding: 12px;
-        background-color: whitesmoke;
+        //background-color: whitesmoke;
         
     }
 
     img {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
+    transition: all 0.3s ease-in-out;
+
         object-fit:fill;
         border-radius: 4px;
         width: 320px;
         height: 200px;
         @media screen and (max-width: 450px) {
             width: 100%;
+        }
+        &:hover {
+            transform: scale(1.2);
+            @extend %shadow-effect;
         }
     }
 

@@ -7,14 +7,14 @@
     margin-bottom: 60px;
     transition: background-color 0.3s ease-out;
 
-    
+
 
 }
 
 nav {
 
-    @include reusables.flex(row, space-between,center);
-    height: 100px;
+    @include reusables.flex(row, space-between, center);
+    height: 70px;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
@@ -28,26 +28,36 @@ nav {
         height: 60%;
         font-size: 1.5rem;
         flex: 1;
-        @include reusables.flex(row, flex-start,center);
-
+        @include reusables.flex(row, flex-start, center);
     }
 
-    .nav-link{
+    .nav-link {
         text-decoration: none;
         color: black;
         @include reusables.flex(row, center, center);
-        
     }
-    
 
     .active-link {
         border-bottom: 2px solid black;
-        /* Border color when the link is active */
     }
 
+    .burger-menu {
+        width: 40px;
+        border: none;
+        background-color: transparent;
+        height: 60%;
 
+        i {
+            @include reusables.flex(row, center, center);
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
 
-
+            &:hover {
+                color: lightskyblue;
+            }
+        }
+    }
 }
 
 
@@ -57,68 +67,15 @@ nav {
 
     .burger-menu {
         @include reusables.flex(row, center, center);
-        width: 40px;
-        border: none;
-        background-color: transparent;
-        height: 60%;
-        
-        i{
-            @include reusables.flex(row, center,center);
-            width: 100%;
-            height: 100%;
-            font-size: 2rem;
-
-            &:hover {
-                color: lightskyblue;
-            }
-        }
-        
     }
 
     .nav-links-container {
         display: none;
-    }
 
-    
-
-    .nav-links-container.show {
-        @include reusables.flex(column, center, center);
-        gap: 50px;
-        list-style-type: none;
-        background-color: lightblue;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 200px;
-        width: 100vw;
-        height: 100vh;
-        animation: slideUp 0.5s ease-in-out forwards;
 
     }
 
-    .close-btn{
-        display: none;
-        background-color: transparent;
-        border: none;
-        
 
-        &.show-btn{
-            display: block;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-
-            i{
-                @include reusables.flex(column, center, center);
-                width: 50px;
-                height: 50px;
-                font-size:3rem;
-                color: white;
-            }
-        }
-    }
 
     .nav-link {
         height: 50px;
@@ -126,11 +83,124 @@ nav {
     }
 }
 
-@keyframes slideUp {
+
+
+
+@media screen and (min-width: 769px) {
+    .burger-menu {
+        display: none;
+
+        &.show {
+            @include reusables.flex(row, center, center);
+        }
+    }
+
+
+
+    .nav-links-container {
+        display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 50px;
+            height: 60%;
+
+        &.nav-links-hide {
+            display: none;
+        }
+
+        &.nav-links-show {
+            display: flex;
+        }
+
+
+    }
+
+    .nav-link {
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: translateX(-1px) translateY(5px) scale(1.2);
+            height: 85%;
+        }
+    }
+}
+
+
+.close-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+
+    &.show-btn {
+        display: block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        i {
+            @include reusables.flex(column, center, center);
+            width: 50px;
+            height: 50px;
+            font-size: 3rem;
+            color: white;
+        }
+    }
+}
+
+.nav-links-container {
+    &.show-fullscreen {
+
+        width: 100vw;
+        height: 100vh;
+        background-color: lightblue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include reusables.flex(column, center, center);
+        animation: slideNavUp 0.5s ease-in-out forwards;
+
+        .nav-link{
+            animation: slideNavLinkUp 0.5s ease-in-out forwards;
+                @for $i from 2 through 4 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: 0.2s * ($i - 1);
+                    }
+                }
+        }
+            
+
+        @media screen and (max-width: 768px) {
+            gap: 50px;
+            list-style-type: none;
+            .nav-link {
+                width: 30%;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            display: flex;
+            .nav-link {
+                opacity: 0;
+                width: 10%;
+                position: relative;
+                left: -30%;
+                height: 100px;
+                
+            }
+        }
+
+    }
+}
+
+@keyframes slideNavLinkUp {
     from {
-        transform: translateY(100%);
+        transform: translateY(20%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -138,35 +208,14 @@ nav {
 }
 
 
-
-@media screen and (min-width: 769px) {
-
-
-    .close-btn{
-        display: none;
+@keyframes slideNavUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
     }
 
-    .burger-menu {
-        display: none;
-        /* Show burger menu button */
-    }
-
-    .nav-links-container {
-        display: flex;
-        flex: 1;
-        justify-content: flex-end;
-        gap: 50px;
-        height: 60%;
-    }
-
-    .nav-link {
-        height: 100%;  
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            transform: translateX(-1px) translateY(5px) scale(1.2);
-            height: 85%;
-           // transform-origin: left center; // Adjust the origin based on your preference
-        }      
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
