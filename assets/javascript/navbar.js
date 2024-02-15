@@ -1,10 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     const burgerButton = document.getElementById("burger-button");
     const navMenu = document.querySelector(".nav-links-container");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const closeBtn = document.querySelector(".close-btn");
 
     burgerButton.addEventListener("click", function () {
-        navMenu.classList.toggle("show");
+        toggleNavMenu()
     });
+
+    closeBtn.addEventListener("click", function () {
+        toggleNavMenu()
+    });
+
+    // Add event listener to each .nav-link inside navMenu
+    navLinks.forEach(function(navLink) {
+        navLink.addEventListener("click", function () {
+            toggleNavMenu();
+        });
+    });
+
+    function toggleNavMenu() {
+        navMenu.classList.toggle("show");
+        closeBtn.classList.toggle("show-btn");
+    }
+    
 });
 
 document.addEventListener('scroll', function() {

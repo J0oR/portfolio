@@ -7,7 +7,7 @@
   --card-color: #ede5db;
   --card-border: #EAD7BB;
   --navbar: #8CB9BD;
-  --footer: #8CB9BD;
+  --footer: #436850;
   --features-box: #718b70;
   --footer-text: black;
 }
@@ -116,8 +116,22 @@ nav .active-link {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 35%;
     width: 40px;
+    border: none;
+    background-color: transparent;
+    height: 60%;
+  }
+  .burger-menu i {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+  }
+  .burger-menu i:hover {
+    color: lightskyblue;
   }
   .nav-links-container {
     display: none;
@@ -127,20 +141,59 @@ nav .active-link {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     list-style-type: none;
-    width: 100%;
     background-color: lightblue;
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     height: 200px;
+    width: 100vw;
+    height: 100vh;
+    animation: slideUp 0.5s ease-in-out forwards;
+  }
+  .close-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+  }
+  .close-btn.show-btn {
+    display: block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .close-btn.show-btn i {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 3rem;
+    color: white;
   }
   .nav-link {
     height: 50px;
     background-color: lightblue;
   }
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 @media screen and (min-width: 769px) {
+  .close-btn {
+    display: none;
+  }
   .burger-menu {
     display: none;
     /* Show burger menu button */
