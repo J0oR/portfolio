@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial call to set the initial font size
     markPhase();
     // Call the updateFontSize function every 3 seconds
-    setInterval(markPhase, 3000);
+    setInterval(markPhase, 2000);
 
     
     });

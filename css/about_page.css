@@ -280,12 +280,12 @@ footer {
 }
 
 .timeline {
-  height: 70vh;
+  height: fit-content;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: space-between;
+  align-items: space-around;
   gap: 40px;
 }
 .timeline .vertical {
@@ -298,6 +298,10 @@ footer {
   margin: 0 auto;
   left: 49%;
   border: 1px solid rgb(110, 131, 138);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
 }
 .timeline .horizontal {
   width: 50%;
@@ -319,9 +323,6 @@ footer {
   width: 80%;
   transition: all 1s ease-in-out;
 }
-.timeline .horizontal.marked-phase {
-  color: lightcoral;
-}
 .timeline .horizontal.marked-phase .line {
   background-color: lightcoral;
 }
@@ -333,4 +334,7 @@ footer {
   width: 100%;
   border: 1px solid rgb(110, 131, 138);
   transition: all 1s ease-in-out;
+}
+.timeline .horizontal .top, .timeline .horizontal .bottom {
+  max-width: 50%;
 }

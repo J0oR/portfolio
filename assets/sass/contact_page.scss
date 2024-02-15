@@ -4,57 +4,63 @@
 @use './reusables';
 
 
-/* PROFILES */
+/****************** PROFILES *******************/
 .profiles-container {
     @include reusables.flex(column, space-between, center);
     gap: 20px;
+}
 
-    .online-profile {
-        text-align: center;
-        width: 50%;
-        height: 50px;
-        @include reusables.flex(row, center, center);
-        gap: 10px;
-        border: 2px solid lightcoral;
-        border-radius: 10px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
-        transition: all 0.5s ease-in-out;
-        text-decoration: none;
-        color: black;
+.online-profile {
+    opacity: 0;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    @include reusables.flex(row, center, center);
+    gap: 10px;
+    border: 2px solid lightcoral;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+    transition: all 0.5s ease-in-out;
+    text-decoration: none;
+    color: black;
+    animation: slideIn 1s ease-out forwards;
 
-        @media only screen and (min-width:769px) and (max-width: 991px) {
-            width: 60%;
+    @for $i from 2 through 4 {
+        &:nth-child(#{$i}) {
+            animation-delay: 0.2s * ($i - 1);
         }
-
-        @media only screen and (max-width: 768px) {
-            width: 100%;
-        }
-
-        &:hover {
-            transform: scale(1.2);
-            @extend %shadow-effect;
-            cursor: pointer;
-        }
-
     }
 
-    span {
-        //width: 50%;
-        //text-align: right;
+    @media only screen and (min-width:769px) and (max-width: 991px) {
+        width: 60%;
     }
 
-    i {
-        //width: 50%;
-        //text-align: left;
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+
+    &:hover {
+        transform: scale(1.2);
+        @extend %shadow-effect;
+        cursor: pointer;
+    }
+
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
 
 
-
-
-
-/* FORM */
+/******************* FORM *******************/
 
 .contact-headline {
     @include reusables.flex(column, center, center);

@@ -253,13 +253,23 @@ footer {
 .portfolio-grid .portfolio-project:hover img {
   transform: scale(1.05);
 }
-.portfolio-grid .portfolio-project img {
+.portfolio-grid .portfolio-project .portfolio-project-img {
   height: 300px;
   width: 400px;
   object-fit: cover;
-  object-position: -90px;
+  object-position: left;
+  opacity: 0;
   transition: opacity 6s ease, transform 0.3s ease-in-out;
-  animation: moveLeftToRight 6s linear infinite; /* Adjust duration and other properties as needed */
+  animation: moveLeftToRight 6s linear infinite;
+}
+.portfolio-grid .portfolio-project .portfolio-project-img:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.portfolio-grid .portfolio-project .portfolio-project-img:nth-child(3) {
+  animation-delay: 1s;
+}
+.portfolio-grid .portfolio-project .portfolio-project-img:nth-child(4) {
+  animation-delay: 1.5s;
 }
 .portfolio-grid .portfolio-project .portfolio-project-caption {
   opacity: 0;
@@ -281,7 +291,8 @@ footer {
 
 @keyframes moveLeftToRight {
   0% {
-    object-position: left; /* Initial position on the left */
+    object-position: left;
+    /* Initial position on the left */
     opacity: 0;
   }
   50% {
@@ -289,7 +300,8 @@ footer {
     opacity: 1;
   }
   100% {
-    object-position: right; /* Final position on the right */
+    object-position: right;
+    /* Initial position on the left */
     opacity: 0;
   }
 }

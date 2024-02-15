@@ -1,4 +1,4 @@
-.profiles-container .online-profile:hover, form .form-btn {
+.online-profile:hover, form .form-btn {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
@@ -232,7 +232,7 @@ footer {
   }
 }
 
-/* PROFILES */
+/****************** PROFILES *******************/
 .profiles-container {
   display: flex;
   flex-direction: column;
@@ -240,7 +240,9 @@ footer {
   align-items: center;
   gap: 20px;
 }
-.profiles-container .online-profile {
+
+.online-profile {
+  opacity: 0;
   text-align: center;
   width: 50%;
   height: 50px;
@@ -255,22 +257,43 @@ footer {
   transition: all 0.5s ease-in-out;
   text-decoration: none;
   color: black;
+  animation: slideIn 1s ease-out forwards;
+}
+.online-profile:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.online-profile:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.online-profile:nth-child(4) {
+  animation-delay: 0.6s;
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
-  .profiles-container .online-profile {
+  .online-profile {
     width: 60%;
   }
 }
 @media only screen and (max-width: 768px) {
-  .profiles-container .online-profile {
+  .online-profile {
     width: 100%;
   }
 }
-.profiles-container .online-profile:hover {
+.online-profile:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
-/* FORM */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/******************* FORM *******************/
 .contact-headline {
   display: flex;
   flex-direction: column;

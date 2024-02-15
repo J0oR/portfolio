@@ -64,9 +64,9 @@
 }
 
 .timeline {
-    height: 70vh;
+    height: fit-content;
     position: relative;
-    @include reusables.flex(column, center, space-between);
+    @include reusables.flex(column, center, space-around);
     gap: 40px;
 
 
@@ -81,6 +81,7 @@
         left: 49%;
         border: 1px solid rgb(110, 131, 138);
         @extend %shadow-effect;
+        @include reusables.flex(column, center, space-around);
     }
 
     .horizontal {
@@ -109,11 +110,12 @@
         }
 
         &.marked-phase {
-            color: lightcoral;
+            //color: lightcoral;
 
             .line{
                 background-color: lightcoral;
             }
+            
         }
 
         .line {
@@ -127,5 +129,11 @@
             transition: all 1s ease-in-out;
 
         }
+
+        .top, .bottom{
+            max-width: 50%;
+        }
+
+        
     }
 }
