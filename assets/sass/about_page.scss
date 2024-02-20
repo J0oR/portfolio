@@ -105,12 +105,12 @@
             font-size: 1.2rem;
             word-wrap: break-word;
             width: 80%;
-            transition: all 1s ease-in-out;
+            //transition: all 1s ease-in-out;
 
         }
 
         &.marked-phase {
-            //color: lightcoral;
+            color: lightcoral;
 
             .line{
                 background-color: lightcoral;
@@ -126,7 +126,7 @@
             width: 100%;
             border: 1px solid rgb(110, 131, 138);
             @extend %shadow-effect;
-            transition: all 1s ease-in-out;
+            transition: all 0.3s ease-in-out;
 
         }
 

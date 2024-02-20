@@ -1,68 +1,70 @@
-const burgerButton = document.getElementById("burger-button");
+const burgerButton = document.querySelector(".burger-button");
+const navbar = document.querySelector('.nav-container');
 const navMenu = document.querySelector(".nav-links-container");
-const navLinks = document.querySelectorAll(".nav-link");
+const overlayNavMenu = document.querySelector(".overlay-menu");
+const overlayNavLinks = document.querySelectorAll(".overlay-nav-link");
 const closeBtn = document.querySelector(".close-btn");
 const backUpBtn = document.querySelector(".back-up-button");
-const upBtn = document.querySelector(".back-up-button");
 
-function toggleNavMenu() {
-    navMenu.classList.toggle("show-fullscreen");
+function toggleOverlayNavMenu() {
+    overlayNavMenu.classList.toggle("show-fullscreen");
     closeBtn.classList.toggle("show-btn");
+    document.documentElement.classList.toggle('no-scroll');
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
-   
 
     burgerButton.addEventListener("click", function () {
-        toggleNavMenu()
+        toggleOverlayNavMenu()
     });
 
     closeBtn.addEventListener("click", function () {
-        toggleNavMenu()
+        toggleOverlayNavMenu()
     });
 
     // Add event listener to each .nav-link inside navMenu
-    navLinks.forEach(function(navLink) {
+    overlayNavLinks.forEach(function (navLink) {
         navLink.addEventListener("click", function () {
-            toggleNavMenu();
+            toggleOverlayNavMenu();
         });
     });
-
-    
-    
 });
 
-document.addEventListener('scroll', function() {
-    var navbar = document.querySelector('.nav-container');
-    var scrollPosition = window.scrollY;
 
+
+/****************** HANDLE NAV ON SCROLLING *******************/
+
+function showBurgerMenu() {
+    burgerButton.classList.add('show');
+    navMenu.classList.add('nav-links-container-hide');
+    navMenu.classList.remove('nav-links-container-show');
+    navbar.style.backgroundColor = '#8CB9BD'; // Change to your desired background color
+
+}
+
+function showNavLinks() {
+    burgerButton.classList.remove('show');
+    navMenu.classList.add('nav-links-container-show');
+    navMenu.classList.remove('nav-links-container-hide');
+    navbar.style.backgroundColor = 'transparent';
+
+}
+
+document.addEventListener('scroll', function () {
+
+    var scrollPosition = window.scrollY;
     // Adjust this value to determine when the background color should change
     var scrollThreshold = 100;
     var upBtnScrollThreshold = 800;
 
-    if (scrollPosition > scrollThreshold) {
-        navbar.style.backgroundColor = '#8CB9BD'; // Change to your desired background color
-        burgerButton.classList.add('show');
-        navMenu.classList.add('nav-links-hide');
-        navMenu.classList.remove('nav-links-show');
-    } else {
-        navbar.style.backgroundColor = 'transparent';
-        burgerButton.classList.remove('show');
-        navMenu.classList.add('nav-links-show');
-        navMenu.classList.remove('nav-links-hide');
-    }
-
-    if (scrollPosition > upBtnScrollThreshold) {
-        upBtn.style.display = "block";
-    }
-    else {
-        upBtn.style.display = "none";
-    }
-
-
+    (scrollPosition > scrollThreshold) ? showBurgerMenu() : showNavLinks();
+    backUpBtn.style.display = scrollPosition > upBtnScrollThreshold ? "block" : "none";
 });
 
+
+
+/****************** SCROLL UP BUTTON ******************/
 
 document.addEventListener("DOMContentLoaded", function () {
     backUpBtn.addEventListener("click", function () {

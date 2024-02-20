@@ -19,20 +19,59 @@
     <div class="nav-container">
         <nav>
             <h1 class="logo">Giovanni Ruocco</h1>
-            <button class="burger-menu" id="burger-button"><i class="fa-solid fa-bars"></i></button>
-            
+            <button class="burger-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
             <div class="nav-links-container">
                 <a class="nav-link active-link" href="#">Home</a>
                 <a class="nav-link" href="./pages/portfolio.html">Portfolio</a>
                 <a class="nav-link" href="./pages/about.html">About</a>
                 <a class="nav-link" href="./pages/contact.html">Contact</a>
-                <button class="close-btn">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
             </div>
+
+
+            <div class="overlay-menu">
+                <div class="overlay-inner-container">
+
+                    <h1 class="overlay-logo">Giovanni Ruocco</h1>
+                    <div class="overlay-links-container">
+                        <a class="overlay-nav-link active-link" href="#">Home</a>
+                        <a class="overlay-nav-link" href="./pages/portfolio.html">Portfolio</a>
+                        <a class="overlay-nav-link" href="./pages/about.html">About</a>
+                        <a class="overlay-nav-link" href="./pages/contact.html">Contact</a>
+                        <button class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="overlay-right-container">
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/giovanni-ruocco-b3a5492a2/" target="_blank">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/J0oR" target="_blank">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://codepen.io/jrvn/" target="_blank">
+                                <i class="fa-brands fa-codepen"></i>
+                            </a>
+                            <a href="https://www.freecodecamp.org/jrvn" target="_blank">
+                                <i class="fa-brands fa-free-code-camp"></i>
+                            </a>
+                        </div>
+                        <div class="copyright">
+                            <p>&copy; 2023 Giovanni Ruocco. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </nav>
     </div>
 
+
+    
     <main>
 
         <!-- header section -->
@@ -55,22 +94,45 @@
             </header>
         </section>
 
+
+        <!-- Home intro -->
+        <section class="section home-intro-section">
+                <div class="rectangle">
+                    <div class="empty-field"></div>
+                    <div class="intro-text">
+                        <p>Hello, I'm Giovanni!</p>
+                        <p>I'm a social sciences graduate turned Front End Developer with a passion for UI design. </p>
+                        <p>Currently mastering the art of minimalist digital experiences.</p>
+                        <p>Welcome to my creative space!</p>
+                    </div>
+                </div>
+                
+                
+        </section>
+
+
         <!-- portfolio preview -->
-        <section class="section portfolio" id="portfolio-section">
-            <h1 class="section-title">Here are some of my projects</h1>
+        <section class="section home-portfolio">
+            <h1 class="section-title">Take a look at some of my projects</h1>
             <div class="container portfolio-preview">
-                <a href="./pages/portfolio.html" class="portfolio-card current">
+                <!-- current -->
+                <div  class="portfolio-preview-card current">
                     <figure>
-                        <img src="./assets/images/calculator.png" alt="" class="portfolio-project-img">
+                        <a href="./pages/portfolio.html">
+                            <img src="./assets/images/calculator.png" alt="" class="portfolio-preview-img">
+                        </a>
                         <figcaption>Javascript Calculator</figcaption>
                     </figure>
-                </a>
-                <a href="./pages/portfolio.html" class="portfolio-card next">
+                </div>
+                <!-- next -->
+                <div  class="portfolio-preview-card next">
                     <figure>
-                        <img src="./assets/images/calculator.png" alt="" class="portfolio-project-img">
+                        <a href="./pages/portfolio.html">
+                            <img src="./assets/images/calculator.png" alt="" class="portfolio-preview-img">
+                        </a>
                         <figcaption>Javascript Calculator</figcaption>
                     </figure>
-                </a>
+                </div>
             </div>
         </section>
     </main>
