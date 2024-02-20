@@ -4,7 +4,13 @@
 @use './reusables';
 
 
-
+@mixin staggered-animation-delay($total, $delay) {
+    @for $i from 2 through $total {
+      &:nth-child(#{$i}) {
+        animation-delay: $delay * ($i - 1);
+      }
+    }
+  }
 
 
 /* portfolio */
@@ -33,7 +39,6 @@
 
         }
 
-
         .portfolio-project-img {
             height: 300px;
             width: 400px;
@@ -41,13 +46,7 @@
             object-position: left;
             opacity: 0;
             transition: opacity 6s ease, transform 0.3s ease-in-out;
-            animation: moveLeftToRight 6s linear infinite;
-
-            @for $i from 2 through 4 {
-                &:nth-child(#{$i}) {
-                    animation-delay: 0.5s * ($i - 1);
-                }
-            }
+            animation: moveLeftoRight 6s linear infinite;
         }
 
         .portfolio-project-caption {

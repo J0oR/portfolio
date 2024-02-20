@@ -8,7 +8,7 @@
 
 
 .header-section {
-    background-color: var(--footer);
+    background-color: var(--header);
 
     @media screen and (min-width: 769px) {
         margin-top: 160px;
@@ -58,7 +58,7 @@
     .feature {
         font-size: 1.2rem;
         transition: all 1s ease-in-out;
-        color: lightgray;
+        color: var(--features-text);
         width: 100%;
         text-align: center;
 
@@ -177,11 +177,14 @@
    
     .rectangle{
         position: absolute;
-        background-color: var(--card-border);
+        background-color: var(--intro);
+        font-size: 1.5rem;
+        color: var(--intro-text);
         height: 300px;
         width: 100%;
         z-index: -1;
         left: -20%;
+        border-radius: 4px;
 
         @include reusables.flex(row, center, center);
 

@@ -39,7 +39,7 @@ function showBurgerMenu() {
     burgerButton.classList.add('show');
     navMenu.classList.add('nav-links-container-hide');
     navMenu.classList.remove('nav-links-container-show');
-    navbar.style.backgroundColor = '#8CB9BD'; // Change to your desired background color
+    navbar.style.backgroundColor = '#F8F5F1'; // Change to your desired background color
 
 }
 

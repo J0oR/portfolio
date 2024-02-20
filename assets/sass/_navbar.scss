@@ -19,11 +19,17 @@ nav {
         padding: 0 20px;
     }
 
-    .logo {
+    .logo-container {
         height: 60%;
-        font-size: 1.5rem;
         flex: 1;
         @include reusables.flex(row, flex-start, center);
+
+        
+    }
+    .logo{
+        height: 50px;
+        display: flex;
+        align-self: center;
     }
 }
 
@@ -135,7 +141,7 @@ nav {
         display: flex;
         width: 100vw;
         height: 100vh;
-        background-color: lightblue;
+        background-color: var(--overlay-navbar);
         position: absolute;
         top: 0;
         left: 0;
@@ -183,12 +189,16 @@ nav {
 }
 
 
-.overlay-logo{
+.overlay-logo-container{
     flex: 0.5;
     @include reusables.flex(row, center, center);
 
     @media screen and (min-width: 769px) {
         flex-basis: 100%;
+    }
+
+    .logo{
+        height: 100px;
     }
 }
 

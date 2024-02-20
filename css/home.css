@@ -27,13 +27,19 @@
 }
 
 :root {
-  --background: #e5e4e3;
+  --background: #F8F5F1;
+  --navbar: #F8F5F1;
+  --text: #2C3639;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
-  --navbar: #8CB9BD;
-  --footer: #436850;
-  --features-box: #718b70;
-  --footer-text: black;
+  --overlay-navbar:#64B2CD;
+  --footer: #354259;
+  --footer-text: #CDC2AE;
+  --header: #64B2CD;
+  --features-box: #3C70A4;
+  --features-text: #F8F5F1;
+  --intro: #DA9833;
+  --intro-text: #F8F5F1;
 }
 
 * {
@@ -53,6 +59,7 @@ body {
   font-size: 18px;
   font-family: "Hind", sans-serif;
   font-weight: 400;
+  color: var(--text);
 }
 
 section {
@@ -119,14 +126,18 @@ nav {
     padding: 0 20px;
   }
 }
-nav .logo {
+nav .logo-container {
   height: 60%;
-  font-size: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+nav .logo {
+  height: 50px;
+  display: flex;
+  align-self: center;
 }
 
 .burger-button {
@@ -238,7 +249,7 @@ nav .logo {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-color: lightblue;
+  background-color: var(--overlay-navbar);
   position: absolute;
   top: 0;
   left: 0;
@@ -281,7 +292,7 @@ nav .logo {
   }
 }
 
-.overlay-logo {
+.overlay-logo-container {
   flex: 0.5;
   display: flex;
   flex-direction: row;
@@ -289,9 +300,12 @@ nav .logo {
   align-items: center;
 }
 @media screen and (min-width: 769px) {
-  .overlay-logo {
+  .overlay-logo-container {
     flex-basis: 100%;
   }
+}
+.overlay-logo-container .logo {
+  height: 100px;
 }
 
 .overlay-links-container {
@@ -445,7 +459,7 @@ footer {
 
 /***************************** Home header ***********************************/
 .header-section {
-  background-color: var(--footer);
+  background-color: var(--header);
 }
 @media screen and (min-width: 769px) {
   .header-section {
@@ -511,7 +525,7 @@ footer {
 .features-box .feature {
   font-size: 1.2rem;
   transition: all 1s ease-in-out;
-  color: lightgray;
+  color: var(--features-text);
   width: 100%;
   text-align: center;
 }
@@ -614,11 +628,14 @@ footer {
 }
 .home-intro-section .rectangle {
   position: absolute;
-  background-color: var(--card-border);
+  background-color: var(--intro);
+  font-size: 1.5rem;
+  color: var(--intro-text);
   height: 300px;
   width: 100%;
   z-index: -1;
   left: -20%;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   justify-content: center;
