@@ -6,8 +6,17 @@
     z-index: 100;
     margin-bottom: 60px;
     transition: background-color 0.3s ease-out;
+
+    
 }
 
+.transparent{
+    background-color: transparent;
+
+}
+.visible{
+    background-color: var(--navbar);
+}
 nav {
     @include reusables.flex(row, space-between, center);
     height: 70px;
@@ -70,17 +79,15 @@ nav {
 
         &.nav-links-container-show {
             display: flex;
-
         }
     }
-
 }
 
 
 .nav-link {
 
     text-decoration: none;
-    color: black;
+    color: var(--nav-link);
     @include reusables.flex(row, center, center);
 
     @media screen and (max-width: 768px) {
@@ -96,6 +103,11 @@ nav {
             transform: translateX(-1px) translateY(5px) scale(1.2);
             height: 85%;
         }
+    }
+
+    &.active-link{
+        font-weight: 600;
+        border-bottom: 2px solid var(--nav-link-active);
     }
 }
 
@@ -230,6 +242,10 @@ nav {
             position: relative;
             height: 50px;
         }
+
+        &.active-link{
+            border-bottom: 2px solid white;
+        }
     }
 }
 
@@ -278,4 +294,8 @@ nav {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+.back-up-button{
+    transition: display 1s ease-in-out;
 }

@@ -27,19 +27,23 @@
 }
 
 :root {
-  --background: #F8F5F1;
-  --navbar: #F8F5F1;
-  --text: #2C3639;
+  --background: #131e23;
+  --background: #EDE2DC;
+  --navbar: #d4cac5;
+  --nav-link: #AB3B61;
+  --nav-link-active: #AB3B61;
+  --text: #AB3B61;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
   --overlay-navbar:#64B2CD;
-  --footer: #354259;
-  --footer-text: #CDC2AE;
-  --header: #64B2CD;
-  --features-box: #3C70A4;
-  --features-text: #F8F5F1;
-  --intro: #DA9833;
-  --intro-text: #F8F5F1;
+  --footer: #123c69;
+  --footer-text: #eae7dc;
+  --header: #AB3B61;
+  --features-box: #123c69;
+  --features-text: #EDE2DC;
+  --intro: #ac3b61;
+  --intro-text: #EDE2DC;
+  --profile-link: #ac3b61;
 }
 
 * {
@@ -71,12 +75,12 @@ section .section-title {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 150px;
-  width: 50%;
+  height: 50px;
+  width: fit-content;
   margin: 0 auto;
   margin-bottom: 50px;
   font-weight: 400;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid var(--text);
 }
 @media screen and (max-width: 768px) {
   section .section-title {
@@ -109,6 +113,14 @@ section .section-title {
   z-index: 100;
   margin-bottom: 60px;
   transition: background-color 0.3s ease-out;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.visible {
+  background-color: var(--navbar);
 }
 
 nav {
@@ -190,7 +202,7 @@ nav .logo {
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: var(--nav-link);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -211,6 +223,10 @@ nav .logo {
     transform: translateX(-1px) translateY(5px) scale(1.2);
     height: 85%;
   }
+}
+.nav-link.active-link {
+  font-weight: 600;
+  border-bottom: 2px solid var(--nav-link-active);
 }
 
 /******************** OVERLAY ***********************/
@@ -345,6 +361,9 @@ nav .logo {
     height: 50px;
   }
 }
+.overlay-links-container .overlay-nav-link.active-link {
+  border-bottom: 2px solid white;
+}
 
 .overlay-right-container {
   flex: 1;
@@ -386,6 +405,10 @@ nav .logo {
     opacity: 1;
   }
 }
+.back-up-button {
+  transition: display 1s ease-in-out;
+}
+
 footer {
   height: 20vh;
   background-color: var(--footer);

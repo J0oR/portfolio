@@ -1,25 +1,30 @@
 @use './reusables';
 
 :root{
-    --background: #F8F5F1;
-    --navbar: #F8F5F1;
+    --background: #131e23;
+    --background: #EDE2DC;
+    --navbar: #d4cac5;
+    --nav-link: #AB3B61;
+    --nav-link-active: #AB3B61;
     
-    --text: #2C3639;
+    --text: #AB3B61;
 
     --card-color: #ede5db;
     --card-border: #EAD7BB;
 
     --overlay-navbar:#64B2CD;
 
-    --footer: #354259;
-    --footer-text: #CDC2AE;
+    --footer: #123c69;
+    --footer-text: #eae7dc;
 
-    --header: #64B2CD;
-    --features-box: #3C70A4;
-    --features-text: #F8F5F1;
+    --header: #AB3B61;
+    --features-box: #123c69;
+    --features-text: #EDE2DC;
 
-    --intro: #DA9833;
-    --intro-text: #F8F5F1;
+    --intro: #ac3b61;
+    --intro-text: #EDE2DC;
+
+    --profile-link: #ac3b61;
     
     
 }
@@ -53,12 +58,12 @@ section {
 
     .section-title{
         @include reusables.flex(column, center, center);
-        height: 150px;
-        width: 50%;
+        height: 50px;
+        width: fit-content;
         margin: 0 auto;
         margin-bottom: 50px;
         font-weight: 400;
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid var(--text);
         
 
         @media screen and (max-width: 768px) {

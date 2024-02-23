@@ -17,12 +17,12 @@
     height: 50px;
     @include reusables.flex(row, center, center);
     gap: 10px;
-    border: 2px solid lightcoral;
     border-radius: 10px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
     transition: all 0.5s ease-in-out;
     text-decoration: none;
-    color: black;
+    color: var(--background);
+    background-color: var(--profile-link);
     animation: slideIn 1s ease-out forwards;
 
     @for $i from 2 through 4 {
@@ -91,8 +91,12 @@ form {
 
     %form-input-field {
         padding: 20px;
-        border: 2px solid lightcoral;
-        border-radius: 10px
+        border: none;
+        border-radius: 10px;
+
+        &:active, &:focus{
+            outline: 2px solid var(--text);
+        }
     }
 
     input {
@@ -108,15 +112,18 @@ form {
     }
 
     .form-btn {
-        width: 150px;
-        height: 50px;
+       // width: 150px;
+        //height: 50px;
+        margin-top: 50px;
         border-radius: 10px;
         border: none;
         @extend %shadow-effect;
         transition: all 0.05s ease-in-out;
-        background-color: lightcoral;
+        background-color: var(--text);
         font-size: 1.5rem;
-        color: white;
+        color: var(--background);
+        padding: 15px 50px;
+
 
         &:active {
             transform: translateY(4px);

@@ -39,15 +39,18 @@ function showBurgerMenu() {
     burgerButton.classList.add('show');
     navMenu.classList.add('nav-links-container-hide');
     navMenu.classList.remove('nav-links-container-show');
-    navbar.style.backgroundColor = '#F8F5F1'; // Change to your desired background color
-
+    //navbar.style.backgroundColor = '#131e23'; // Change to your desired background color
+    navbar.classList.add('visible');
+    navbar.classList.remove('transparent');
 }
 
 function showNavLinks() {
     burgerButton.classList.remove('show');
     navMenu.classList.add('nav-links-container-show');
     navMenu.classList.remove('nav-links-container-hide');
-    navbar.style.backgroundColor = 'transparent';
+    //navbar.style.backgroundColor = 'transparent';
+    navbar.classList.remove('visible');
+    navbar.classList.add('transparent');
 
 }
 

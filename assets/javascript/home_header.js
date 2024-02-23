@@ -1,6 +1,6 @@
 /****************** FEATURES ANIMATION ******************/
 
-document.addEventListener('DOMContentLoaded', function() {
+//document.addEventListener('DOMContentLoaded', function() {
 const features = document.querySelectorAll('.feature');
 let f_index = 0;
 
@@ -14,20 +14,10 @@ function updateFontSize() {
 // Initial call to set the initial font size
 updateFontSize();
 // Call the updateFontSize function every 3 seconds
-setInterval(updateFontSize, 3000);
-});
+setInterval(updateFontSize, 2000);
+//});
 
 
-/****************** PHOTO SLIDING ANIMATION ******************/
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Trigger the animation when the DOM is fully loaded
-    var imageBox = document.getElementById('scroll-image');
-    var featuresBox = document.querySelector('.features-box');
-    imageBox.classList.add('animate-topdown');
-    featuresBox.classList.add('animate-bottomup');
-});
 
 
 
@@ -35,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /****************** PHOTO FADING ANIMATION ******************/
 
 
-document.addEventListener('DOMContentLoaded', function() {
+//document.addEventListener('DOMContentLoaded', function() {
 
 var images = document.getElementsByClassName("test");
 for (var i = 0; i < images.length; ++i) {
@@ -46,7 +36,7 @@ const imgIndexes = [0, 1, 2];
 var currentImg = imgIndexes[2];
 var coveredImg;
 
-setInterval(changeImage, 3000);
+setInterval(changeImage, 2000);
 
 async function changeImage() {
 
@@ -89,72 +79,24 @@ function transition() {
         }
     })
 }
+//});
+
+
+
+/****************** PHOTO SLIDING ANIMATION ******************/
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Trigger the animation when the DOM is fully loaded
+    var imageBox = document.getElementById('scroll-image');
+    var featuresBox = document.querySelector('.features-box');
+    imageBox.classList.add('animate-topdown');
+    featuresBox.classList.add('animate-bottomup');
 });
 
 
 
-
-
-
-
-
-/* 
- startImageTransition();
-
-function startImageTransition() {
-    var images = document.getElementsByClassName("test");
-
-    for (var i = 0; i < images.length; ++i) {
-        images[i].style.opacity = 1;
-    }
-
-    var top = 1;
-
-    var cur = images.length - 1;
-
-    setInterval(changeImage, 3000);
-
-    async function changeImage() {
-
-        var nextImage = (1 + cur) % images.length;
-
-        images[nextImage].style.zIndex = top;
-        images[cur].style.zIndex = top + 1;
-        
-
-        await transition();
-
-        images[cur].style.zIndex = top;
-        images[cur].style.opacity = 1;
-        images[nextImage].style.zIndex = top + 1;
-        top++;
-
-        
-
-        cur = nextImage;
-
-    }
-
-    function transition() {
-        return new Promise(function (resolve, reject) {
-            var del = 0.1;
-
-            var id = setInterval(changeOpacity, 100);
-
-            function changeOpacity() {
-                images[cur].style.opacity -= del;
-                if (images[cur].style.opacity <= 0) {
-                    clearInterval(id);
-                    resolve();
-                }
-            }
-
-        })
-    }
-}  */
-
-
-
+/****************** INTRO SLIDING ANIMATION ******************/
 
 document.addEventListener('DOMContentLoaded', function () {
     const element = document.querySelector('.home-intro-section');
