@@ -1,5 +1,5 @@
 const burgerButton = document.querySelector(".burger-button");
-const navbar = document.querySelector('.nav-container');
+const navbar = document.querySelector('.nav');
 const navMenu = document.querySelector(".nav-links-container");
 const overlayNavMenu = document.querySelector(".overlay-menu");
 const overlayNavLinks = document.querySelectorAll(".overlay-nav-link");
@@ -58,7 +58,7 @@ document.addEventListener('scroll', function () {
 
     var scrollPosition = window.scrollY;
     // Adjust this value to determine when the background color should change
-    var scrollThreshold = 100;
+    var scrollThreshold = 50;
     var upBtnScrollThreshold = 800;
 
     (scrollPosition > scrollThreshold) ? showBurgerMenu() : showNavLinks();

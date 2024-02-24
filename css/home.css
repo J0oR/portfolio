@@ -28,21 +28,21 @@
 
 :root {
   --background: #131e23;
-  --background: #EDE2DC;
+  --background: #233830;
   --navbar: #d4cac5;
-  --nav-link: #AB3B61;
-  --nav-link-active: #AB3B61;
-  --text: #AB3B61;
+  --nav-link: #49c5b6;
+  --nav-link-active: #49c5b6;
+  --text: #49c5b6;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
   --overlay-navbar:#64B2CD;
-  --footer: #123c69;
-  --footer-text: #eae7dc;
-  --header: #AB3B61;
-  --features-box: #123c69;
-  --features-text: #EDE2DC;
-  --intro: #ac3b61;
-  --intro-text: #EDE2DC;
+  --footer: #233830;
+  --footer-text: #49c5b6;
+  --header: #49c5b6;
+  --features-box: #2779a7;
+  --features-text: #49c5b6;
+  --intro: #49c5b6;
+  --intro-text: #233830;
   --profile-link: #ac3b61;
 }
 
@@ -54,6 +54,7 @@
 
 html {
   font-size: 14px;
+  font-weight: 600;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -69,6 +70,7 @@ body {
 section {
   width: 100%;
   margin-bottom: 50px;
+  text-align: center;
 }
 section .section-title {
   display: flex;
@@ -79,8 +81,8 @@ section .section-title {
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 50px;
-  font-weight: 400;
-  border-bottom: 2px solid var(--text);
+  font-weight: 900;
+  gap: 5px;
 }
 @media screen and (max-width: 768px) {
   section .section-title {
@@ -109,7 +111,7 @@ section .section-title {
 
 .nav-container {
   position: sticky;
-  top: 0;
+  top: 20px;
   z-index: 100;
   margin-bottom: 60px;
   transition: background-color 0.3s ease-out;
@@ -121,6 +123,8 @@ section .section-title {
 
 .visible {
   background-color: var(--navbar);
+  background-color: hsla(161, 22%, 35%, 0.7);
+  backdrop-filter: blur(20px) saturate(1.7);
 }
 
 nav {
@@ -129,13 +133,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 100px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
+  margin-top: 20px;
 }
 @media screen and (max-width: 768px) {
   nav {
     padding: 0 20px;
+    max-width: 80vw;
   }
 }
 nav .logo-container {
@@ -147,7 +155,7 @@ nav .logo-container {
   align-items: center;
 }
 nav .logo {
-  height: 50px;
+  height: 150px;
   display: flex;
   align-self: center;
 }
@@ -226,7 +234,9 @@ nav .logo {
 }
 .nav-link.active-link {
   font-weight: 600;
-  border-bottom: 2px solid var(--nav-link-active);
+  background-color: hsla(160, 22%, 45%, 0.7);
+  border-radius: 50px;
+  padding: 20px;
 }
 
 /******************** OVERLAY ***********************/
@@ -415,6 +425,14 @@ footer {
   margin-top: 100px;
   color: var(--footer-text);
 }
+footer::before {
+  content: "";
+  position: relative; /* Add position: absolute for proper positioning */
+  left: 10%;
+  border-top: 1px solid #48C4B6;
+  width: 80%;
+  display: block;
+}
 @media screen and (max-width: 768px) {
   footer {
     height: 30vh;
@@ -524,8 +542,10 @@ footer {
 }
 .features-box .features-list {
   height: 600px;
-  width: calc(50% + 50px);
+  width: calc(60% + 100px);
   background-color: var(--features-box);
+  border: 1px solid #3396cf;
+  border-radius: 20px;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -540,14 +560,23 @@ footer {
 }
 @media screen and (max-width: 768px) {
   .features-box .features-list {
+    height: fit-content;
+    width: 110%;
+    padding: 20px 0;
+    width: 70%;
+    height: 200%;
+    position: relative;
+    top: 100px;
+    /*  border: none;
     background-color: transparent;
-    height: 100%;
-    width: 100%;
+    .feature{
+    color: var(--background);
+    }  */
   }
 }
 .features-box .feature {
-  font-size: 1.2rem;
-  transition: all 1s ease-in-out;
+  font-size: 1.5rem;
+  transition: transform 1s ease-in-out;
   color: var(--features-text);
   width: 100%;
   text-align: center;
@@ -564,7 +593,6 @@ footer {
   .features-box .feature.marked {
     transform: scale(1.4);
     font-weight: 400;
-    background-color: var(--features-box);
     width: 100vw;
     text-align: center;
   }
@@ -595,6 +623,8 @@ footer {
   border-radius: 5px;
   opacity: 0;
   position: absolute;
+  border-radius: 50%;
+  border: 2px solid #57e7d6;
   /*  &.n3 {
       @extend %shadow-effect;
   } */
@@ -658,11 +688,11 @@ footer {
   background-color: var(--intro);
   font-size: 1.5rem;
   color: var(--intro-text);
-  height: 300px;
   width: 100%;
   z-index: -1;
   left: -20%;
-  border-radius: 4px;
+  border-top-right-radius: 120px;
+  border-bottom-right-radius: 120px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -670,12 +700,12 @@ footer {
 }
 @media screen and (max-width: 576px) {
   .home-intro-section .rectangle {
-    height: 300px;
+    height: 250px;
     left: -10%;
   }
 }
 .home-intro-section .rectangle .empty-field {
-  flex-basis: 40%;
+  flex-basis: 50%;
 }
 @media screen and (max-width: 576px) {
   .home-intro-section .rectangle .empty-field {
@@ -683,19 +713,22 @@ footer {
   }
 }
 .home-intro-section .rectangle .intro-text {
-  flex-basis: 60%;
+  flex-basis: 50%;
   text-align: center;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 15px;
 }
 @media screen and (max-width: 576px) {
   .home-intro-section .rectangle .intro-text {
     flex-basis: 80%;
   }
+}
+.home-intro-section .rectangle .intro-text p {
+  width: 100%;
 }
 
 /************************ Home portfolio preview ***********************************/
@@ -736,12 +769,25 @@ section.home-portfolio {
   gap: 20px;
   padding: 12px;
 }
+.portfolio-preview-card figure:hover figcaption {
+  opacity: 1;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background-color: var(--text);
+  color: var(--background);
+  border-radius: 10px;
+  display: block;
+}
 .portfolio-preview-card figcaption {
   padding: 4px 10px;
   text-align: center;
   color: var(--text);
-  width: 100%;
+  width: fit-content;
   margin-top: 20px;
+  display: none;
+  opacity: 0;
+  transition: all 1s ease-in-out forwards;
 }
 @media screen and (max-width: 768px) {
   .portfolio-preview-card {
@@ -757,9 +803,10 @@ section.home-portfolio {
 .portfolio-preview-img {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
   transition: all 0.3s ease-in-out;
-  object-fit: fill;
-  border-radius: 4px;
+  object-fit: cover;
+  border-radius: 20px;
   width: 100%;
+  height: 300px;
 }
 .portfolio-preview-img:hover {
   transform: scale(1.05);

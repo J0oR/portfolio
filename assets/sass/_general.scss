@@ -2,27 +2,27 @@
 
 :root{
     --background: #131e23;
-    --background: #EDE2DC;
+    --background: #233830;
     --navbar: #d4cac5;
-    --nav-link: #AB3B61;
-    --nav-link-active: #AB3B61;
+    --nav-link: #49c5b6;
+    --nav-link-active: #49c5b6;
     
-    --text: #AB3B61;
+    --text: #49c5b6;
 
     --card-color: #ede5db;
     --card-border: #EAD7BB;
 
     --overlay-navbar:#64B2CD;
 
-    --footer: #123c69;
-    --footer-text: #eae7dc;
+    --footer: #233830;
+    --footer-text: #49c5b6;
 
-    --header: #AB3B61;
-    --features-box: #123c69;
-    --features-text: #EDE2DC;
+    --header: #49c5b6;
+    --features-box: #2779a7;
+    --features-text: #49c5b6;
 
-    --intro: #ac3b61;
-    --intro-text: #EDE2DC;
+    --intro: #49c5b6;
+    --intro-text: #233830;
 
     --profile-link: #ac3b61;
     
@@ -39,6 +39,7 @@
 
 html{
     font-size: 14px;
+    font-weight: 600;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -55,6 +56,7 @@ body{
 section {
     width: 100%;
     margin-bottom: 50px;
+    text-align: center;
 
     .section-title{
         @include reusables.flex(column, center, center);
@@ -62,13 +64,13 @@ section {
         width: fit-content;
         margin: 0 auto;
         margin-bottom: 50px;
-        font-weight: 400;
-        border-bottom: 2px solid var(--text);
-        
+        font-weight: 900;
+        gap: 5px;
 
         @media screen and (max-width: 768px) {
             width: 80%;
         }
+
     }
 }
 

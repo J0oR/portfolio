@@ -18,9 +18,10 @@
 
     <!-- nav bar -->
     <div class="nav-container">
-        <nav>
-            <h1 class="logo">Giovanni Ruocco</h1>
-            <button class="burger-button">
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="" class="logo">
+            </div>            <button class="burger-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -74,7 +75,7 @@
     <main>
 
 
-        
+
 
         <!-- ONLINE PROFILE -->
         <section>
@@ -92,7 +93,7 @@
                     <span>Codepen</span>
                     <i class="fa-brands fa-codepen"></i>
                 </a>
-                <a class="online-profile" href="https://www.freecodecamp.org/jrvn" target="_blank" >
+                <a class="online-profile" href="https://www.freecodecamp.org/jrvn" target="_blank">
                     <span>freeCodeCamp</span>
                     <i class="fa-brands fa-free-code-camp"></i>
                 </a>
@@ -104,9 +105,7 @@
         <section>
             <div class="section-title contact-headline container">
                 <h2>Contact me</h2>
-                <p>If you wish to conctact me, please feel free to leave a message using the form below.</p>
             </div>
-
             <form action="" class="container" id="contact-form">
                 <input type="hidden" name="contact_number">
 
@@ -130,7 +129,8 @@
                 </div>
                 <div class="field">
                     <label for="username">Message</label>
-                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="message" id="message" required></textarea>
+                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="message" id="message"
+                        required></textarea>
                 </div>
                 <button class="form-btn" type="submit" onclick="validateForm()">Submit</button>
 
@@ -139,8 +139,8 @@
 
     </main>
 
-     <!-- uP button -->
-     <button class="back-up-button">
+    <!-- uP button -->
+    <button class="back-up-button">
         <i class="fa-solid fa-circle-chevron-up"></i>
     </button>
 

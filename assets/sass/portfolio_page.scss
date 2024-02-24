@@ -18,13 +18,15 @@
 
     @include reusables.flex(row, center, center);
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
+    
 
     .portfolio-project {
         position: relative;
         overflow: hidden;
         flex-basis: 400px;
         height: 300px;
+        border-radius: 20px;
         @extend %shadow-effect;
 
 

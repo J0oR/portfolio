@@ -1,4 +1,12 @@
 footer{
+    &::before{
+        content: '';
+        position: relative; /* Add position: absolute for proper positioning */
+        left: 10%;
+        border-top: 1px solid #48C4B6;
+        width: 80%;
+        display: block;
+    }
     height: 20vh;
     background-color: var(--footer);
     margin-top: 100px;
