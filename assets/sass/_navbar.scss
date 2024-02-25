@@ -6,8 +6,6 @@
     z-index: 100;
     margin-bottom: 60px;
     transition: background-color 0.3s ease-out;
-    
-    
 }
 
 .transparent{
@@ -18,19 +16,16 @@
     background-color: var(--navbar);
     background-color: hsla(161, 22%, 35%, 0.7);
     backdrop-filter: blur(20px) saturate(1.7);
-    
+    @extend %shadow-effect;
 }
 nav {
     @include reusables.flex(row, space-between, center);
     height: 70px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     padding: 0 100px;
     transition: all 0.3s ease-in-out;
     border-radius: 50px;
-    
-    
-    margin-top: 20px;
 
     @media screen and (max-width: 768px) {
         padding: 0 20px;
@@ -167,7 +162,7 @@ nav {
         height: 100vh;
         background-color: var(--overlay-navbar);
         position: absolute;
-        top: 0;
+        top: -20px;
         left: 0;
         animation: slideNavUp 0.5s ease-in-out forwards;
 
@@ -205,10 +200,6 @@ nav {
                 @include reusables.flex(row, center, center);
             } */
         }
-
-        
-
-        
     }
 }
 
@@ -308,6 +299,3 @@ nav {
     }
 }
 
-.back-up-button{
-    transition: display 1s ease-in-out;
-}

@@ -11,28 +11,39 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 
 
+function sendMail(){
 
-/* function validateForm() {
-    var userFirstName = document.getElementById("user_firstname").value;
-    var userLastName = document.getElementById("user_lastname").value;
-    var userEmail = document.getElementById("user_email").value;
-    var subject = document.getElementById("subject").value;
-    var message = document.getElementById("message").value;
+    scrollToMessageArea();
 
-    // TODO check every field
+    var params = {
+        from_name: document.getElementById("form_name").value + " " + document.getElementById("form_lastname").value,
+        email_id: document.getElementById("form_email").value,
+        subject: document.getElementById("form_subject").value,
+        message: document.getElementById("form_message").value
+    };
 
-
-    if (userFirstName && userLastName && userEmail && subject && message) {
-        // All fields are filled, you can proceed to send the email or perform other actions
-        sendMail();
-        alert("Email sent!");
-    } else {
-        // Not all fields are filled, show an alert or perform other validation logic
-        alert("Please fill in all required fields");
+    if (validateForm()){
+        emailjs.send('service_oy42a15', 'template_xdjh6jr', params).then(function () {
+            console.log('SUCCESS!');
+        }, function (error) {
+            console.log('FAILED...', error);
+        });
     }
-} */
+}
+
+function scrollToMessageArea(){
+    var targetElement = document.getElementById('message_area');
+
+    var offset = targetElement.offsetTop;
+
+    // If you are scrolling within a container, replace document.documentElement with your container element
+    document.documentElement.scrollTop = offset - 250;
+}
 
 
+
+
+/* VALIDATION */
 
 
 function sanitizeInput(input) {
@@ -41,44 +52,44 @@ function sanitizeInput(input) {
 }
 
 function validateForm() {
-    var name = sanitizeInput(document.getElementById("name").value);
-    var surname = sanitizeInput(document.getElementById("surname").value);
-    var email = sanitizeInput(document.getElementById("email").value);
-    var subject = sanitizeInput(document.getElementById("subject").value);
-    var message = sanitizeInput(document.getElementById("message").value);
+    var name = sanitizeInput(document.getElementById("form_name").value);
+    var surname = sanitizeInput(document.getElementById("form_lastname").value);
+    var email = sanitizeInput(document.getElementById("form_email").value);
+    var subject = sanitizeInput(document.getElementById("form_subject").value);
+    var message = sanitizeInput(document.getElementById("form_message").value);
+    var input_error = document.getElementById("form_input_error");
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
     // Simple checks for empty fields
     if (name === "") {
-        document.getElementById("nameError").innerHTML = "Name must be filled out";
+        input_error.innerHTML = "Name must be filled out";
         return false;
     }
-
-    if (surname === "") {
-        document.getElementById("surnameError").innerHTML = "Surname must be filled out";
+    
+    else if (surname === "") {
+        input_error.innerHTML = "Surname must be filled out";
         return false;
     }
-
-    if (email === "") {
-        document.getElementById("emailError").innerHTML = "Email must be filled out";
+    else if (email === "") {
+        input_error.innerHTML = "Email must be filled out";
         return false;
     }
-
-    if (subject === "") {
-        document.getElementById("subjectError").innerHTML = "Subject must be filled out";
+    else if (!emailRegex.test(email)) {
+        input_error.innerHTML = "Invalid email format";
         return false;
     }
-
-    if (message === "") {
-        document.getElementById("messageError").innerHTML = "Message must be filled out";
+    else if (subject === "") {
+        input_error.innerHTML = "Subject must be filled out";
+        return false;
+    }
+    else if (message === "") {
+        input_error.innerHTML = "Message must be filled out";
         return false;
     }
 
     // Additional checks for email format
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        document.getElementById("emailError").innerHTML = "Invalid email format";
-        return false;
-    }
+    
 
     // You can add more checks for other fields if needed
 
@@ -87,22 +98,12 @@ function validateForm() {
 }
 
 
+/* input error reset */
+document.getElementById('contact-form').addEventListener('input', function(event) {
+    // Check if the target of the event is an input element
+    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+        console.log("jh");
+        document.getElementById("form_input_error").innerHTML = "";
 
-
-
-
-function sendMail(){
-    var params = {
-        from_name: document.getElementById("user_firstname").value + " " + document.getElementById("user_lastname").value,
-        email_id: document.getElementById("user_email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    };
-
-    // these IDs from the previous steps
-    emailjs.send('service_oy42a15', 'template_xdjh6jr', params).then(function () {
-        console.log('SUCCESS!');
-    }, function (error) {
-        console.log('FAILED...', error);
-    });
-}
+    }
+});

@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
     function handleScroll() {
       if (isInViewport(element)) {
-        element.classList.add('leftSlide');
+        element.classList.add('rightSlide');
       } else {
         element.classList.remove('in-viewport');
       }

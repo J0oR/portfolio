@@ -19,11 +19,17 @@
     gap: 10px;
     border-radius: 10px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
-    transition: all 0.5s ease-in-out;
     text-decoration: none;
-    color: var(--background);
-    background-color: var(--profile-link);
-    animation: slideIn 1s ease-out forwards;
+    color: var(--primary);
+    background-color: var(--tertiary);
+    animation: slideIn 1s ease-in-out forwards;
+    transition: transform 1s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1) !important;
+        //@extend %shadow-effect;
+        cursor: pointer;
+    }
 
     @for $i from 2 through 4 {
         &:nth-child(#{$i}) {
@@ -39,11 +45,7 @@
         width: 100%;
     }
 
-    &:hover {
-        transform: scale(1.2);
-        @extend %shadow-effect;
-        cursor: pointer;
-    }
+    
 
 }
 
@@ -86,6 +88,11 @@ form {
 
     label {
         width: 100%;
+        text-align: left;
+
+        @media screen and (max-width: 768px) {
+            text-align: center;
+        }
     }
 
 
@@ -93,9 +100,17 @@ form {
         padding: 20px;
         border: none;
         border-radius: 10px;
+        background-color: var(--secondary);
+        color: var(--tertiary);
+        font-size: 1.2rem;
 
         &:active, &:focus{
+            background-color: var(--secondary);
             outline: 2px solid var(--text);
+        }
+
+        &::placeholder{
+            color: var(--primary);
         }
     }
 
@@ -149,7 +164,7 @@ form {
 
     @media screen and (max-width: 768px) {
         @include reusables.flex(column, center, center);
-        gap: 10px;
+        gap: 30px;
 
         div {
             width: 100%;

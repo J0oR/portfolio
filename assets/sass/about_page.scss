@@ -19,6 +19,7 @@
     p {
         width: 100%;
         font-size: 1.5rem;
+        color: var(--text-2);
 
     }
 }
@@ -90,7 +91,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
         font-weight: 400;
         color: var(--features-box);
         transition: all 0.3s linear;
@@ -98,30 +99,11 @@
         &.n1,
         &.n3 {
             left: 50%;
-
+/* 
             p {
-                align-self: flex-end;
-                text-align: right;
-            }
-        }
-
-        p {
-            font-size: 1.2rem;
-            word-wrap: break-word;
-            width: 80%;
-            transition: all 0.3s ease-in-out;
-
-        }
-
-        &.marked-phase {
-            color: var(--text);
-
-            .line{
-                background-color: var(--text);
-            }
-
-            transform: perspective(50vw) rotateX(40deg);
-            
+                 align-self: flex-end;
+                text-align: right; 
+            } */
         }
 
         .line {
@@ -133,13 +115,30 @@
             border: 1px solid rgb(110, 131, 138);
             @extend %shadow-effect;
             transition: all 0.3s ease-in-out;
-
         }
 
-        .top, .bottom{
+        p {
+            font-size: 1.2rem;
+            word-wrap: break-word;
+            width: 80%;
+            transition: all 0.5s ease-in-out;
+            align-self: center;
             max-width: 50%;
+
         }
 
+        &.marked-phase {
+
+            transform: perspective(50vw) rotateX(40deg);
+
+            p{
+                transform: scale(1.1);
+            }
+            
+            
+        }
+
+        
         
     }
 }

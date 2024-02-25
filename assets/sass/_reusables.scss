@@ -14,21 +14,17 @@
         rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
+
 .back-up-button{
     display: none;
     background-color: transparent;
     border: none;
     position: fixed;
     right: 2%;
-    bottom: 150px;
+    bottom: 50%;
     width: fit-content;
     height: fit-content;
     transition: all 0.3s ease-in-out;
-
-    @media screen and (max-width: 768px) {
-        bottom: 215px;
-        right: 20px;
-    }
 
     i{
        

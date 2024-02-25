@@ -21,7 +21,7 @@
         <nav class="nav">
             <div class="logo-container">
                 <img src="../assets/images/logo.png" alt="" class="logo">
-            </div>            <button class="burger-button">
+            </div> <button class="burger-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -31,55 +31,51 @@
                 <a class="nav-link" href="./about.html">About</a>
                 <a class="nav-link  active-link" href="./contact.html">Contact</a>
             </div>
+        </nav>
 
+        <div class="overlay-menu">
+            <div class="overlay-inner-container">
 
-            <div class="overlay-menu">
-                <div class="overlay-inner-container">
+                <h1 class="overlay-logo">Giovanni Ruocco</h1>
+                <div class="overlay-links-container">
+                    <a class="overlay-nav-link" href="../index.html">Home</a>
+                    <a class="overlay-nav-link" href="./portfolio.html">Portfolio</a>
+                    <a class="overlay-nav-link" href="./about.html">About</a>
+                    <a class="overlay-nav-link active-link" href="#">Contact</a>
+                    <button class="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
 
-                    <h1 class="overlay-logo">Giovanni Ruocco</h1>
-                    <div class="overlay-links-container">
-                        <a class="overlay-nav-link" href="../index.html">Home</a>
-                        <a class="overlay-nav-link" href="./portfolio.html">Portfolio</a>
-                        <a class="overlay-nav-link" href="./about.html">About</a>
-                        <a class="overlay-nav-link active-link" href="#">Contact</a>
-                        <button class="close-btn">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
+                <div class="overlay-right-container">
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/giovanni-ruocco-b3a5492a2/" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/J0oR" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://codepen.io/jrvn/" target="_blank">
+                            <i class="fa-brands fa-codepen"></i>
+                        </a>
+                        <a href="https://www.freecodecamp.org/jrvn" target="_blank">
+                            <i class="fa-brands fa-free-code-camp"></i>
+                        </a>
                     </div>
-
-                    <div class="overlay-right-container">
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/giovanni-ruocco-b3a5492a2/" target="_blank">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/J0oR" target="_blank">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="https://codepen.io/jrvn/" target="_blank">
-                                <i class="fa-brands fa-codepen"></i>
-                            </a>
-                            <a href="https://www.freecodecamp.org/jrvn" target="_blank">
-                                <i class="fa-brands fa-free-code-camp"></i>
-                            </a>
-                        </div>
-                        <div class="copyright">
-                            <p>&copy; 2023 Giovanni Ruocco. All rights reserved.</p>
-                        </div>
+                    <div class="copyright">
+                        <p>&copy; 2023 Giovanni Ruocco. All rights reserved.</p>
                     </div>
                 </div>
             </div>
-
-        </nav>
+        </div>
     </div>
+
 
     <main>
 
-
-
-
         <!-- ONLINE PROFILE -->
         <section>
-            <h2 class="section-title">My Online Profiles</h2>
+            <h2 class="section-title">ONLINE PRESENCE</h2>
             <div class="container profiles-container">
                 <a class="online-profile" href="https://www.linkedin.com/in/giovanni-ruocco-b3a5492a2/" target="_blank">
                     <span>Linkedin</span>
@@ -104,7 +100,10 @@
         <!-- CONTACT FORM -->
         <section>
             <div class="section-title contact-headline container">
-                <h2>Contact me</h2>
+                <h2>CONTACT ME</h2>
+            </div>
+            <div id="message_area">
+                BLO
             </div>
             <form action="" class="container" id="contact-form">
                 <input type="hidden" name="contact_number">
@@ -112,28 +111,28 @@
                 <div class="name-container">
                     <div class="field">
                         <label for="">First Name</label>
-                        <input type="text" placeholder="Enter your name" id="user_firstname" name="user_name" required>
+                        <input type="text" placeholder="Enter your name" id="form_name" name="form_name" >
                     </div>
                     <div class="field">
                         <label for="">Last Name</label>
-                        <input type="text" placeholder="Enter your last name" id="user_lastname" required>
+                        <input type="text" placeholder="Enter your last name" id="form_lastname" name="form_lastname">
                     </div>
                 </div>
                 <div class="field">
                     <label for="">Email address</label>
-                    <input type="email" placeholder="Enter your email" name="user_email" id="user_email" required>
+                    <input type="email" placeholder="Enter your email" name="form_email" id="form_email" >
                 </div>
                 <div class="field">
                     <label for="">Subject</label>
-                    <input type="text" placeholder="Subject of your message" id="subject" required>
+                    <input type="text" placeholder="Subject of your message" id="form_subject" name="form_subject">
                 </div>
                 <div class="field">
                     <label for="username">Message</label>
-                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="message" id="message"
-                        required></textarea>
+                    <textarea cols="30" rows="10" placeholder="Leave your message here" name="form_message" id="form_message"
+                        ></textarea>
                 </div>
-                <button class="form-btn" type="submit" onclick="validateForm()">Submit</button>
-
+                <button class="form-btn" type="submit" onclick="sendMail()">Submit</button>
+                <div id="form_input_error"></div>
             </form>
         </section>
 

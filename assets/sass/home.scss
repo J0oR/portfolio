@@ -29,7 +29,6 @@
 
 .features-box {
     flex: 1;
-    
     @include reusables.flex(column, center, center);
 
     @media screen and (max-width: 768px) {
@@ -41,58 +40,44 @@
         height: 600px;
         width: calc(60% + 100px);
         background-color: var(--features-box);
-        border: 1px solid #3396cf;
         border-radius: 20px;
         list-style-type: none;
         @include reusables.flex(column, center, center);
         gap: 20px;
-
 
         @media screen and (max-width: 991px) {
             width: 90%;
         }
 
         @media screen and (max-width: 768px) {
-            
             height: fit-content;
-            width: 110%;
+            width: 100%;
             padding: 20px 0;
-            
-            width: 70%;
-            height: 200%;
             position: relative;
-            top: 100px;
-
-            /*  border: none;
-            background-color: transparent;
-            .feature{
-            color: var(--background);
-            }  */
+            left: -10%;
         }
     }
 
     .feature {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         transition: transform 1s ease-in-out;
         color: var(--features-text);
         width: 100%;
         text-align: center;
 
+        @media screen and (max-width: 768px) {
+            width: 100vw;
+            margin-left: 20%;
+        }
+
         &.marked {
             transform: scale(1.4);
             font-weight: 400;
-        }
 
-        @media screen and (max-width: 768px) {
-            width: 100vw;
-            text-align: center;
-
-            &.marked {
+            @media screen and (max-width: 768px) {
                 transform: scale(1.4);
                 font-weight: 400;
-                //background-color: var(--background);
                 width: 100vw;
-                text-align: center;
             }
         }
     }
@@ -105,26 +90,22 @@
     width: 100%;
     height: 100%;
 
-
     @media screen and (max-width: 768px) {
         flex-basis: 60%;
     }
+    
+}
 
-    .images-list {
-        @include reusables.flex(row, center, center);
+.images-list {
+    @include reusables.flex(row, center, center);
 
-        .test {
-            width: 300px;
-            border-radius: 5px;
-            opacity: 0;
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid #57e7d6;
-
-            /*  &.n3 {
-                @extend %shadow-effect;
-            } */
-        }
+    .test {
+        width: 300px;
+        border-radius: 5px;
+        opacity: 0;
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid var(--secondary-border);
     }
 }
 
@@ -162,17 +143,18 @@
     }
 }
 
-/************************ Home Intro ***********************************/
+
+/************************************** HOME INTRO ******************************************/
 
 
-.leftSlide {
+.rightSlide {
 
-    animation: slideFromLeft 1s ease-out forwards;
+    animation: slideFromRight 1s ease-out forwards;
 
     @keyframes slideFromLeft {
         from {
             opacity: 0;
-            transform: translateX(-30%);
+            transform: translateX(30%);
         }
 
         to {
@@ -187,54 +169,45 @@
     margin-top: 250px;
     height: 350px;
     opacity: 0;
-    
-
-
 
     @media screen and (max-width: 768px) {
         margin-top: 100px;
     }
 
     .rectangle {
-        position: absolute;
         background-color: var(--intro);
-        //border-bottom: 12px solid var(--intro);
         font-size: 1.5rem;
-        color: var(--intro-text);
+        color: var(--tertiary);
         width: 100%;
-        z-index: -1;
-        left: -20%;
-        border-top-right-radius: 120px;
-    border-bottom-right-radius: 120px;
+        position: relative;
+        right: -20%;
+        border-top-left-radius: 120px;
+        border-bottom-left-radius: 120px;
+        @include reusables.flex(column, center, center);
+        padding: 20px 0;
 
-        @include reusables.flex(row, center, center);
 
         @media screen and (max-width: 576px) {
             height: 250px;
-            left: -10%;
+            right: -10%;
         }
 
-
-        .empty-field {
-            flex-basis: 50%;
-
-            @media screen and (max-width: 576px) {
-                flex-basis: 20%;
-            }
-        }
 
         .intro-text {
-            flex-basis: 50%;
-            text-align: center;
+            width: 60%;
             padding: 20px;
-            @include reusables.flex(column, center, flex-end);
+            @include reusables.flex(column, center, flex-start);
             gap: 15px;
+            margin-left: 10px;
+            align-self: flex-start;
 
+            
             @media screen and (max-width: 576px) {
-                flex-basis: 80%;
+                right: -10%;
+                width: 80%;
             }
 
-            p {
+            p{
                 width: 100%;
             }
         }
