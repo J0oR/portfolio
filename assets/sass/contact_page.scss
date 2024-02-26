@@ -68,7 +68,6 @@
     @include reusables.flex(column, center, center);
     width: 100%;
     gap: 20px;
-    height: 150px !important;
 }
 
 form {
@@ -101,6 +100,7 @@ form {
         border: none;
         border-radius: 10px;
         background-color: var(--secondary);
+        outline: 1px solid var(--secondary-border);
         color: var(--tertiary);
         font-size: 1.2rem;
 
@@ -114,6 +114,11 @@ form {
         }
     }
 
+
+    input:-webkit-autofill{
+        background-color: transparent;
+        outline: 2px solid var(--text) !important;
+    }
     input {
         @extend %form-input-field;
         height: 50px;
@@ -170,4 +175,24 @@ form {
             width: 100%;
         }
     }
+}
+
+
+.form_input_error{
+    background-color: lightcoral;
+    border: 1px solid salmon;
+    width: 100%;
+    height: fit-content;
+    display: none;
+    border-radius: 12px;
+    padding: 20px 0;
+}
+
+.form_input_error_visible{
+    display: block !important;
+}
+
+.success{
+    background-color: lightgreen !important;
+    border: 1px solid green;
 }

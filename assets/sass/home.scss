@@ -16,7 +16,7 @@
 }
 
 .header-container {
-    height: 400px;
+    height: 340px;
     @include reusables.flex(row, space-around, center);
 
     @media screen and (max-width: 768px) {
@@ -37,7 +37,7 @@
     }
 
     .features-list {
-        height: 600px;
+        height: 500px;
         width: calc(60% + 100px);
         background-color: var(--features-box);
         border-radius: 20px;
@@ -169,6 +169,8 @@
     margin-top: 250px;
     height: 350px;
     opacity: 0;
+  
+    @include reusables.flex(row, center, center);
 
     @media screen and (max-width: 768px) {
         margin-top: 100px;
@@ -183,6 +185,7 @@
         right: -20%;
         border-top-left-radius: 120px;
         border-bottom-left-radius: 120px;
+        border: 1px solid var(--secondary-border);
         @include reusables.flex(column, center, center);
         padding: 20px 0;
 

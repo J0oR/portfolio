@@ -91,7 +91,7 @@ nav {
 .nav-link {
 
     text-decoration: none;
-    color: var(--nav-link);
+    color: var(--text-2);
     @include reusables.flex(row, center, center);
 
     @media screen and (max-width: 768px) {

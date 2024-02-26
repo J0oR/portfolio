@@ -99,11 +99,11 @@
 
         <!-- CONTACT FORM -->
         <section>
-            <div class="section-title contact-headline container">
+            <div class="section-title contact-headline">
                 <h2>CONTACT ME</h2>
             </div>
-            <div id="message_area">
-                BLO
+            <div id="message_area" class="container">
+                <div class="form_input_error"></div>
             </div>
             <form action="" class="container" id="contact-form">
                 <input type="hidden" name="contact_number">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="field">
                     <label for="">Email address</label>
-                    <input type="email" placeholder="Enter your email" name="form_email" id="form_email" >
+                    <input type="text" placeholder="Enter your email" name="form_email" id="form_email" >
                 </div>
                 <div class="field">
                     <label for="">Subject</label>
@@ -132,7 +132,6 @@
                         ></textarea>
                 </div>
                 <button class="form-btn" type="submit" onclick="sendMail()">Submit</button>
-                <div id="form_input_error"></div>
             </form>
         </section>
 
