@@ -65,8 +65,12 @@ body{
 
 section {
     width: 100%;
-    margin-bottom: 50px;
     text-align: center;
+    margin-top: 150px;
+
+    &:last-of-type{
+        margin-bottom: 150px;
+    }
 
     .section-title{
         @include reusables.flex(column, center, center);

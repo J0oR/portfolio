@@ -8,16 +8,18 @@
     transition: background-color 0.3s ease-out;
 }
 
-.transparent{
+.transparent {
     background-color: transparent;
 
 }
-.visible{
+
+.visible {
     background-color: var(--navbar);
     background-color: hsla(161, 22%, 35%, 0.7);
     backdrop-filter: blur(20px) saturate(1.7);
     @extend %shadow-effect;
 }
+
 nav {
     @include reusables.flex(row, space-between, center);
     height: 70px;
@@ -37,9 +39,10 @@ nav {
         flex: 1;
         @include reusables.flex(row, flex-start, center);
 
-        
+
     }
-    .logo{
+
+    .logo {
         height: 150px;
         display: flex;
         align-self: center;
@@ -109,7 +112,7 @@ nav {
         }
     }
 
-    &.active-link{
+    &.active-link {
         font-weight: 600;
         //border-bottom: 2px solid var(--nav-link-active);
         background-color: hsla(160, 22%, 45%, 0.7);
@@ -119,7 +122,7 @@ nav {
 }
 
 
-/******************** OVERLAY ***********************/
+/*********************************** OVERLAY *****************************************/
 
 .close-btn {
     display: none;
@@ -153,14 +156,14 @@ nav {
 
     &.show-fullscreen {
 
-        html{
+        html {
             display: none;
         }
 
         display: flex;
         width: 100vw;
         height: 100vh;
-        background-color: var(--overlay-navbar);
+        background-color: var(--secondary);
         position: absolute;
         top: -20px;
         left: 0;
@@ -168,11 +171,11 @@ nav {
 
         @media screen and (min-width: 769px) {
             padding: 60px 15% 80px 15%;
-           
+
         }
     }
 
-    .overlay-inner-container{
+    .overlay-inner-container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -182,11 +185,11 @@ nav {
             flex-direction: column;
             padding: 20px;
 
-           /*  .overlay-logo{
+            /*  .overlay-logo{
                 height: 50px;
                 text-align: center;
             } */
-            
+
         }
 
         @media screen and (min-width: 769px) {
@@ -204,70 +207,82 @@ nav {
 }
 
 
-.overlay-logo-container{
-    flex: 0.5;
+.overlay-logo {
+    flex-basis: 100%;
     @include reusables.flex(row, center, center);
 
-    @media screen and (min-width: 769px) {
-        flex-basis: 100%;
+
+    @media screen and (max-width: 768px) {
+        flex: 1;
     }
 
-    .logo{
-        height: 100px;
+    img{
+        width: 200px;
     }
 }
 
-.overlay-links-container{
+.overlay-links-container {
     flex: 1;
     width: 100%;
     @include reusables.flex(column, flex-end, flex-start);
     gap: 10px;
 
+    @media screen and (max-width: 768px) {
+        align-items: center;
+    }
+
     .overlay-nav-link {
-        
+
         animation: slideNavLinkUp 0.5s ease-in-out forwards;
         text-decoration: none;
-        color: black;
+        color: var(--text-2);
         font-size: 2rem;
-    
+        text-align: center;
+        opacity: 0;
+
         @for $i from 2 through 4 {
             &:nth-child(#{$i}) {
                 animation-delay: 0.3s * ($i - 1);
             }
         }
-    
+
         @media screen and (max-width: 768px) {
-            width: 100%;
-            text-align: center;
+            width: 30%;
         }
+
         @media screen and (min-width: 769px) {
-            opacity: 0;
+            
             position: relative;
             height: 50px;
         }
 
-        &.active-link{
+        &.active-link {
             border-bottom: 2px solid white;
         }
     }
 }
 
 
-.overlay-right-container{
+.overlay-right-container {
     flex: 1;
     @include reusables.flex(column, space-evenly, center);
 
-    .social-icons{
+
+    .social-icons {
         @media screen and (max-width: 768px) {
             gap: 20px;
         }
+
+        
+
     }
 
-    .copyright{
+    .copyright {
         @media screen and (max-width: 768px) {
             text-align: center;
             gap: 100px;
         }
+        
     }
 }
 
@@ -298,4 +313,3 @@ nav {
         opacity: 1;
     }
 }
-

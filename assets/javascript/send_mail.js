@@ -31,8 +31,8 @@ function sendMail(){
             input_error.innerHTML = "Message sent!"
             input_error.classList.add("form_input_error_visible");
             input_error.classList.add("success");
+            resetForm();
         }, function (error) {
-            console.log(error);
             input_error.classList.remove("success");
             input_error.classList.add("form_input_error_visible");
             input_error.innerHTML = "There was an error while sending your message!\nPlease try again."
@@ -41,12 +41,12 @@ function sendMail(){
 }
 
 function scrollToMessageArea(){
-    var targetElement = document.getElementById('message_area');
+    var targetElement = document.querySelector('.form_input_error');
 
     var offset = targetElement.offsetTop;
 
     // If you are scrolling within a container, replace document.documentElement with your container element
-    document.documentElement.scrollTop = offset - 250;
+    document.documentElement.scrollTop = offset + 400;
 }
 
 
@@ -71,6 +71,7 @@ function validateForm() {
     var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
+    input_error.innerHTML = "";
     // Simple checks for empty fields
     if (name === "") {
         input_error.innerHTML = "Name must be filled out";
@@ -124,8 +125,17 @@ function resetError(target) {
     // Check if the target of the event is an input element or textarea
     if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
         console.log("Resetting error");
-        input_error.innerHTML = "";
         input_error.classList.remove("form_input_error_visible");
         input_error.classList.remove("success");
     }
+}
+
+
+function resetForm(){
+    document.getElementById("form_name").value = "";
+    document.getElementById("form_lastname").value = "";
+    document.getElementById("form_email").value = "";
+    document.getElementById("form_subject").value = "";
+    document.getElementById("form_message").value = "";
+    document.querySelector(".form_input_error").value = "";
 }

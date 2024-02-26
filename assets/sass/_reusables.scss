@@ -15,7 +15,7 @@
 }
 
 
-.back-up-button{
+.back-up-button {
     display: none;
     background-color: transparent;
     border: none;
@@ -26,12 +26,14 @@
     height: fit-content;
     transition: all 0.3s ease-in-out;
 
-    i{
-       
+    i {
+
         font-size: 4rem;
     }
 
-    &:hover{
+    &:hover {
         transform: scale(1.2);
     }
 }
+
+

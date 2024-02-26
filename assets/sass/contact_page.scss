@@ -64,10 +64,12 @@
 
 /******************* FORM *******************/
 
-.contact-headline {
+.section-title.contact-headline {
     @include reusables.flex(column, center, center);
-    width: 100%;
-    gap: 20px;
+    position: relative;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
 }
 
 form {
@@ -178,18 +180,35 @@ form {
 }
 
 
+/* FORM MESSAGES */
+
+#message_area{
+    position: relative;
+}
+
 .form_input_error{
     background-color: lightcoral;
+    //background-color: transparent;
     border: 1px solid salmon;
-    width: 100%;
     height: fit-content;
-    display: none;
     border-radius: 12px;
-    padding: 20px 0;
+    padding: 10px 0;
+    transition: opacity 0.5s ease-in-out;
+    //opacity: 0;
+    opacity: 0;
+    position: absolute;
+    width: 50%;
+
+    @media screen and (max-width: 768px) {
+        width: 96vw;
+    }
+ 
+
+
 }
 
 .form_input_error_visible{
-    display: block !important;
+    opacity: 1;
 }
 
 .success{
