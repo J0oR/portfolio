@@ -71,6 +71,10 @@
     @include reusables.flex(column, center, space-around);
     gap: 40px;
 
+    @media only screen and (max-width: 768px) {
+        gap: 100px;
+    }
+
 
     .vertical {
         position: absolute;
@@ -84,6 +88,15 @@
         //border: 1px solid rgb(110, 131, 138);
         @extend %shadow-effect;
         @include reusables.flex(column, center, space-around);
+
+        @media only screen and (max-width: 768px) {
+            justify-content: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+            left: 0;
+            margin-left: 25%;
+        }
     }
 
     .horizontal {
@@ -95,15 +108,23 @@
         font-weight: 400;
         color: var(--features-box);
         transition: all 0.3s linear;
+        
+        @media only screen and (max-width: 768px) {
+            left: 0;
+            margin-left: 26%;
+        }
 
-        &.n1,
-        &.n3 {
-            left: 50%;
-/* 
-            p {
-                 align-self: flex-end;
-                text-align: right; 
-            } */
+        @media only screen and (min-width: 768px) {
+
+            &.n1,
+            &.n3 {
+                left: 50%;
+    /* 
+                p {
+                     align-self: flex-end;
+                    text-align: right; 
+                } */
+            }
         }
 
         .line {

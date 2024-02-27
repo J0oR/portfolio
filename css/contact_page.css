@@ -7,11 +7,12 @@ form .form-btn, .visible {
   background-color: transparent;
   border: none;
   position: fixed;
-  right: 2%;
-  bottom: 50%;
+  right: 30px;
+  bottom: 30px;
   width: fit-content;
   height: fit-content;
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 .back-up-button i {
   font-size: 4rem;
@@ -72,6 +73,11 @@ section {
   width: 100%;
   text-align: center;
   margin-top: 150px;
+}
+@media screen and (max-width: 768px) {
+  section:first-of-type {
+    margin-top: 100px !important;
+  }
 }
 section:last-of-type {
   margin-bottom: 150px;

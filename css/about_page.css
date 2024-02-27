@@ -7,11 +7,12 @@
   background-color: transparent;
   border: none;
   position: fixed;
-  right: 2%;
-  bottom: 50%;
+  right: 30px;
+  bottom: 30px;
   width: fit-content;
   height: fit-content;
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 .back-up-button i {
   font-size: 4rem;
@@ -72,6 +73,11 @@ section {
   width: 100%;
   text-align: center;
   margin-top: 150px;
+}
+@media screen and (max-width: 768px) {
+  section:first-of-type {
+    margin-top: 100px !important;
+  }
 }
 section:last-of-type {
   margin-bottom: 150px;
@@ -557,6 +563,11 @@ footer::before {
   align-items: space-around;
   gap: 40px;
 }
+@media only screen and (max-width: 768px) {
+  .timeline {
+    gap: 100px;
+  }
+}
 .timeline .vertical {
   position: absolute;
   height: 100%;
@@ -571,6 +582,17 @@ footer::before {
   justify-content: center;
   align-items: space-around;
 }
+@media only screen and (max-width: 768px) {
+  .timeline .vertical {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .timeline .vertical {
+    left: 0;
+    margin-left: 25%;
+  }
+}
 .timeline .horizontal {
   width: 50%;
   position: relative;
@@ -581,13 +603,21 @@ footer::before {
   color: var(--features-box);
   transition: all 0.3s linear;
 }
-.timeline .horizontal.n1, .timeline .horizontal.n3 {
-  left: 50%;
-  /* 
-              p {
-                   align-self: flex-end;
-                  text-align: right; 
-              } */
+@media only screen and (max-width: 768px) {
+  .timeline .horizontal {
+    left: 0;
+    margin-left: 26%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .timeline .horizontal.n1, .timeline .horizontal.n3 {
+    left: 50%;
+    /* 
+                p {
+                     align-self: flex-end;
+                    text-align: right; 
+                } */
+  }
 }
 .timeline .horizontal .line {
   height: 10px;

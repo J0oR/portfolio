@@ -1,128 +1,106 @@
-/****************** FEATURES ANIMATION ******************/
-
-//document.addEventListener('DOMContentLoaded', function() {
-const features = document.querySelectorAll('.feature');
-let f_index = 0;
-
-function updateFontSize() {
-    features.forEach((feature, i) => {
-        feature.classList.toggle("marked", i === f_index);
-    });
-    f_index = (f_index + 1) % features.length;
-}
-
-// Initial call to set the initial font size
-updateFontSize();
-// Call the updateFontSize function every 3 seconds
-setInterval(updateFontSize, 2000);
-//});
+/****************** FEATURES ANIMATIONS ******************/
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.features-box').classList.add('fade-in-bottom');
+    const features = document.querySelectorAll('.feature');
+    let f_index = 0;
 
-
-
-
-/****************** PHOTO FADING ANIMATION ******************/
-
-
-//document.addEventListener('DOMContentLoaded', function() {
-
-var images = document.getElementsByClassName("test");
-for (var i = 0; i < images.length; ++i) {
-    images[i].style.opacity = 1;
-}
-
-const imgIndexes = [0, 1, 2];
-var currentImg = imgIndexes[2];
-var coveredImg;
-
-setInterval(changeImage, 2000);
-
-async function changeImage() {
-
-    stack();
-
-    coveredImg = imgIndexes[2];
-    images[currentImg].style.zIndex = 2;
-    images[coveredImg].style.zIndex = 1;
-
-    await transition();
-
-    /* reset the opacity of the image we just made disappear  */
-    images[currentImg].style.opacity = 1;
-    /* put the image at the bottom of the stack  */
-    images[currentImg].style.zIndex = 0;
-
-    /* update the stack top image */
-    currentImg = imgIndexes[2];
-}
-
-/* rearrange the images index order */
-function stack() {
-    for (let j = 0; j < 3; j++) {
-        imgIndexes[j] = (1 + imgIndexes[j]) % 3;
+    function updateFontSize() {
+        features.forEach((feature, i) => {
+            feature.classList.toggle("marked", i === f_index);
+        });
+        f_index = (f_index + 1) % features.length;
     }
-}
 
-/* reduce gradually current image transiton down to 0 */
-function transition() {
-    return new Promise(resolve => {
+    updateFontSize();
+    setInterval(updateFontSize, 1500);
+});
 
-        var id = setInterval(changeOpacity, 50);
 
-        function changeOpacity() {
-            images[currentImg].style.opacity -= 0.1;
-            if (images[currentImg].style.opacity <= 0) {
-                clearInterval(id);
-                resolve();
+/****************** PHOTO ANIMATIONS ******************/
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('scroll-image').classList.add('fade-in-top');
+    var images = document.getElementsByClassName("header-img");
+    var imgIndexes = [0, 1, 2];
+    var currentImg, coveredImg;
+
+    // set initial opacity
+    for (var i = 0; i < images.length; ++i) {
+        images[i].style.opacity = 1;
+    }
+
+    async function changeImage() {
+        //select current top image and put it on top with z-index
+        currentImg = imgIndexes[2];
+        images[currentImg].style.zIndex = 2;
+
+        // rearrange the images indexes order
+        imgIndexes = imgIndexes.map(index => (index + 1) % 3);
+
+        // select the next image  and put it behind
+        coveredImg = imgIndexes[2];
+        images[coveredImg].style.zIndex = 1;
+
+        await transition();
+
+        // put faded image at stack's bottom and reset its opacity for the next round
+        images[currentImg].style.zIndex = 0;
+        images[currentImg].style.opacity = 1;
+    }
+
+
+    // reduce current image opacity gradually down to 0
+    function transition() {
+        return new Promise(resolve => {
+
+            var id = setInterval(changeOpacity, 50);
+
+            function changeOpacity() {
+                images[currentImg].style.opacity -= 0.1;
+                if (images[currentImg].style.opacity <= 0) {
+                    clearInterval(id);
+                    resolve();
+                }
             }
-        }
-    })
-}
-//});
+        })
+    }
 
-
-
-/****************** PHOTO SLIDING ANIMATION ******************/
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Trigger the animation when the DOM is fully loaded
-    var imageBox = document.getElementById('scroll-image');
-    var featuresBox = document.querySelector('.features-box');
-    imageBox.classList.add('animate-topdown');
-    featuresBox.classList.add('animate-bottomup');
+    changeImage();
+    setInterval(changeImage, 1500);
 });
 
 
 
 /****************** INTRO SLIDING ANIMATION ******************/
 
-document.addEventListener('DOMContentLoaded', function () {
-    const element = document.querySelector('.home-intro-section');
-  
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+document.addEventListener('scroll', function () {
+    const element = document.querySelector('.rectangle');
+
+    function isInViewport(element, margin = 300) {
+        const rect = element.getBoundingClientRect();
+        const centerY = window.innerHeight / 2;
+        const centerX = window.innerWidth / 2;
+
+        return (
+            rect.top <= centerY + margin &&
+            rect.bottom >= centerY - margin &&
+            rect.left <= centerX + margin &&
+            rect.right >= centerX - margin
+        );
     }
-  
+
     function handleScroll() {
-      if (isInViewport(element)) {
-        element.classList.add('rightSlide');
-      } else {
-        element.classList.remove('in-viewport');
-      }
+        if (isInViewport(element)) {
+            element.classList.add('right-fade-in');
+        }
     }
-  
+
     // Initial check
     handleScroll();
-  
+/* 
     // Listen for scroll events
-    window.addEventListener('scroll', handleScroll);
-  });
-  
+    window.addEventListener('scroll', handleScroll); */
+});

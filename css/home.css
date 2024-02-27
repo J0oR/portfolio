@@ -7,11 +7,12 @@
   background-color: transparent;
   border: none;
   position: fixed;
-  right: 2%;
-  bottom: 50%;
+  right: 30px;
+  bottom: 30px;
   width: fit-content;
   height: fit-content;
   transition: all 0.3s ease-in-out;
+  z-index: 10;
 }
 .back-up-button i {
   font-size: 4rem;
@@ -72,6 +73,11 @@ section {
   width: 100%;
   text-align: center;
   margin-top: 150px;
+}
+@media screen and (max-width: 768px) {
+  section:first-of-type {
+    margin-top: 100px !important;
+  }
 }
 section:last-of-type {
   margin-bottom: 150px;
@@ -607,61 +613,17 @@ footer::before {
   justify-content: center;
   align-items: center;
 }
-.images-list .test {
+.images-list .header-img {
   width: 300px;
   border-radius: 5px;
-  opacity: 0;
   position: absolute;
   border-radius: 50%;
   border: 2px solid var(--secondary-border);
 }
 
-.animate-topdown {
-  animation: slideFromTop 1s ease-in-out forwards;
-}
-@keyframes slideFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-.animate-bottomup {
-  animation: slideFromDown 1s ease-in-out forwards;
-}
-@keyframes slideFromDown {
-  from {
-    opacity: 0;
-    transform: translateY(30%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
 /********************************* HOME INTRO **************************************/
-.rightSlide {
-  animation: slideFromRight 1s ease-in-out forwards;
-}
-@keyframes slideFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(30%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-}
-
 .home-intro-section {
   height: 350px;
-  opacity: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -670,7 +632,8 @@ footer::before {
       margin-top: 100px;
   } */
 }
-.home-intro-section .rectangle {
+
+.rectangle {
   background-color: var(--intro);
   font-size: 1.5rem;
   color: var(--tertiary);
@@ -685,14 +648,15 @@ footer::before {
   justify-content: center;
   align-items: center;
   padding: 20px 0;
+  opacity: 0;
 }
 @media screen and (max-width: 576px) {
-  .home-intro-section .rectangle {
+  .rectangle {
     height: 250px;
     right: -10%;
   }
 }
-.home-intro-section .rectangle .intro-text {
+.rectangle .intro-text {
   width: 60%;
   padding: 20px;
   display: flex;
@@ -704,12 +668,12 @@ footer::before {
   align-self: flex-start;
 }
 @media screen and (max-width: 576px) {
-  .home-intro-section .rectangle .intro-text {
+  .rectangle .intro-text {
     right: -10%;
     width: 80%;
   }
 }
-.home-intro-section .rectangle .intro-text p {
+.rectangle .intro-text p {
   width: 100%;
 }
 
@@ -788,7 +752,6 @@ section.home-portfolio {
 }
 .portfolio-preview-img {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
-  transition: all 0.3s ease-in-out;
   object-fit: cover;
   border-radius: 20px;
   width: 100%;
@@ -798,13 +761,42 @@ section.home-portfolio {
   transform: scale(1.05);
 }
 
-.animate-right {
-  animation: slideFromRight 2s ease-in-out forwards;
+/* animations */
+.fade-in-top {
+  animation: slideFromTop 1s ease-in-out forwards;
+}
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.fade-in-bottom {
+  animation: slideFromBottom 1s ease-in-out forwards;
+}
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.right-fade-in {
+  animation: slideFromRight 1s ease-in-out forwards;
 }
 @keyframes slideFromRight {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(100px);
   }
   to {
     opacity: 1;
@@ -812,8 +804,8 @@ section.home-portfolio {
   }
 }
 
-.animate-left {
-  animation: slideToLeft 1s ease-in forwards;
+.left-fade-out {
+  animation: slideToLeft 1s ease-in-out forwards;
 }
 @keyframes slideToLeft {
   from {
@@ -822,6 +814,6 @@ section.home-portfolio {
   }
   to {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-100px);
   }
 }

@@ -68,6 +68,13 @@ section {
     text-align: center;
     margin-top: 150px;
 
+    
+    @media screen and (max-width: 768px) {
+        &:first-of-type{
+            margin-top: 100px !important;
+        }
+    }
+
     &:last-of-type{
         margin-bottom: 150px;
     }
@@ -77,14 +84,12 @@ section {
         height: 50px;
         width: fit-content;
         margin: 0 auto;
-        //margin-bottom: 50px;
         font-weight: 900;
         gap: 5px;
 
         @media screen and (max-width: 768px) {
             width: 80%;
         }
-
     }
 }
 

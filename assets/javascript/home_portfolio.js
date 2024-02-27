@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function swap() {
-        current.classList.add('animate-left');
-        next.classList.add('animate-right');
+        current.classList.add('left-fade-out');
+        next.classList.add('right-fade-in');
 
         index = (index + 1) % projectsArray.length;
         updateContent();
 
         [current, next] = [next, current];
 
-        current.classList.remove('animate-left');
-        next.classList.remove('animate-right');
+        current.classList.remove('left-fade-out');
+        next.classList.remove('right-fade-in');
     }
 
     swap();
-    setInterval(swap, 3000);
+    setInterval(swap, 2000);
 });
