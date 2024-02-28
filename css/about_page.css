@@ -58,7 +58,7 @@ html {
   font-size: 14px;
   font-weight: 600;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: none;
 }
 
 body {
