@@ -58,7 +58,7 @@ html {
   font-size: 14px;
   font-weight: 600;
   scroll-behavior: smooth;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 body {
@@ -646,9 +646,8 @@ footer::before {
   background-color: var(--intro);
   font-size: 1.5rem;
   color: var(--tertiary);
-  width: 100%;
-  position: relative;
-  right: -20%;
+  width: 80%;
+  margin-left: 20%;
   border-top-left-radius: 120px;
   border-bottom-left-radius: 120px;
   border: 1px solid var(--secondary-border);
@@ -658,14 +657,16 @@ footer::before {
   align-items: center;
   padding: 20px 0;
   opacity: 0;
+  height: 250px;
 }
 @media screen and (max-width: 576px) {
   .rectangle {
-    height: 250px;
-    right: -10%;
+    width: calc(100vw - 50px);
+    margin-left: 50px;
   }
 }
-.rectangle .intro-text {
+
+.intro-text {
   width: 60%;
   padding: 20px;
   display: flex;
@@ -674,15 +675,16 @@ footer::before {
   align-items: flex-start;
   gap: 15px;
   margin-left: 10px;
-  align-self: flex-start;
+  align-self: center;
+  position: absolute;
+  margin: 0 auto;
 }
 @media screen and (max-width: 576px) {
-  .rectangle .intro-text {
-    right: -10%;
-    width: 80%;
+  .intro-text {
+    width: 60%;
   }
 }
-.rectangle .intro-text p {
+.intro-text p {
   width: 100%;
 }
 
