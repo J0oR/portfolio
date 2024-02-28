@@ -28,10 +28,10 @@
             {
                 phase.classList.add("marked-phase");
             }
-            else{
+            /* else{
                 phase.classList.remove("marked-phase");
 
-            }
+            } */
         });
     }
 

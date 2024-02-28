@@ -163,7 +163,7 @@ nav .logo-container {
   align-items: center;
 }
 nav .logo {
-  height: 150px;
+  height: 60px;
   display: flex;
   align-self: center;
 }
@@ -488,10 +488,11 @@ footer::before {
 .social-icons i {
   font-size: 2rem;
   color: var(--footer-text);
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .social-icons i:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
+  color: var(--text-2);
 }
 @media screen and (max-width: 768px) {
   .social-icons {
@@ -505,6 +506,14 @@ footer::before {
   }
 }
 
+@keyframes oscillate {
+  0%, 100% {
+    transform: skewY(0);
+  }
+  50% {
+    transform: skewY(2deg);
+  }
+}
 /****************** PROFILES *******************/
 .profiles-container {
   display: flex;
@@ -515,7 +524,6 @@ footer::before {
 }
 
 .online-profile {
-  opacity: 0;
   text-align: center;
   width: 50%;
   height: 50px;
@@ -530,11 +538,14 @@ footer::before {
   color: var(--primary);
   background-color: var(--tertiary);
   animation: slideIn 1s ease-in-out forwards;
-  transition: transform 1s ease-in-out;
-}
-.online-profile:hover {
-  transform: scale(1.1) !important;
-  cursor: pointer;
+  /* &:hover {
+         //@extend %shadow-effect;
+         animation: none;
+         animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
+
+         cursor: pointer;
+     }
+  */
 }
 .online-profile:nth-child(2) {
   animation-delay: 0.2s;
@@ -556,6 +567,14 @@ footer::before {
   }
 }
 
+@keyframes oscillate {
+  0%, 100% {
+    transform: skewY(0);
+  }
+  50% {
+    transform: skewY(2deg);
+  }
+}
 @keyframes slideIn {
   from {
     transform: translateX(100%);

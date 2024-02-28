@@ -11,7 +11,7 @@
 }
 
 .online-profile {
-    opacity: 0;
+    //opacity: 0;
     text-align: center;
     width: 50%;
     height: 50px;
@@ -23,19 +23,23 @@
     color: var(--primary);
     background-color: var(--tertiary);
     animation: slideIn 1s ease-in-out forwards;
-    transition: transform 1s ease-in-out;
-
-    &:hover {
-        transform: scale(1.1) !important;
-        //@extend %shadow-effect;
-        cursor: pointer;
-    }
 
     @for $i from 2 through 4 {
         &:nth-child(#{$i}) {
             animation-delay: 0.2s * ($i - 1);
         }
     }
+    
+
+    /* &:hover {
+        //@extend %shadow-effect;
+        animation: none;
+        animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
+
+        cursor: pointer;
+    }
+ */
+    
 
     @media only screen and (min-width:769px) and (max-width: 991px) {
         width: 60%;
@@ -48,6 +52,15 @@
     
 
 }
+
+@keyframes oscillate {
+    0%, 100% {
+      transform: skewY(0);
+    }
+    50% {
+      transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+    }
+  }
 
 @keyframes slideIn {
     from {

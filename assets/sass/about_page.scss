@@ -26,6 +26,8 @@
 
 /************************************* TAG LIST *************************************/
 .tags-container {
+    color: var(--text-2);
+
     .tags-list {
         margin-top: 50px;
         list-style-type: none;
@@ -53,10 +55,25 @@
         width: 120px;
         text-align: center;
         @extend %shadow-effect;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            background-color: var(--text-2);
+            animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
+
+        }
     }
 
 }
 
+@keyframes oscillate {
+    0%, 100% {
+      transform: skewY(0);
+    }
+    50% {
+      transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+    }
+  }
 
 /************************************ CV TIMELINE *************************************/
 
@@ -106,8 +123,9 @@
         flex-direction: column;
         gap: 20px;
         font-weight: 400;
-        color: var(--features-box);
+        color: var(--text-2);
         transition: all 0.3s linear;
+        
         
         @media only screen and (max-width: 768px) {
             left: 0;
@@ -145,16 +163,19 @@
             transition: all 0.5s ease-in-out;
             align-self: center;
             max-width: 50%;
+            opacity: 0;
 
         }
 
         &.marked-phase {
 
-            transform: perspective(50vw) rotateX(40deg);
+           // transform: perspective(50vw) rotateX(40deg);
 
             p{
-                transform: scale(1.1);
+                animation: slideFromLeftFast 0.3s ease-in-out forwards;
             }
+
+            
             
             
         }
@@ -163,3 +184,17 @@
         
     }
 }
+
+
+
+    @keyframes slideFromLeftFast {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
