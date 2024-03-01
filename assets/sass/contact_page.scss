@@ -11,68 +11,62 @@
 }
 
 .online-profile {
-    //opacity: 0;
+    opacity: 0;
     text-align: center;
-    width: 50%;
+    width: 300px;
     height: 50px;
-    @include reusables.flex(row, center, center);
-    gap: 10px;
+    @include reusables.flex(row, center, center, 10px);
     border-radius: 10px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
     text-decoration: none;
     color: var(--primary);
     background-color: var(--tertiary);
     animation: slideIn 1s ease-in-out forwards;
+    @extend %normal-text;
 
     @for $i from 2 through 4 {
         &:nth-child(#{$i}) {
             animation-delay: 0.2s * ($i - 1);
         }
     }
-    
-
-    /* &:hover {
-        //@extend %shadow-effect;
-        animation: none;
-        animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
-
-        cursor: pointer;
-    }
- */
-    
-
-    @media only screen and (min-width:769px) and (max-width: 991px) {
-        width: 60%;
-    }
-
-    @media only screen and (max-width: 768px) {
-        width: 100%;
-    }
-
-    
-
 }
 
 @keyframes oscillate {
-    0%, 100% {
-      transform: skewY(0);
+
+    0%,
+    100% {
+        transform: skewY(0);
     }
+
     50% {
-      transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+        transform: skewY(2deg);
     }
-  }
+}
+
 
 @keyframes slideIn {
     from {
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+.after-animation-end {
+    opacity: 1;
+    animation: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        animation: none;
+        transform: scale(1.1);
+        @extend %shadow-effect;
+    }
+}
 
 
 /******************* FORM *******************/
@@ -88,6 +82,7 @@
 form {
     @include reusables.flex(column, center, center);
     gap: 30px;
+    @extend %normal-text;
 
     @media screen and (max-width: 768px) {
         padding: 0;
@@ -119,21 +114,28 @@ form {
         color: var(--tertiary);
         font-size: 1.2rem;
 
-        &:active, &:focus{
+        @media screen and (max-width: 768px) {
+            max-width: 80vw !important;
+            margin: 0 auto;
+        }
+
+        &:active,
+        &:focus {
             background-color: var(--secondary);
             outline: 2px solid var(--text);
         }
 
-        &::placeholder{
+        &::placeholder {
             color: var(--primary);
         }
     }
 
 
-    input:-webkit-autofill{
+    input:-webkit-autofill {
         background-color: transparent;
         outline: 2px solid var(--text) !important;
     }
+
     input {
         @extend %form-input-field;
         height: 50px;
@@ -147,7 +149,7 @@ form {
     }
 
     .form-btn {
-       // width: 150px;
+        // width: 150px;
         //height: 50px;
         margin-top: 50px;
         border-radius: 10px;
@@ -195,17 +197,17 @@ form {
 
 /* FORM MESSAGES */
 
-#message_area{
+#message_area {
     position: relative;
 }
 
-.form_input_error{
-    background-color: lightcoral;
+.form_input_error {
+    background-color: var(--error);
     //background-color: transparent;
     border: 1px solid salmon;
     height: fit-content;
     border-radius: 12px;
-    padding: 10px 0;
+    padding: 20px 0;
     transition: opacity 0.5s ease-in-out;
     //opacity: 0;
     opacity: 0;
@@ -215,16 +217,16 @@ form {
     @media screen and (max-width: 768px) {
         width: 96vw;
     }
- 
+
 
 
 }
 
-.form_input_error_visible{
+.form_input_error_visible {
     opacity: 1;
 }
 
-.success{
+.success {
     background-color: lightgreen !important;
     border: 1px solid green;
 }

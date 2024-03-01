@@ -1,4 +1,4 @@
-form .form-btn, .visible {
+.after-animation-end:hover, form .form-btn, .visible {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
@@ -21,6 +21,14 @@ form .form-btn, .visible {
   transform: scale(1.2);
 }
 
+.online-profile, form, .copyright p, .overlay-links-container .overlay-nav-link {
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2 !important;
+}
+
 :root {
   --background: #131e23;
   --background: hsla(158, 23%, 20%, 1);
@@ -28,8 +36,8 @@ form .form-btn, .visible {
   --primary-border: hsla(158, 23%, 30%, 1);
   --secondary: hsla(158, 23%, 25%, 1);
   --secondary-border: hsla(158, 23%, 35%, 1);
-  --error-border: red;
-  --tertiary:hsla(160, 52%, 71%, 1);
+  -error: #ef5350;
+  --tertiary: hsla(160, 52%, 71%, 1);
   --navbar: #d4cac5;
   --nav-link: #49c5b6;
   --nav-link-active: #49c5b6;
@@ -37,7 +45,7 @@ form .form-btn, .visible {
   --text-2: #d3ded5;
   --card-color: #ede5db;
   --card-border: #EAD7BB;
-  --overlay-navbar:#64B2CD;
+  --overlay-navbar: #64B2CD;
   --footer: hsla(158, 28%, 20%, 1);
   --footer-text: hsla(160, 52%, 71%, 1);
   --header: hsla(158, 33%, 25%, 1);
@@ -55,8 +63,6 @@ form .form-btn, .visible {
 }
 
 html {
-  font-size: 14px;
-  font-weight: 600;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -64,20 +70,28 @@ html {
 body {
   background-color: var(--primary);
   font-size: 18px;
-  font-family: "Hind", sans-serif;
-  font-weight: 400;
   color: var(--text);
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 section {
   width: 100%;
   text-align: center;
-  margin-top: 150px;
+  margin-bottom: 100px;
+}
+section:first-of-type {
+  margin-top: 80px !important;
 }
 @media screen and (max-width: 768px) {
   section:first-of-type {
     margin-top: 100px !important;
   }
+}
+section.header-section {
+  margin-top: 150px !important;
 }
 section:last-of-type {
   margin-bottom: 150px;
@@ -87,15 +101,21 @@ section .section-title {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
   height: 50px;
   width: fit-content;
   margin: 0 auto;
-  font-weight: 900;
+  font-weight: 600;
   gap: 5px;
+  margin-bottom: 50px;
+  font-family: "Major Mono Display", monospace !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 @media screen and (max-width: 768px) {
   section .section-title {
     width: 80%;
+    margin-bottom: 50px;
   }
 }
 
@@ -104,8 +124,8 @@ section .section-title {
   margin: 0 auto;
   padding: 40px 100px;
   /*  p{
-       font-size: 1.5rem;
-   } */
+      font-size: 1.5rem;
+  } */
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -116,6 +136,19 @@ section .section-title {
   .container {
     padding: 10px;
   }
+}
+
+.text {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2 !important;
+  /* font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2 !important; */
 }
 
 .nav-container {
@@ -141,6 +174,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   height: 70px;
   max-width: 800px;
   margin: 10px auto 0 auto;
@@ -161,6 +195,7 @@ nav .logo-container {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 0;
 }
 nav .logo {
   height: 60px;
@@ -182,6 +217,7 @@ nav .logo {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 0;
   }
 }
 @media screen and (min-width: 769px) {
@@ -190,6 +226,7 @@ nav .logo {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 0;
   }
 }
 
@@ -204,8 +241,9 @@ nav .logo {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    gap: 0;
     flex: 1;
-    gap: 50px;
+    gap: 30px;
     height: 60%;
   }
   .nav-links-container.nav-links-container-hide {
@@ -223,6 +261,11 @@ nav .logo {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
+  font-family: "Major Mono Display", monospace !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 1rem;
 }
 @media screen and (max-width: 768px) {
   .nav-link {
@@ -241,7 +284,6 @@ nav .logo {
   }
 }
 .nav-link.active-link {
-  font-weight: 600;
   background-color: hsla(160, 22%, 45%, 0.7);
   border-radius: 50px;
   padding: 20px;
@@ -252,6 +294,11 @@ nav .logo {
   display: none;
   background-color: transparent;
   border: none;
+  transition: all 0.5s ease-in-out;
+}
+.close-btn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 .close-btn.show-btn {
   display: block;
@@ -266,6 +313,7 @@ nav .logo {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
   width: 50px;
   height: 50px;
   font-size: 3rem;
@@ -307,6 +355,7 @@ nav .logo {
   .overlay-menu .overlay-inner-container {
     flex-direction: column;
     padding: 20px;
+    gap: 50px;
     /*  .overlay-logo{
         height: 50px;
         text-align: center;
@@ -332,6 +381,7 @@ nav .logo {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
 }
 @media screen and (max-width: 768px) {
   .overlay-logo {
@@ -349,6 +399,7 @@ nav .logo {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
+  gap: 0;
   gap: 10px;
 }
 @media screen and (max-width: 768px) {
@@ -363,6 +414,13 @@ nav .logo {
   font-size: 2rem;
   text-align: center;
   opacity: 0;
+  height: 50px !important;
+  vertical-align: middle !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
 }
 .overlay-links-container .overlay-nav-link:nth-child(2) {
   animation-delay: 0.3s;
@@ -385,7 +443,8 @@ nav .logo {
   }
 }
 .overlay-links-container .overlay-nav-link.active-link {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--text-2);
+  color: var(--text-2);
 }
 
 .overlay-right-container {
@@ -394,6 +453,7 @@ nav .logo {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  gap: 0;
 }
 @media screen and (max-width: 768px) {
   .overlay-right-container .social-icons {
@@ -470,7 +530,7 @@ footer::before {
 }
 
 .copyright p {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 @media screen and (max-width: 576px) {
   .copyright p {
@@ -520,12 +580,14 @@ footer::before {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   gap: 20px;
 }
 
 .online-profile {
+  opacity: 0;
   text-align: center;
-  width: 50%;
+  width: 300px;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -538,14 +600,6 @@ footer::before {
   color: var(--primary);
   background-color: var(--tertiary);
   animation: slideIn 1s ease-in-out forwards;
-  /* &:hover {
-         //@extend %shadow-effect;
-         animation: none;
-         animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
-
-         cursor: pointer;
-     }
-  */
 }
 .online-profile:nth-child(2) {
   animation-delay: 0.2s;
@@ -555,16 +609,6 @@ footer::before {
 }
 .online-profile:nth-child(4) {
   animation-delay: 0.6s;
-}
-@media only screen and (min-width: 769px) and (max-width: 991px) {
-  .online-profile {
-    width: 60%;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .online-profile {
-    width: 100%;
-  }
 }
 
 @keyframes oscillate {
@@ -585,12 +629,23 @@ footer::before {
     opacity: 1;
   }
 }
+.after-animation-end {
+  opacity: 1;
+  animation: none;
+  transition: all 0.3s ease-in-out;
+}
+.after-animation-end:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
 /******************* FORM *******************/
 .section-title.contact-headline {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
   position: relative;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -602,6 +657,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
   gap: 30px;
 }
 @media screen and (max-width: 768px) {
@@ -616,6 +672,7 @@ form .field {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 0;
   gap: 10px;
 }
 form label {
@@ -635,6 +692,12 @@ form textarea, form input {
   outline: 1px solid var(--secondary-border);
   color: var(--tertiary);
   font-size: 1.2rem;
+}
+@media screen and (max-width: 768px) {
+  form textarea, form input {
+    max-width: 80vw !important;
+    margin: 0 auto;
+  }
 }
 form textarea:active, form input:active, form textarea:focus, form input:focus {
   background-color: var(--secondary);
@@ -676,6 +739,7 @@ form .form-btn:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0;
   gap: 50px;
 }
 .name-container div {
@@ -684,6 +748,7 @@ form .form-btn:active {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 0;
   gap: 10px;
 }
 .name-container input {
@@ -695,6 +760,7 @@ form .form-btn:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0;
     gap: 30px;
   }
   .name-container div {
@@ -708,11 +774,11 @@ form .form-btn:active {
 }
 
 .form_input_error {
-  background-color: lightcoral;
+  background-color: var(--error);
   border: 1px solid salmon;
   height: fit-content;
   border-radius: 12px;
-  padding: 10px 0;
+  padding: 20px 0;
   transition: opacity 0.5s ease-in-out;
   opacity: 0;
   position: absolute;

@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('scroll', function () {
     const element = document.querySelector('.rectangle');
+    const text = document.querySelector('.intro-text');
 
     function isInViewport(element, margin = 300) {
         const rect = element.getBoundingClientRect();
@@ -95,6 +96,7 @@ document.addEventListener('scroll', function () {
     function handleScroll() {
         if (isInViewport(element)) {
             element.classList.add('right-fade-in');
+            text.classList.add('right-fade-in');
         }
     }
 

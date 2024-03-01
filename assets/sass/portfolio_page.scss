@@ -27,7 +27,7 @@
         flex-basis: 400px;
         height: 300px;
         border-radius: 12px;
-        @extend %shadow-effect;
+        //@extend %shadow-effect;
 
 
         &:hover {
@@ -61,9 +61,11 @@
             background: hsla(158, 100%, 0%, 0.6);
             padding: 10px;
             color: var(--text-2);
-            font-size: 1.5rem;
             @include reusables.flex(row, center, center);
             transition: opacity 0.3s ease, ;
+            @extend %normal-text;
+            font-weight: 400 !important;
+            font-size: 1.2rem;
         }
     }
 }

@@ -1,3 +1,5 @@
+@use './reusables';
+
 footer{
     &::before{
         content: '';
@@ -13,9 +15,7 @@ footer{
 
     @media screen and (max-width: 768px) {
         height: 30vh;
-
     }
-
 }
 
 
@@ -42,13 +42,16 @@ footer{
     }
 }
 
-.copyright p{
-    font-size: 1.3rem;
-
-    @media screen and (max-width: 576px) {
-        width: 100%;
-        
+.copyright{
+    p{
+        @extend %normal-text;
+        font-size: 1rem;
+    
+        @media screen and (max-width: 576px) {
+            width: 100%;
+        }
     }
+    
 }
 
 .social-icons{

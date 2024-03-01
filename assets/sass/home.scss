@@ -9,80 +9,78 @@
 
 .header-section {
     background-color: var(--header);
-
-    @media screen and (min-width: 769px) {
-        //margin-top: 160px;
-    }
 }
 
 .header-container {
     height: 340px;
-    @include reusables.flex(row, space-around, center);
+    @include reusables.flex(row, center, center, 50px);
 
     @media screen and (max-width: 768px) {
-        @include reusables.flex(column, space-around, center);
+        @include reusables.flex(column, space-around, center, 0);
         height: 600px;
-        gap: 0;
         padding: 0;
+    }
+
+    @media screen and (min-width: 991px) {
+        padding: 0 20%;
     }
 }
 
 .features-box {
     flex: 1;
-    @include reusables.flex(column, center, center);
+    @include reusables.flex(column, center, center, 0);
 
     @media screen and (max-width: 768px) {
         flex-basis: 40%;
         order: 2;
-    }
-
-
-    .features-list {
-        height: 500px;
-        width: calc(60% + 100px);
-        background-color: var(--features-box);
-        border-radius: 20px;
-        list-style-type: none;
-        @include reusables.flex(column, center, center);
-        gap: 20px;
-
-        @media screen and (max-width: 991px) {
-            width: 90%;
-        }
-
-        @media screen and (max-width: 768px) {
-            height: fit-content;
-            width: 100%;
-            padding: 20px 0;
-            position: relative;
-            left: -10%;
-        }
-    }
-
-    .feature {
-        font-size: 1.4rem;
-        transition: transform 1s ease-in-out;
-        color: var(--features-text);
         width: 100%;
-        text-align: center;
+    }
+}
+
+
+.features-list {
+    height: 500px;
+    width: 280px;
+    background-color: var(--features-box) !important;
+    border-radius: 20px;
+    list-style-type: none;
+    @include reusables.flex(column, center, center, 20px);
+
+    @media screen and (max-width: 768px) {
+        height: 180px;
+        width: 90%;
+        padding: 20px 0;
+        margin-right: 10%;
+        position: relative;
+        border-radius: 0;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}
+
+.feature {
+    font-size: 1.4rem;
+    transition: transform 1s ease-in-out;
+    color: var(--features-text);
+    width: 100%;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+        width: 100vw;
+        margin-left: 10%;
+    }
+
+    &.marked {
+        transform: scale(1.4);
+        font-weight: 400;
 
         @media screen and (max-width: 768px) {
-            width: 100vw;
-            margin-left: 20%;
-        }
-
-        &.marked {
-            transform: scale(1.4);
             font-weight: 400;
-
-            @media screen and (max-width: 768px) {
-                transform: scale(1.4);
-                font-weight: 400;
-                width: 100vw;
-            }
+            width: 100vw;
         }
     }
 }
+
 
 
 .image-container {
@@ -102,7 +100,6 @@
 
     .header-img {
         width: 300px;
-        border-radius: 5px;
         position: absolute;
         border-radius: 50%;
         border: 2px solid var(--secondary-border);
@@ -123,11 +120,6 @@
     /* @media screen and (max-width: 768px) {
         margin-top: 100px;
     } */
-
-    
-
-
-
 }
 
 .rectangle {
@@ -145,33 +137,33 @@
     height: 250px;
 
     @media screen and (max-width: 576px) {
-       
+
         width: calc(100vw - 50px);
         margin-left: 50px;
-        
+
     }
 
 }
 
-    .intro-text {
+.intro-text {
+    width: 60%;
+    padding: 20px;
+    @include reusables.flex(column, center, flex-start);
+    gap: 15px;
+    margin-left: 10px;
+    align-self: center;
+    position: absolute;
+    margin: 0 auto;
+
+
+    @media screen and (max-width: 576px) {
         width: 60%;
-        padding: 20px;
-        @include reusables.flex(column, center, flex-start);
-        gap: 15px;
-        margin-left: 10px;
-        align-self: center;
-        position: absolute;
-        margin: 0 auto;
-
-
-        @media screen and (max-width: 576px) {
-            width: 60%;
-        }
-
-        p {
-            width: 100%;
-        }
     }
+
+    p {
+        width: 100%;
+    }
+}
 
 
 
@@ -183,7 +175,7 @@ section.home-portfolio {
     height: 70vh;
 
 
-   /*  @media screen and (max-width: 576px) {
+    /*  @media screen and (max-width: 576px) {
         margin-top: 230px;
     } */
 }
@@ -204,10 +196,13 @@ section.home-portfolio {
     transition: all 0.35s ease-in-out;
     text-decoration: none;
     position: absolute;
+    
 
     @media screen and (max-width: 768px) {
-        width: 100%;
+        //width: 100%;
+        
     }
+    @extend %phone-80-percent;
 
     @media screen and (min-width: 769px) {
         width: 50%;
@@ -221,17 +216,20 @@ figure {
     padding: 12px;
 
     figcaption {
-        padding: 4px 10px;
+        padding: 4px 15px;
         text-align: center;
         color: var(--text);
         width: fit-content;
+        max-width: 50%;
         margin-top: 20px;
         position: absolute;
         right: 30px;
-        bottom: 38px;
+        bottom: 30px;
         background-color: var(--primary);
         color: var(--text-2);
         border-radius: 10px;
+        font-size: 1rem;
+        word-wrap: break;
     }
 }
 

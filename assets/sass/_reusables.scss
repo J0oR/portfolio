@@ -1,8 +1,9 @@
-@mixin flex($dir: row, $just: center, $align: center) {
+@mixin flex($dir: row, $just: center, $align: center, $gap: 0) {
     display: flex;
     flex-direction: $dir;
     justify-content: $just;
     align-items: $align;
+    gap: $gap;
 }
 
 
@@ -38,3 +39,18 @@
 }
 
 
+%normal-text {
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2 !important;
+}
+
+
+%phone-80-percent{
+    @media screen and (max-width: 768px) {
+        width: 80vw;
+        margin: 0 auto;        
+    }
+}

@@ -2,7 +2,7 @@
     emailjs.init('gbYsKvUM-MpMbsFwL');
 })();
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+document.getElementById('contact-form').addEventListener('submit', function (event) {
     // Prevent the default form submission
     event.preventDefault();
 
@@ -13,7 +13,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 document.getElementById('contact-form').setAttribute('autocomplete', 'off');
 
 
-function sendMail(){
+function sendMail() {
 
     scrollToMessageArea();
 
@@ -26,7 +26,7 @@ function sendMail(){
         message: document.getElementById("form_message").value
     };
 
-    if (validateForm()){
+    if (validateForm()) {
         emailjs.send('service_oy42a15', 'template_xdjh6jr', params).then(function () {
             input_error.innerHTML = "Message sent!"
             input_error.classList.add("form_input_error_visible");
@@ -40,7 +40,7 @@ function sendMail(){
     }
 }
 
-function scrollToMessageArea(){
+function scrollToMessageArea() {
     var targetElement = document.querySelector('.form_input_error');
 
     var offset = targetElement.offsetTop;
@@ -76,7 +76,7 @@ function validateForm() {
     if (name === "") {
         input_error.innerHTML = "Name must be filled out";
     }
-    
+
     else if (surname === "") {
         input_error.innerHTML = "Surname must be filled out";
     }
@@ -93,14 +93,14 @@ function validateForm() {
         input_error.innerHTML = "Message must be filled out";
     }
 
-    if (input_error.innerHTML != ""){
+    if (input_error.innerHTML != "") {
         input_error.classList.remove("success");
         input_error.classList.add("form_input_error_visible");
         return false;
     }
 
     // Additional checks for email format
-    
+
 
     // You can add more checks for other fields if needed
 
@@ -131,7 +131,7 @@ function resetError(target) {
 }
 
 
-function resetForm(){
+function resetForm() {
     document.getElementById("form_name").value = "";
     document.getElementById("form_lastname").value = "";
     document.getElementById("form_email").value = "";
@@ -139,3 +139,20 @@ function resetForm(){
     document.getElementById("form_message").value = "";
     document.querySelector(".form_input_error").value = "";
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const profiles = document.querySelectorAll('.online-profile');
+
+    profiles.forEach(profile => {
+
+        // Listen for the animationend event
+        profile.addEventListener('animationend', () => {
+            // Remove the animation class after the animation is complete
+            profile.classList.add('after-animation-end');
+        });
+    });
+
+});
+
