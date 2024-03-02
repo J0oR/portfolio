@@ -9,28 +9,41 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: 'Tecnical Documentation Page', img: './assets/images/techpage.png' },
     ];
 
-    let index = 1;
+    let currentIndex = 1;
     let current = document.querySelector('.current');
     let next = document.querySelector('.next');
 
-    function updateContent() {
+    
+
+    function swap() {
+        current.classList.add('fade-out-to-left');
+        current.style.zIndex = 1;
+        next.classList.add('fade-in-from-right');
+        current.style.zIndex = 1;
+
+        currentIndex = (currentIndex + 1) % projectsArray.length;
+        updateContent(currentIndex);
+
+        [current, next] = [next, current];
+
+        current.classList.remove('fade-out-to-left');
+        current.style.zIndex = 20;
+        next.style.zIndex = 1;
+        next.classList.remove('fade-in-from-right');
+    }
+
+    function updateContent(index) {
         next.querySelector('.portfolio-preview-img').src = projectsArray[index].img;
         next.querySelector('.card-title').textContent = projectsArray[index].title;
     }
 
-    function swap() {
-        current.classList.add('left-fade-out');
-        next.classList.add('right-fade-in');
-
-        index = (index + 1) % projectsArray.length;
-        updateContent();
-
-        [current, next] = [next, current];
-
-        current.classList.remove('left-fade-out');
-        next.classList.remove('right-fade-in');
-    }
+    // Preload images
+    projectsArray.forEach(project => {
+        const img = new Image();
+        img.src = project.img;
+    });
 
     swap();
     setInterval(swap, 2000);
 });
+

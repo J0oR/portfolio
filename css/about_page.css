@@ -1,9 +1,10 @@
-.vertical, .horizontal .line, .tags-container .tag, .visible {
+.horizontal .line, .tags-container .tag, .visible {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
 .back-up-button {
   display: none;
+  color: var(--tertiary);
   background-color: transparent;
   border: none;
   position: fixed;
@@ -21,7 +22,7 @@
   transform: scale(1.2);
 }
 
-.horizontal p, .tags-container p, .copyright p, .overlay-links-container .overlay-nav-link {
+.horizontal p, .tags-container p {
   font-family: "Exo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -36,107 +37,15 @@
   }
 }
 
-/* Animations */
-.fade-in-top {
-  animation: slideFromTop 1s ease-in-out forwards;
-}
-@keyframes slideFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-.fade-in-bottom {
-  animation: slideFromBottom 1s ease-in-out forwards;
-}
-@keyframes slideFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-.right-fade-in {
-  animation: slideFromRight 1s ease-in-out forwards;
-}
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-}
-
-.left-fade-out {
-  animation: slideToLeft 1s ease-in-out forwards;
-}
-@keyframes slideToLeft {
-  from {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-}
-
-/* @keyframes slideFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-} */
-@keyframes oscillate {
-  0%, 100% {
-    transform: skewY(0);
-  }
-  50% {
-    transform: skewY(2deg);
-  }
-}
 :root {
-  --background: #131e23;
-  --background: hsla(158, 23%, 20%, 1);
-  --primary: hsla(158, 23%, 20%, 1);
+  --primary: hsla(158, 35%, 15%, 1);
   --primary-border: hsla(158, 23%, 30%, 1);
-  --secondary: hsla(158, 23%, 25%, 1);
+  --secondary: hsla(158, 33%, 25%, 1);
   --secondary-border: hsla(158, 23%, 35%, 1);
-  -error: #ef5350;
   --tertiary: hsla(160, 52%, 71%, 1);
-  --navbar: #d4cac5;
-  --nav-link: #49c5b6;
-  --nav-link-active: #49c5b6;
+  --error: #ef5350;
   --text: hsla(160, 52%, 71%, 1);
   --text-2: #d3ded5;
-  --card-color: #ede5db;
-  --card-border: #EAD7BB;
-  --overlay-navbar: #64B2CD;
-  --footer: hsla(158, 28%, 20%, 1);
-  --footer-text: hsla(160, 52%, 71%, 1);
-  --header: hsla(158, 33%, 25%, 1);
-  --features-box: hsla(160, 52%, 71%, 1);
-  --features-text: hsla(158, 23%, 20%, 1);
-  --intro: hsla(158, 33%, 25%, 1);
-  --intro-text: #49c5b6;
-  --profile-link: #ac3b61;
 }
 
 * {
@@ -165,17 +74,20 @@ section {
   width: 100%;
   text-align: center;
   margin-bottom: 100px;
+  background-color: transparent;
 }
 section:first-of-type {
-  margin-top: 80px !important;
+  margin-top: 150px !important;
 }
 @media screen and (max-width: 768px) {
   section:first-of-type {
-    margin-top: 100px !important;
+    margin-top: 120px !important;
   }
 }
-section.header-section {
-  margin-top: 150px !important;
+@media screen and (min-width: 769px) {
+  section.header-section {
+    margin-top: 200px !important;
+  }
 }
 section:last-of-type {
   margin-bottom: 150px;
@@ -236,11 +148,12 @@ section .section-title {
 }
 
 .nav-container {
-  position: sticky;
-  top: 20px;
+  position: fixed;
+  top: 8px;
   z-index: 100;
-  margin-bottom: 60px;
   transition: background-color 0.3s ease-out;
+  width: 100%;
+  height: 70px;
 }
 
 .transparent {
@@ -261,7 +174,7 @@ nav {
   gap: 0;
   height: 70px;
   max-width: 800px;
-  margin: 10px auto 0 auto;
+  margin: 0 auto;
   padding: 0 100px;
   transition: all 0.3s ease-in-out;
   border-radius: 50px;
@@ -282,7 +195,7 @@ nav .logo-container {
   gap: 0;
 }
 nav .logo {
-  height: 60px;
+  height: 50px;
   display: flex;
   align-self: center;
 }
@@ -294,6 +207,7 @@ nav .logo {
   height: 60%;
   display: none;
   font-size: 2rem;
+  color: black;
 }
 @media screen and (max-width: 768px) {
   .burger-button {
@@ -363,7 +277,7 @@ nav .logo {
     transition: all 0.3s ease-in-out;
   }
   .nav-link:hover {
-    transform: translateX(-1px) translateY(5px) scale(1.2);
+    transform: scale(1.2);
     height: 85%;
   }
 }
@@ -389,8 +303,8 @@ nav .logo {
   width: 50px;
   height: 50px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 50px;
+  right: 50px;
 }
 .close-btn.show-btn i {
   display: flex;
@@ -417,9 +331,9 @@ nav .logo {
   height: 100vh;
   background-color: var(--secondary);
   position: absolute;
-  top: -20px;
+  top: -8px;
   left: 0;
-  animation: slideNavUp 0.5s ease-in-out forwards;
+  animation: fadeInFromBottom 0.5s ease-in-out forwards;
 }
 .overlay-menu.show-fullscreen html {
   display: none;
@@ -429,33 +343,25 @@ nav .logo {
     padding: 60px 15% 80px 15%;
   }
 }
-.overlay-menu .overlay-inner-container {
+
+.overlay-inner-container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 @media screen and (max-width: 768px) {
-  .overlay-menu .overlay-inner-container {
+  .overlay-inner-container {
     flex-direction: column;
     padding: 20px;
     gap: 50px;
-    /*  .overlay-logo{
-        height: 50px;
-        text-align: center;
-    } */
   }
 }
 @media screen and (min-width: 769px) {
-  .overlay-menu .overlay-inner-container {
+  .overlay-inner-container {
     flex-direction: row;
     border-bottom: 1px solid whitesmoke;
-    padding: 0 50px 50px 50px;
-    /* .overlay-logo{
-        flex-basis: 100%;
-        height: 100px;
-        @include reusables.flex(row, center, center);
-    } */
+    padding-bottom: 50px;
   }
 }
 
@@ -481,10 +387,11 @@ nav .logo {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   gap: 0;
-  gap: 10px;
+  gap: 10%;
+  padding-bottom: 50px;
 }
 @media screen and (max-width: 768px) {
   .overlay-links-container {
@@ -492,13 +399,17 @@ nav .logo {
   }
 }
 .overlay-links-container .overlay-nav-link {
-  animation: slideNavLinkUp 0.5s ease-in-out forwards;
+  animation: fadeInFromBottom 0.5s ease-in-out forwards;
   text-decoration: none;
   color: var(--text-2);
   font-size: 2rem;
   text-align: center;
+  font-weight: 400px;
+  font-family: "Major Mono Display", monospace !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
   opacity: 0;
-  height: 50px !important;
+  height: 10vh;
   vertical-align: middle !important;
   display: flex;
   flex-direction: row;
@@ -507,13 +418,13 @@ nav .logo {
   gap: 0;
 }
 .overlay-links-container .overlay-nav-link:nth-child(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
 }
 .overlay-links-container .overlay-nav-link:nth-child(3) {
-  animation-delay: 0.6s;
+  animation-delay: 0.4s;
 }
 .overlay-links-container .overlay-nav-link:nth-child(4) {
-  animation-delay: 0.9s;
+  animation-delay: 0.6s;
 }
 @media screen and (max-width: 768px) {
   .overlay-links-container .overlay-nav-link {
@@ -529,6 +440,9 @@ nav .logo {
 .overlay-links-container .overlay-nav-link.active-link {
   border-bottom: 2px solid var(--text-2);
   color: var(--text-2);
+}
+.overlay-links-container .overlay-nav-link:hover {
+  color: black;
 }
 
 .overlay-right-container {
@@ -551,34 +465,14 @@ nav .logo {
   }
 }
 
-/* ANIMATIONS */
-@keyframes slideNavLinkUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slideNavUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 footer {
   height: 20vh;
-  color: var(--footer-text);
+  color: var(--tertiary);
 }
 footer::before {
   content: "";
-  position: relative; /* Add position: absolute for proper positioning */
+  position: relative;
+  /* Add position: absolute for proper positioning */
   left: 10%;
   border-top: 1px solid var(--tertiary);
   width: 80%;
@@ -613,12 +507,13 @@ footer::before {
   }
 }
 
-.copyright p {
+.copyright {
   font-size: 1rem;
 }
 @media screen and (max-width: 576px) {
-  .copyright p {
+  .copyright {
     width: 100%;
+    text-align: center;
   }
 }
 
@@ -631,7 +526,7 @@ footer::before {
 }
 .social-icons i {
   font-size: 2rem;
-  color: var(--footer-text);
+  color: var(--tertiary);
   transition: all 0.3s ease-in-out;
 }
 .social-icons i:hover {
@@ -656,6 +551,90 @@ footer::before {
   }
   50% {
     transform: skewY(2deg);
+  }
+}
+@keyframes fadeOutToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+/* @keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+@keyframes oscillate {
+  0%, 100% {
+    transform: skewY(0);
+  }
+  50% {
+    transform: skewY(2deg);
+  }
+}
+/* yoooo */
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fadeInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes horizontalLoop {
+  0% {
+    object-position: left;
+    opacity: 0;
+  }
+  50% {
+    object-position: center;
+    opacity: 1;
+  }
+  100% {
+    object-position: right;
+    opacity: 0;
   }
 }
 /********* ABOUT ME *********/
@@ -708,7 +687,7 @@ footer::before {
   height: 100%;
   width: 20px;
   border-radius: 20px;
-  background-color: var(--features-box);
+  background-color: var(--tertiary);
   z-index: 3;
   margin: 0 auto;
   left: 49%;
@@ -759,10 +738,9 @@ footer::before {
 .horizontal .line {
   height: 10px;
   border-radius: 20px;
-  background-color: var(--features-box);
+  background-color: var(--tertiary);
   z-index: 2;
   width: 100%;
-  border: 1px solid rgb(110, 131, 138);
 }
 .horizontal p {
   font-size: 1rem !important;
@@ -772,10 +750,11 @@ footer::before {
   align-self: center;
 }
 
-/********** TAG LIST **********/
-.tags-container {
-  color: var(--text-2);
+.line-fade-in {
+  animation: fadeInFromLeft 0.3s ease-in-out forwards;
 }
+
+/********** TAG LIST **********/
 .tags-container .tags-list {
   margin-top: 50px;
   list-style-type: none;
@@ -798,19 +777,55 @@ footer::before {
   }
 }
 .tags-container .tag {
+  opacity: 0;
   width: max-content;
   border-radius: 20px;
-  border: 1px solid rgb(110, 131, 138);
-  background-color: var(--text);
-  color: var(--primary);
+  background-color: var(--tertiary);
+  color: var(--primary) !important;
   text-align: center;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out forwards;
   padding: 5px 20px;
   display: flex;
   justify-self: center;
 }
-.tags-container .tag:hover {
-  background-color: var(--text-2);
-  animation: oscillate 0.3s linear infinite;
-  cursor: pointer;
+
+.fade-tag-in {
+  animation: fadeInFromBottom 0.5s ease-in-out forwards;
+  color: var(--primary);
+}
+.fade-tag-in:nth-child(1) {
+  animation-delay: 0s;
+}
+.fade-tag-in:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.fade-tag-in:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.fade-tag-in:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.fade-tag-in:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.fade-tag-in:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.fade-tag-in:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.fade-tag-in:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.fade-tag-in:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.fade-tag-in:nth-child(10) {
+  animation-delay: 0.9s;
+}
+.fade-tag-in:nth-child(11) {
+  animation-delay: 1s;
+}
+.fade-tag-in:nth-child(12) {
+  animation-delay: 1.1s;
 }

@@ -2,34 +2,33 @@
 @use './navbar';
 @use './footer';
 @use './reusables';
+@use './animations';
 
 
 /***************************** Home header ***********************************/
 
 
 .header-section {
-    background-color: var(--header);
+    background-color: var(--secondary);
 }
 
 .header-container {
     height: 340px;
-    @include reusables.flex(row, center, center, 50px);
+    @include reusables.flex(row, center, center);
 
     @media screen and (max-width: 768px) {
         @include reusables.flex(column, space-around, center, 0);
         height: 600px;
         padding: 0;
     }
-
-    @media screen and (min-width: 991px) {
-        padding: 0 20%;
-    }
 }
 
 .features-box {
-    flex: 1;
-    @include reusables.flex(column, center, center, 0);
+   // flex: 1;
+    @include reusables.flex(row, center, center, 0);
+    animation: fadeInFromBottom 1s ease-in-out forwards;
 
+    flex-basis: 50%;
     @media screen and (max-width: 768px) {
         flex-basis: 40%;
         order: 2;
@@ -40,11 +39,12 @@
 
 .features-list {
     height: 500px;
-    width: 280px;
-    background-color: var(--features-box) !important;
+    width: 250px;
+    background-color: var(--tertiary);
     border-radius: 20px;
     list-style-type: none;
     @include reusables.flex(column, center, center, 20px);
+    color: var(--primary);
 
     @media screen and (max-width: 768px) {
         height: 180px;
@@ -61,7 +61,7 @@
 .feature {
     font-size: 1.4rem;
     transition: transform 1s ease-in-out;
-    color: var(--features-text);
+    color: var(--primary);
     width: 100%;
     text-align: center;
 
@@ -85,7 +85,8 @@
 
 .image-container {
     @include reusables.flex(row, center, center);
-    flex: 1;
+    //flex: 1;
+    flex-basis: 50%;
     width: 100%;
     height: 100%;
 
@@ -97,9 +98,11 @@
 
 .images-list {
     @include reusables.flex(row, center, center);
+    animation: fadeInFromTop 1s ease-in-out forwards;
+
 
     .header-img {
-        width: 300px;
+        width: 280px;
         position: absolute;
         border-radius: 50%;
         border: 2px solid var(--secondary-border);
@@ -118,7 +121,7 @@
 }
 
 .rectangle {
-    background-color: var(--intro);
+    background-color: var(--secondary);
     font-size: 1.5rem;
     color: var(--tertiary);
     width: 80%;
@@ -132,9 +135,10 @@
     height: 250px;
 
     @media screen and (max-width: 576px) {
-        width: calc(100vw - 50px);
-        margin-left: 50px;
+        width: 90%;
+        margin-left: 10%;
     }
+   
 
 }
 
@@ -148,7 +152,7 @@
     margin: 0 auto;
 
     @media screen and (max-width: 576px) {
-        width: 60%;
+        width: 80%;
     }
 
     p {
@@ -160,11 +164,6 @@
 
 /************************ Home portfolio preview ***********************************/
 
-
-section.home-portfolio {
-    height: 70vh;
-}
-
 .portfolio-preview {
     @include reusables.flex(row, center, center);
     height: 400px;
@@ -175,8 +174,6 @@ section.home-portfolio {
         font-size: 1.5rem;
         margin-bottom: 50px;
     }
-
-
 }
 
 .portfolio-preview-card {
@@ -184,27 +181,7 @@ section.home-portfolio {
     position: absolute;
     @extend %phone-80-percent;
     transition: transform 0.3s ease-in-out;
-
-    @media screen and (min-width: 769px) {
-        width: 50%;
-    }
-
-    &:hover {
-
-        figure {
-            transform: scale(1.05);
-        }
-
-        .portfolio-preview-img {
-
-            @extend %shadow-effect;
-        }
-    }
-}
-
-
-figure {
-    transition: transform 0.3s ease-in-out;
+    height: 300px;
     
     .portfolio-preview-img {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
@@ -212,23 +189,47 @@ figure {
         border-radius: 20px;
         width: 100%;
         height: 300px;
+        height: 100%;
         transition: box-shadow 0.3s ease-in-out;
+
+        
+    }
+    
+    .card-title {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: hsla(158, 100%, 0%, 0.6);
+        padding: 10px;
+        color: var(--text-2);
+        @include reusables.flex(row, center, center);
+        transition: opacity 0.3s ease-in-out;
+        @extend %normal-text;
+        font-weight: 400 !important;
+        font-size: 1.2rem;
+        border-radius: 20px;
     }
 
-    .card-title {
-        padding: 4px 15px;
-        text-align: center;
-        color: var(--text);
-        width: fit-content;
-        max-width: 50%;
-        margin-top: 20px;
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
-        background-color: var(--primary);
-        color: var(--text-2);
-        border-radius: 10px;
-        font-size: 1rem;
-        word-wrap: break;
+    @media screen and (min-width: 769px) {
+        width: 50%;
     }
+}
+
+
+.current:hover, .next:hover {
+    .card-title {
+        opacity: 1;
+        z-index: 100;
+    }
+
+}
+
+.fade-out-to-left{
+    animation: fadeOutToLeft 1s ease-in-out forwards;
+}
+.fade-in-from-right{
+    animation: fadeInFromRight 1s ease-in-out forwards;
 }

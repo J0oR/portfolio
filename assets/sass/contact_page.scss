@@ -2,9 +2,12 @@
 @use './navbar';
 @use './footer';
 @use './reusables';
+@use './animations';
 
 
 /****************** PROFILES *******************/
+
+
 .profiles-container {
     @include reusables.flex(column, space-between, center);
     gap: 20px;
@@ -21,8 +24,7 @@
     text-decoration: none;
     color: var(--primary);
     background-color: var(--tertiary);
-    animation: slideIn 1s ease-in-out forwards;
-    @extend %normal-text;
+    animation: fadeInFromRight 1s ease-in-out forwards;
 
     @for $i from 2 through 4 {
         &:nth-child(#{$i}) {
@@ -32,27 +34,13 @@
 }
 
 
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 .after-animation-end {
     opacity: 1;
     animation: none;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-        animation: none;
-        transform: scale(1.1);
+        animation: oscillate 0.3s linear infinite;
         @extend %shadow-effect;
     }
 }
@@ -69,6 +57,7 @@
 }
 
 form {
+    max-width: 800px !important;
     @include reusables.flex(column, center, center);
     gap: 30px;
     @extend %normal-text;
@@ -101,7 +90,7 @@ form {
         background-color: var(--secondary);
         outline: 1px solid var(--secondary-border);
         color: var(--tertiary);
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         @media screen and (max-width: 768px) {
             max-width: 80vw !important;
@@ -146,8 +135,8 @@ form {
         @extend %shadow-effect;
         transition: all 0.05s ease-in-out;
         background-color: var(--text);
-        font-size: 1.5rem;
-        color: var(--background);
+        font-size: 1rem;
+        color: var(--primary);
         padding: 15px 50px;
 
 
@@ -192,13 +181,13 @@ form {
 
 .form_input_error {
     background-color: var(--error);
+    color: var(--primary);
+    font-weight: 800;
     //background-color: transparent;
-    border: 1px solid salmon;
     height: fit-content;
     border-radius: 12px;
     padding: 20px 0;
     transition: opacity 0.5s ease-in-out;
-    //opacity: 0;
     opacity: 0;
     position: absolute;
     width: 50%;
@@ -206,9 +195,6 @@ form {
     @media screen and (max-width: 768px) {
         width: 96vw;
     }
-
-
-
 }
 
 .form_input_error_visible {
@@ -216,6 +202,7 @@ form {
 }
 
 .success {
-    background-color: lightgreen !important;
+    background-color: #66bb6a !important;
     border: 1px solid green;
+    color: var(--primary);
 }

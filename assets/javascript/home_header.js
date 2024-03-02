@@ -2,7 +2,6 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('.features-box').classList.add('fade-in-bottom');
     const features = document.querySelectorAll('.feature');
     let f_index = 0;
 
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('scroll-image').classList.add('fade-in-top');
     var images = document.getElementsByClassName("header-img");
     var imgIndexes = [0, 1, 2];
     var currentImg, coveredImg;
@@ -73,36 +71,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
 /****************** INTRO SLIDING ANIMATION ******************/
 
+
 document.addEventListener('scroll', function () {
-    const element = document.querySelector('.rectangle');
+    const intro_text_container = document.querySelector('.rectangle');
     const text = document.querySelector('.intro-text');
+    const fading_animation = "fadeInFromLeft 1s ease-in-out forwards";
 
-    function isInViewport(element, margin = 300) {
-        const rect = element.getBoundingClientRect();
-        const centerY = window.innerHeight / 2;
-        const centerX = window.innerWidth / 2;
-
-        return (
-            rect.top <= centerY + margin &&
-            rect.bottom >= centerY - margin &&
-            rect.left <= centerX + margin &&
-            rect.right >= centerX - margin
-        );
+    if (isInViewport(intro_text_container)) {
+        intro_text_container.style.animation = fading_animation;
+        text.style.animation = fading_animation;
     }
-
-    function handleScroll() {
-        if (isInViewport(element)) {
-            element.classList.add('right-fade-in');
-            text.classList.add('right-fade-in');
-        }
-    }
-
-    // Initial check
-    handleScroll();
-/* 
-    // Listen for scroll events
-    window.addEventListener('scroll', handleScroll); */
 });
+
+
+function isInViewport(element, margin = 300) {
+    const rect = element.getBoundingClientRect();
+    const centerY = window.innerHeight / 2;
+    const centerX = window.innerWidth / 2;
+
+    return (
+        rect.top <= centerY + margin &&
+        rect.bottom >= centerY - margin &&
+        rect.left <= centerX + margin &&
+        rect.right >= centerX - margin
+    );
+}

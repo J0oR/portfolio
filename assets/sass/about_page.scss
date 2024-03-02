@@ -2,6 +2,8 @@
 @use './navbar';
 @use './footer';
 @use './reusables';
+@use './animations';
+
 
 @mixin flex_layout($dir: row, $just: center, $align: center) {
     display: flex;
@@ -59,11 +61,10 @@
     height: 100%;
     width: 20px;
     border-radius: 20px;
-    background-color: var(--features-box);
+    background-color: var(--tertiary);
     z-index: 3;
     margin: 0 auto;
     left: 49%;
-    @extend %shadow-effect;
     @include reusables.flex(column, center, space-around);
 
     @media only screen and (max-width: 768px) {
@@ -109,10 +110,9 @@
     .line {
         height: 10px;
         border-radius: 20px;
-        background-color: var(--features-box);
+        background-color: var(--tertiary);
         z-index: 2;
         width: 100%;
-        border: 1px solid rgb(110, 131, 138);
         @extend %shadow-effect;
     }
 
@@ -130,13 +130,15 @@
 }
 
 
+.line-fade-in{
+    animation: fadeInFromLeft 0.3s ease-in-out forwards;
+}
+
 
 
 /********** TAG LIST **********/
 
 .tags-container {
-    color: var(--text-2);
-
     p {
         @extend %normal-text;
         @extend %phone-80-percent;
@@ -146,46 +148,47 @@
         @extend %phone-80-percent;
         margin-top: 50px;
         list-style-type: none;
-        //@include reusables.flex(row, space-between, center);
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        @media only screen and (max-width: 768px) {
-            grid-template-columns: repeat(4, 1fr);
-
-        }
-        @media only screen and (max-width: 576px) {
-            grid-template-columns: repeat(3, 1fr);
-
-        }
         grid-auto-rows: auto;
         justify-content: center;
         gap: 20px;
-        //flex-wrap: wrap;
         width: 80%;
         margin: 100px auto 0 auto;
 
-        
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media only screen and (max-width: 576px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     .tag {
+        opacity: 0;
         width: max-content;
         border-radius: 20px;
-        border: 1px solid rgb(110, 131, 138);
-        background-color: var(--text);
-        color: var(--primary);
+        background-color: var(--tertiary);
+        color: var(--primary) !important;
         text-align: center;
         @extend %shadow-effect;
-        transition: all 0.3s ease-in-out;
+        transition: opacity 0.3s ease-in-out forwards;
         padding: 5px 20px;
         display: flex;
         justify-self: center;
-
-        &:hover {
-            background-color: var(--text-2);
-            animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
-            cursor: pointer;
-        }
     }
 
 }
 
+
+.fade-tag-in{
+    animation: fadeInFromBottom 0.5s ease-in-out forwards;
+    color: var(--primary);
+
+    @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+            animation-delay: 0.1s * ($i - 1);
+        }
+    }
+}

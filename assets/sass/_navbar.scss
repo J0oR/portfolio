@@ -1,11 +1,12 @@
 @use './reusables';
 
 .nav-container {
-    position: sticky;
-    top: 20px;
+    position: fixed;
+    top: 8px;
     z-index: 100;
-    margin-bottom: 60px;
     transition: background-color 0.3s ease-out;
+    width: 100%;
+    height: 70px;
 }
 
 .transparent {
@@ -24,7 +25,7 @@ nav {
     @include reusables.flex(row, space-between, center);
     height: 70px;
     max-width: 800px;
-    margin: 10px auto 0 auto;
+    margin:  0 auto;
     padding: 0 100px;
     transition: all 0.3s ease-in-out;
     border-radius: 50px;
@@ -38,14 +39,14 @@ nav {
         height: 60%;
         flex: 1;
         @include reusables.flex(row, flex-start, center);
-
-
     }
 
     .logo {
-        height: 60px;
+        height: 50px;
         display: flex;
         align-self: center;
+
+        
     }
 }
 
@@ -57,6 +58,7 @@ nav {
     height: 60%;
     display: none;
     font-size: 2rem;
+    color: black;
 
     @media screen and (max-width: 768px) {
         @include reusables.flex(row, center, center);
@@ -70,6 +72,7 @@ nav {
 }
 
 .nav-links-container {
+    
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -112,14 +115,12 @@ nav {
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            transform: translateX(-1px) translateY(5px) scale(1.2);
+            transform: scale(1.2);
             height: 85%;
         }
     }
 
     &.active-link {
-        //font-weight: 600;
-        //border-bottom: 2px solid var(--nav-link-active);
         background-color: hsla(160, 22%, 45%, 0.7);
         border-radius: 50px;
         padding: 20px;
@@ -128,6 +129,7 @@ nav {
 
 
 /*********************************** OVERLAY *****************************************/
+
 
 .close-btn {
     display: none;
@@ -145,8 +147,8 @@ nav {
         width: 50px;
         height: 50px;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 50px;
+        right: 50px;
 
         i {
             @include reusables.flex(column, center, center);
@@ -176,53 +178,40 @@ nav {
         height: 100vh;
         background-color: var(--secondary);
         position: absolute;
-        top: -20px;
+        top: -8px;
         left: 0;
-        animation: slideNavUp 0.5s ease-in-out forwards;
+        animation: fadeInFromBottom 0.5s ease-in-out forwards;
 
         @media screen and (min-width: 769px) {
             padding: 60px 15% 80px 15%;
 
         }
     }
-
-    .overlay-inner-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-
-        @media screen and (max-width: 768px) {
-            flex-direction: column;
-            padding: 20px;
-            gap: 50px;
-
-            /*  .overlay-logo{
-                height: 50px;
-                text-align: center;
-            } */
-
-        }
-
-        @media screen and (min-width: 769px) {
-            flex-direction: row;
-            border-bottom: 1px solid whitesmoke;
-            padding: 0 50px 50px 50px;
-
-            /* .overlay-logo{
-                flex-basis: 100%;
-                height: 100px;
-                @include reusables.flex(row, center, center);
-            } */
-        }
-    }
 }
 
+.overlay-inner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 20px;
+        gap: 50px;
+    }
+
+    @media screen and (min-width: 769px) {
+        flex-direction: row;
+        border-bottom: 1px solid whitesmoke;
+        //padding: 0 50px 50px 50px;
+        padding-bottom: 50px;
+    }
+}
 
 .overlay-logo {
     flex-basis: 100%;
     @include reusables.flex(row, center, center);
-
 
     @media screen and (max-width: 768px) {
         flex: 1;
@@ -236,8 +225,9 @@ nav {
 .overlay-links-container {
     flex: 1;
     width: 100%;
-    @include reusables.flex(column, flex-end, flex-start);
-    gap: 10px;
+    @include reusables.flex(column, center, flex-start);
+    gap: 10%;
+    padding-bottom: 50px;
 
     @media screen and (max-width: 768px) {
         align-items: center;
@@ -245,19 +235,23 @@ nav {
 
     .overlay-nav-link {
 
-        animation: slideNavLinkUp 0.5s ease-in-out forwards;
+        animation: fadeInFromBottom 0.5s ease-in-out forwards;
         text-decoration: none;
         color: var(--text-2);
         font-size: 2rem;
         text-align: center;
+        font-weight: 400px;
+        font-family: "Major Mono Display", monospace !important;
+        font-weight: 400 !important;
+        font-style: normal !important;
         opacity: 0;
-        height: 50px !important;
+        height: 10vh;
         vertical-align: middle !important;
-        @extend %normal-text;
         @include reusables.flex(row, center, center);
+
         @for $i from 2 through 4 {
             &:nth-child(#{$i}) {
-                animation-delay: 0.3s * ($i - 1);
+                animation-delay: 0.2s * ($i - 1);
             }
         }
 
@@ -275,6 +269,10 @@ nav {
             border-bottom: 2px solid var(--text-2);
             color: var(--text-2);
         }
+
+        &:hover{
+            color: black;
+        }
     }
 }
 
@@ -283,14 +281,10 @@ nav {
     flex: 1;
     @include reusables.flex(column, space-evenly, center);
 
-
     .social-icons {
         @media screen and (max-width: 768px) {
             gap: 20px;
         }
-
-        
-
     }
 
     .copyright {
@@ -299,33 +293,5 @@ nav {
             gap: 100px;
         }
         
-    }
-}
-
-
-/* ANIMATIONS */
-
-@keyframes slideNavLinkUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-
-@keyframes slideNavUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
     }
 }

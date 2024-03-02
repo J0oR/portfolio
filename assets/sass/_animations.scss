@@ -1,0 +1,121 @@
+
+
+   
+
+
+
+
+
+
+    
+
+    @keyframes fadeOutToLeft {
+        from {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+    }
+
+
+
+/* @keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+
+@keyframes oscillate {
+
+    0%,
+    100% {
+        transform: skewY(0);
+    }
+
+    50% {
+        transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+    }
+}
+
+
+/* yoooo */
+
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+
+
+
+@keyframes fadeInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fadeInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes horizontalLoop {
+
+    0% {
+        object-position: left;
+        opacity: 0;
+    }
+
+    50% {
+        object-position: center;
+        opacity: 1;
+    }
+
+    100% {
+        object-position: right;
+        opacity: 0;
+    }
+}

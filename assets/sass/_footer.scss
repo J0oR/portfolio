@@ -1,17 +1,19 @@
 @use './reusables';
 
-footer{
-    &::before{
+footer {
+    &::before {
         content: '';
-        position: relative; /* Add position: absolute for proper positioning */
+        position: relative;
+        /* Add position: absolute for proper positioning */
         left: 10%;
         border-top: 1px solid var(--tertiary);
         width: 80%;
         display: block;
     }
+
     height: 20vh;
     //margin-top: 100px;
-    color: var(--footer-text);
+    color: var(--tertiary);
 
     @media screen and (max-width: 768px) {
         height: 30vh;
@@ -20,7 +22,7 @@ footer{
 
 
 
-.footer-content-container{
+.footer-content-container {
     height: 100%;
     display: flex;
     align-items: center;
@@ -38,35 +40,32 @@ footer{
 
     @media screen and (max-width: 576px) {
         padding: 20px;
-        
+
     }
 }
 
-.copyright{
-    p{
-        @extend %normal-text;
-        font-size: 1rem;
-    
-        @media screen and (max-width: 576px) {
-            width: 100%;
-        }
+.copyright {
+    font-size: 1rem;
+
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        text-align: center;
     }
-    
 }
 
-.social-icons{
+.social-icons {
     display: flex;
     justify-content: flex-end;
     gap: 40px;
     height: fit-content !important;
     height: 50px;
 
-    i{
+    i {
         font-size: 2rem;
-        color: var(--footer-text);
+        color: var(--tertiary);
         transition: all 0.3s ease-in-out;
 
-        &:hover{
+        &:hover {
             transform: scale(1.2);
             color: var(--text-2);
         }
@@ -74,13 +73,13 @@ footer{
 
     @media screen and (max-width: 768px) {
         align-items: center;
-        
+
     }
 
     @media screen and (max-width: 576px) {
         width: 100%;
         justify-content: center;
-        
+
     }
 }
 
@@ -89,10 +88,13 @@ footer{
 
 
 @keyframes oscillate {
-0%, 100% {
-transform: skewY(0);
-}
-50% {
-transform: skewY(2deg); // Adjust the distance you want the element to oscillate
-}
+
+    0%,
+    100% {
+        transform: skewY(0);
+    }
+
+    50% {
+        transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+    }
 }
