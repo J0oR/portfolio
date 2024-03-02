@@ -52,6 +52,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border: 1px solid black;
 }
 
 html {
@@ -400,6 +401,7 @@ nav .logo {
 @media screen and (max-width: 768px) {
   .overlay-links-container {
     align-items: center;
+    padding: 0;
   }
 }
 .overlay-links-container .overlay-nav-link {
