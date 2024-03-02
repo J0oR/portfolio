@@ -1,7 +1,6 @@
 
 
-
-    function isInViewport(element, margin = 20) {
+    /* function isInViewport(element, margin = 20) {
         const rect = element.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const windowWidth = window.innerWidth || document.documentElement.clientWidth;
@@ -14,10 +13,25 @@
             rect.left <= centerX + margin &&
             rect.right >= centerX - margin
         );
+    } */
+
+    function isInViewport(element, height = 40) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+        const centerY = windowHeight / 2;
+    
+        return (
+            rect.top <= centerY + height / 2 &&
+            rect.bottom >= centerY - height / 2 &&
+            rect.left <= windowWidth &&
+            rect.right >= 0
+        );
     }
 
 
     function markTimelinePhase() {
+
         const phases = document.querySelectorAll('.horizontal');
 
 
@@ -26,7 +40,7 @@
         phases.forEach((phase, i) => {
             if (isInViewport(phase))
             {
-                phase.classList.add("marked-phase");
+                phase.classList.add("right-fade-in");
             }
             /* else{
                 phase.classList.remove("marked-phase");

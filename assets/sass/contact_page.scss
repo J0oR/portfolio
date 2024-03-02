@@ -31,17 +31,6 @@
     }
 }
 
-@keyframes oscillate {
-
-    0%,
-    100% {
-        transform: skewY(0);
-    }
-
-    50% {
-        transform: skewY(2deg);
-    }
-}
 
 
 @keyframes slideIn {

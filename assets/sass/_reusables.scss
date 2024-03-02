@@ -54,3 +54,106 @@
         margin: 0 auto;        
     }
 }
+
+
+
+/* Animations */
+
+
+
+.fade-in-top {
+
+    animation: slideFromTop 1s ease-in-out forwards;
+
+    @keyframes slideFromTop {
+        from {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+}
+
+.fade-in-bottom {
+
+    animation: slideFromBottom 1s ease-in-out forwards;
+
+    @keyframes slideFromBottom {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+}
+
+
+.right-fade-in {
+
+    animation: slideFromRight 1s ease-in-out forwards;
+
+    @keyframes slideFromRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+}
+
+
+
+.left-fade-out {
+
+    animation: slideToLeft 1s ease-in-out forwards;
+
+    @keyframes slideToLeft {
+        from {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+    }
+
+}
+
+
+/* @keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+
+@keyframes oscillate {
+
+    0%,
+    100% {
+        transform: skewY(0);
+    }
+
+    50% {
+        transform: skewY(2deg); // Adjust the distance you want the element to oscillate
+    }
+}

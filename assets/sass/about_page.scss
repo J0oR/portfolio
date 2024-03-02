@@ -11,89 +11,31 @@
 }
 
 
-/************************************* ABOUT ME *************************************/
+/********* ABOUT ME *********/
+
+
 .about-container {
     @include reusables.flex(column, space-between, center);
-    gap: 20px;
+    gap: 50px;
 
     p {
-        @extend %normal-text;
-        width: 100%;
         font-size: 1.3rem;
         color: var(--text-2);
         font-weight: 300;
+        width: 65%;
+        line-height: 2;
+        text-align: left;
 
         @media only screen and (max-width: 768px) {
-            width: 80%;
-            line-height: 1.5;
-        }
-
-        @media only screen and (min-width: 769px) {
             width: 80%;
         }
     }
 }
 
-/************************************* TAG LIST *************************************/
-.tags-container {
-    color: var(--text-2);
 
-    p{
-        @extend %normal-text;
-        @extend %phone-80-percent;
-    }
 
-    .tags-list {
-        @extend %phone-80-percent;
-        margin-top: 50px;
-        list-style-type: none;
-        @include reusables.flex(row, center, center);
-       /*  display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows:auto; */
-        gap: 40px;
-        flex-wrap: wrap;
+/********** CV TIMELINE **********/
 
-        /* @media only screen and (max-width: 991px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        @media only screen and (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-        } */
-
-    }
-
-    .tag {
-        width: max-content;
-        border-radius: 30px;
-        border: 1px solid rgb(110, 131, 138);
-        background-color: var(--text);
-        color: var(--background);
-        text-align: center;
-        @extend %shadow-effect;
-        transition: all 0.3s ease-in-out;
-        @extend %normal-text;
-        padding: 0 20px;
-
-        &:hover{
-            background-color: var(--text-2);
-            animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
-            cursor: pointer;
-        }
-    }
-
-}
-
-@keyframes oscillate {
-    0%, 100% {
-      transform: skewY(0);
-    }
-    50% {
-      transform: skewY(2deg); // Adjust the distance you want the element to oscillate
-    }
-  }
-
-/********************************* CV TIMELINE *************************************/
 
 .container.timeline {
     padding-top: 0;
@@ -109,120 +51,141 @@
     @media only screen and (max-width: 768px) {
         gap: 100px;
     }
-    
+}
 
 
-    .vertical {
-        position: absolute;
-        height: 100%;
-        width: 20px;
-        border-radius: 20px;
-        background-color: var(--features-box);
-        z-index: 3;
-        margin: 0 auto;
-        left: 49%;
-        //border: 1px solid rgb(110, 131, 138);
-        @extend %shadow-effect;
-        @include reusables.flex(column, center, space-around);
+.vertical {
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    border-radius: 20px;
+    background-color: var(--features-box);
+    z-index: 3;
+    margin: 0 auto;
+    left: 49%;
+    @extend %shadow-effect;
+    @include reusables.flex(column, center, space-around);
 
-        @media only screen and (max-width: 768px) {
-            justify-content: center;
+    @media only screen and (max-width: 768px) {
+        justify-content: center;
+    }
+
+    @media only screen and (max-width: 768px) {
+        left: 0;
+        margin-left: 25%;
+    }
+}
+
+.horizontal {
+    width: 30%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 400;
+    color: var(--text-2);
+    transition: all 0.3s linear;
+    opacity: 0;
+
+
+    @media only screen and (max-width: 768px) {
+        left: 0;
+        margin-left: 26%;
+        width: 50%;
+    }
+    @media only screen and (min-width: 769px) {
+        &.n2, &.n4 {
+            margin-left: 20%;
         }
 
-        @media only screen and (max-width: 768px) {
-            left: 0;
-            margin-left: 25%;
+        &.n1, &.n3 {
+            left: 50%;
         }
     }
 
-    .horizontal {
-        width: 30%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        font-weight: 400;
-        color: var(--text-2);
-        transition: all 0.3s linear;
-
-    
-        
-        
-        @media only screen and (max-width: 768px) {
-            left: 0;
-            margin-left: 26%;
-            width: 50%;
-        }
-
-        @media only screen and (min-width: 768px) {
-
-            &.n2, &.n4{
-                left: 20%;
-            }
-
-            &.n1,
-            &.n3 {
-                left: 50%;
-    /* 
-                p {
-                     align-self: flex-end;
-                    text-align: right; 
-                } */
-            }
-        }
-
-        .line {
-            height: 10px;
-            border-radius: 20px;
-            background-color: var(--features-box);
-            z-index: 2;
-            width: 100%;
-            border: 1px solid rgb(110, 131, 138);
-            @extend %shadow-effect;
-            transition: all 0.3s ease-in-out;
-        }
-
-        p {
-            @extend %normal-text;
-
-            font-size: 1rem !important;
-            word-wrap: break-word;
-            width: 80%;
-            transition: all 0.5s ease-in-out;
-            align-self: center;
-            //max-width: 50%;
-            opacity: 0;
-
-        }
-
-        &.marked-phase {
-
-           // transform: perspective(50vw) rotateX(40deg);
-
-            p{
-                animation: slideFromLeftFast 0.3s ease-in-out forwards;
-            }
-
-            
-            
-            
-        }
 
         
-        
+
+    .line {
+        height: 10px;
+        border-radius: 20px;
+        background-color: var(--features-box);
+        z-index: 2;
+        width: 100%;
+        border: 1px solid rgb(110, 131, 138);
+        @extend %shadow-effect;
+    }
+
+    p {
+        @extend %normal-text;
+
+        font-size: 1rem !important;
+        word-wrap: break-word;
+        width: 80%;
+        transition: all 0.5s ease-in-out;
+        align-self: center;
+        //max-width: 50%;
+
     }
 }
 
 
 
-    @keyframes slideFromLeftFast {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
 
-        to {
-            opacity: 1;
-            transform: translateX(0%);
+/********** TAG LIST **********/
+
+.tags-container {
+    color: var(--text-2);
+
+    p {
+        @extend %normal-text;
+        @extend %phone-80-percent;
+    }
+
+    .tags-list {
+        @extend %phone-80-percent;
+        margin-top: 50px;
+        list-style-type: none;
+        //@include reusables.flex(row, space-between, center);
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+        @media only screen and (max-width: 576px) {
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+        grid-auto-rows: auto;
+        justify-content: center;
+        gap: 20px;
+        //flex-wrap: wrap;
+        width: 80%;
+        margin: 100px auto 0 auto;
+
+        
+    }
+
+    .tag {
+        width: max-content;
+        border-radius: 20px;
+        border: 1px solid rgb(110, 131, 138);
+        background-color: var(--text);
+        color: var(--primary);
+        text-align: center;
+        @extend %shadow-effect;
+        transition: all 0.3s ease-in-out;
+        padding: 5px 20px;
+        display: flex;
+        justify-self: center;
+
+        &:hover {
+            background-color: var(--text-2);
+            animation: oscillate 0.3s linear infinite; // Adjust the duration as needed
+            cursor: pointer;
         }
     }
+
+}
+

@@ -29,6 +29,82 @@
   line-height: 2 !important;
 }
 
+/* Animations */
+.fade-in-top {
+  animation: slideFromTop 1s ease-in-out forwards;
+}
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.fade-in-bottom {
+  animation: slideFromBottom 1s ease-in-out forwards;
+}
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.right-fade-in {
+  animation: slideFromRight 1s ease-in-out forwards;
+}
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.left-fade-out {
+  animation: slideToLeft 1s ease-in-out forwards;
+}
+@keyframes slideToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+/* @keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+@keyframes oscillate {
+  0%, 100% {
+    transform: skewY(0);
+  }
+  50% {
+    transform: skewY(2deg);
+  }
+}
 :root {
   --background: #131e23;
   --background: hsla(158, 23%, 20%, 1);
@@ -604,8 +680,7 @@ footer::before {
   object-fit: cover;
   object-position: left;
   opacity: 0;
-  transition: opacity 6s ease, transform 0.3s ease-in-out;
-  animation: moveLeftoRight 6s linear infinite;
+  transition: opacity 6s ease-in-out, transform 0.3s ease-in-out;
 }
 .portfolio-grid .portfolio-project .portfolio-project-caption {
   opacity: 0;
@@ -622,15 +697,14 @@ footer::before {
   justify-content: center;
   align-items: center;
   gap: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease-in-out;
   font-weight: 400 !important;
   font-size: 1.2rem;
 }
 
-@keyframes moveLeftToRight {
+@keyframes LeftToRightLoop {
   0% {
     object-position: left;
-    /* Initial position on the left */
     opacity: 0;
   }
   50% {
@@ -639,27 +713,6 @@ footer::before {
   }
   100% {
     object-position: right;
-    /* Initial position on the left */
     opacity: 0;
   }
-}
-.tags-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  padding: 2px 10px;
-  border-radius: 10px;
-  border: 1px solid lightblue;
-  background-color: lightblue;
-  width: fit-content;
-  text-align: center;
-  font-size: 1rem;
 }

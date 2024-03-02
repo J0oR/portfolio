@@ -1,4 +1,4 @@
-.tags-container .tag, .timeline .vertical, .timeline .horizontal .line, .visible {
+.vertical, .horizontal .line, .tags-container .tag, .visible {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
@@ -21,7 +21,7 @@
   transform: scale(1.2);
 }
 
-.about-container p, .tags-container p, .tags-container .tag, .timeline .horizontal p, .copyright p, .overlay-links-container .overlay-nav-link {
+.horizontal p, .tags-container p, .copyright p, .overlay-links-container .overlay-nav-link {
   font-family: "Exo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -36,6 +36,82 @@
   }
 }
 
+/* Animations */
+.fade-in-top {
+  animation: slideFromTop 1s ease-in-out forwards;
+}
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.fade-in-bottom {
+  animation: slideFromBottom 1s ease-in-out forwards;
+}
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.right-fade-in {
+  animation: slideFromRight 1s ease-in-out forwards;
+}
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.left-fade-out {
+  animation: slideToLeft 1s ease-in-out forwards;
+}
+@keyframes slideToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+/* @keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+} */
+@keyframes oscillate {
+  0%, 100% {
+    transform: skewY(0);
+  }
+  50% {
+    transform: skewY(2deg);
+  }
+}
 :root {
   --background: #131e23;
   --background: hsla(158, 23%, 20%, 1);
@@ -582,82 +658,30 @@ footer::before {
     transform: skewY(2deg);
   }
 }
-/************************************* ABOUT ME *************************************/
+/********* ABOUT ME *********/
 .about-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  gap: 20px;
+  gap: 50px;
 }
 .about-container p {
-  width: 100%;
   font-size: 1.3rem;
   color: var(--text-2);
   font-weight: 300;
+  width: 65%;
+  line-height: 2;
+  text-align: left;
 }
 @media only screen and (max-width: 768px) {
   .about-container p {
     width: 80%;
-    line-height: 1.5;
-  }
-}
-@media only screen and (min-width: 769px) {
-  .about-container p {
-    width: 80%;
   }
 }
 
-/************************************* TAG LIST *************************************/
-.tags-container {
-  color: var(--text-2);
-}
-.tags-container .tags-list {
-  margin-top: 50px;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  /*  display: grid;
-   grid-template-columns: repeat(6, 1fr);
-   grid-auto-rows:auto; */
-  gap: 40px;
-  flex-wrap: wrap;
-  /* @media only screen and (max-width: 991px) {
-      grid-template-columns: repeat(3, 1fr);
-  }
-  @media only screen and (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-  } */
-}
-.tags-container .tag {
-  width: max-content;
-  border-radius: 30px;
-  border: 1px solid rgb(110, 131, 138);
-  background-color: var(--text);
-  color: var(--background);
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  padding: 0 20px;
-}
-.tags-container .tag:hover {
-  background-color: var(--text-2);
-  animation: oscillate 0.3s linear infinite;
-  cursor: pointer;
-}
-
-@keyframes oscillate {
-  0%, 100% {
-    transform: skewY(0);
-  }
-  50% {
-    transform: skewY(2deg);
-  }
-}
-/********************************* CV TIMELINE *************************************/
+/********** CV TIMELINE **********/
 .container.timeline {
   padding-top: 0;
   padding-bottom: 0;
@@ -678,7 +702,8 @@ footer::before {
     gap: 100px;
   }
 }
-.timeline .vertical {
+
+.vertical {
   position: absolute;
   height: 100%;
   width: 20px;
@@ -694,17 +719,18 @@ footer::before {
   gap: 0;
 }
 @media only screen and (max-width: 768px) {
-  .timeline .vertical {
+  .vertical {
     justify-content: center;
   }
 }
 @media only screen and (max-width: 768px) {
-  .timeline .vertical {
+  .vertical {
     left: 0;
     margin-left: 25%;
   }
 }
-.timeline .horizontal {
+
+.horizontal {
   width: 30%;
   position: relative;
   display: flex;
@@ -713,55 +739,78 @@ footer::before {
   font-weight: 400;
   color: var(--text-2);
   transition: all 0.3s linear;
+  opacity: 0;
 }
 @media only screen and (max-width: 768px) {
-  .timeline .horizontal {
+  .horizontal {
     left: 0;
     margin-left: 26%;
     width: 50%;
   }
 }
-@media only screen and (min-width: 768px) {
-  .timeline .horizontal.n2, .timeline .horizontal.n4 {
-    left: 20%;
+@media only screen and (min-width: 769px) {
+  .horizontal.n2, .horizontal.n4 {
+    margin-left: 20%;
   }
-  .timeline .horizontal.n1, .timeline .horizontal.n3 {
+  .horizontal.n1, .horizontal.n3 {
     left: 50%;
-    /* 
-                p {
-                     align-self: flex-end;
-                    text-align: right; 
-                } */
   }
 }
-.timeline .horizontal .line {
+.horizontal .line {
   height: 10px;
   border-radius: 20px;
   background-color: var(--features-box);
   z-index: 2;
   width: 100%;
   border: 1px solid rgb(110, 131, 138);
-  transition: all 0.3s ease-in-out;
 }
-.timeline .horizontal p {
+.horizontal p {
   font-size: 1rem !important;
   word-wrap: break-word;
   width: 80%;
   transition: all 0.5s ease-in-out;
   align-self: center;
-  opacity: 0;
-}
-.timeline .horizontal.marked-phase p {
-  animation: slideFromLeftFast 0.3s ease-in-out forwards;
 }
 
-@keyframes slideFromLeftFast {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
+/********** TAG LIST **********/
+.tags-container {
+  color: var(--text-2);
+}
+.tags-container .tags-list {
+  margin-top: 50px;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  justify-content: center;
+  gap: 20px;
+  width: 80%;
+  margin: 100px auto 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .tags-container .tags-list {
+    grid-template-columns: repeat(4, 1fr);
   }
-  to {
-    opacity: 1;
-    transform: translateX(0%);
+}
+@media only screen and (max-width: 576px) {
+  .tags-container .tags-list {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+.tags-container .tag {
+  width: max-content;
+  border-radius: 20px;
+  border: 1px solid rgb(110, 131, 138);
+  background-color: var(--text);
+  color: var(--primary);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  padding: 5px 20px;
+  display: flex;
+  justify-self: center;
+}
+.tags-container .tag:hover {
+  background-color: var(--text-2);
+  animation: oscillate 0.3s linear infinite;
+  cursor: pointer;
 }

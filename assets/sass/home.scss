@@ -112,15 +112,9 @@
 
 
 .home-intro-section {
-
-    //margin-top: 250px;
     height: 350px;
 
     @include reusables.flex(row, center, center);
-
-    /* @media screen and (max-width: 768px) {
-        margin-top: 100px;
-    } */
 }
 
 .rectangle {
@@ -138,10 +132,8 @@
     height: 250px;
 
     @media screen and (max-width: 576px) {
-
         width: calc(100vw - 50px);
         margin-left: 50px;
-
     }
 
 }
@@ -151,11 +143,9 @@
     padding: 20px;
     @include reusables.flex(column, center, flex-start);
     gap: 15px;
-    margin-left: 10px;
     align-self: center;
     position: absolute;
     margin: 0 auto;
-
 
     @media screen and (max-width: 576px) {
         width: 60%;
@@ -172,13 +162,7 @@
 
 
 section.home-portfolio {
-    //margin-bottom: 230px;
     height: 70vh;
-
-
-    /*  @media screen and (max-width: 576px) {
-        margin-top: 230px;
-    } */
 }
 
 .portfolio-preview {
@@ -196,142 +180,55 @@ section.home-portfolio {
 }
 
 .portfolio-preview-card {
-    transition: all 0.35s ease-in-out;
     text-decoration: none;
     position: absolute;
     @extend %phone-80-percent;
+    transition: transform 0.3s ease-in-out;
 
     @media screen and (min-width: 769px) {
         width: 50%;
     }
 
-    transition: transform 0.3s ease-in-out;
-
     &:hover {
 
-        figure{
+        figure {
             transform: scale(1.05);
-
         }
-        .portfolio-preview-img{
+
+        .portfolio-preview-img {
 
             @extend %shadow-effect;
         }
-}
-}
-
-
-
-.card-title {
-    padding: 4px 15px;
-    text-align: center;
-    color: var(--text);
-    width: fit-content;
-    max-width: 50%;
-    margin-top: 20px;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    background-color: var(--primary);
-    color: var(--text-2);
-    border-radius: 10px;
-    font-size: 1rem;
-    word-wrap: break;
-
-
+    }
 }
 
-figure{
+
+figure {
     transition: transform 0.3s ease-in-out;
-}
-
-.portfolio-preview-img {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
-    object-fit: cover;
-    border-radius: 20px;
-    width: 100%;
-    height: 300px;
-    transition: box-shadow 0.3s ease-in-out;
     
-}
-
-/* animations */
-
-
-
-.fade-in-top {
-
-    animation: slideFromTop 1s ease-in-out forwards;
-
-    @keyframes slideFromTop {
-        from {
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0%);
-        }
-    }
-}
-
-.fade-in-bottom {
-
-    animation: slideFromBottom 1s ease-in-out forwards;
-
-    @keyframes slideFromBottom {
-        from {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0%);
-        }
-    }
-}
-
-
-.right-fade-in {
-
-    animation: slideFromRight 1s ease-in-out forwards;
-
-    @keyframes slideFromRight {
-        from {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0%);
-        }
+    .portfolio-preview-img {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
+        object-fit: cover;
+        border-radius: 20px;
+        width: 100%;
+        height: 300px;
+        transition: box-shadow 0.3s ease-in-out;
     }
 
-    
-
-    z-index: 2;
-}
-
-
-
-.left-fade-out {
-
-    animation: slideToLeft 1s ease-in-out forwards;
-
-    @keyframes slideToLeft {
-        from {
-            opacity: 1;
-            transform: translateX(0%);
-        }
-
-        to {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
+    .card-title {
+        padding: 4px 15px;
+        text-align: center;
+        color: var(--text);
+        width: fit-content;
+        max-width: 50%;
+        margin-top: 20px;
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        background-color: var(--primary);
+        color: var(--text-2);
+        border-radius: 10px;
+        font-size: 1rem;
+        word-wrap: break;
     }
-
-    z-index: 1;
 }
