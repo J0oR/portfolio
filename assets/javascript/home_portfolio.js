@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let next = document.querySelector('.next');
 
     function updateContent() {
-        next.querySelector('img').src = projectsArray[index].img;
-        next.querySelector('figcaption').textContent = projectsArray[index].title;
+        next.querySelector('.portfolio-preview-img').src = projectsArray[index].img;
+        next.querySelector('.card-title').textContent = projectsArray[index].title;
     }
 
     function swap() {

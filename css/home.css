@@ -1,4 +1,4 @@
-.visible {
+.portfolio-preview-card:hover .portfolio-preview-img, .visible {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 1px, rgba(0, 0, 0, 0.12) 0px 4px 2px, rgba(0, 0, 0, 0.12) 0px 8px 4px, rgba(0, 0, 0, 0.12) 0px 16px 8px;
 }
 
@@ -82,6 +82,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  overflow-x: hidden;
 }
 
 section {
@@ -704,6 +705,7 @@ footer::before {
   position: absolute;
   border-radius: 50%;
   border: 2px solid var(--secondary-border);
+  opacity: 0;
 }
 
 /********************************* HOME INTRO **************************************/
@@ -794,23 +796,17 @@ section.home-portfolio {
   transition: all 0.35s ease-in-out;
   text-decoration: none;
   position: absolute;
+  transition: transform 0.3s ease-in-out;
 }
 @media screen and (min-width: 769px) {
   .portfolio-preview-card {
     width: 50%;
   }
 }
-
-figure {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  gap: 20px;
-  padding: 12px;
+.portfolio-preview-card:hover figure {
+  transform: scale(1.05);
 }
-figure figcaption {
+.card-title {
   padding: 4px 15px;
   text-align: center;
   color: var(--text);
@@ -827,13 +823,17 @@ figure figcaption {
   word-wrap: break;
 }
 
+figure {
+  transition: transform 0.3s ease-in-out;
+}
+
 .portfolio-preview-img {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
-  transition: all 0.3s ease-in-out;
   object-fit: cover;
   border-radius: 20px;
   width: 100%;
   height: 300px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 /* animations */
@@ -867,11 +867,12 @@ figure figcaption {
 
 .right-fade-in {
   animation: slideFromRight 1s ease-in-out forwards;
+  z-index: 2;
 }
 @keyframes slideFromRight {
   from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
@@ -881,6 +882,7 @@ figure figcaption {
 
 .left-fade-out {
   animation: slideToLeft 1s ease-in-out forwards;
+  z-index: 1;
 }
 @keyframes slideToLeft {
   from {
@@ -889,6 +891,6 @@ figure figcaption {
   }
   to {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-50px);
   }
 }
