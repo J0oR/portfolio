@@ -569,17 +569,21 @@ footer::before {
 @keyframes fadeInFromRight {
   from {
     opacity: 0;
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
+    transform: translateX(0%);
   }
 }
 @keyframes fadeOutToLeft {
   from {
     opacity: 1;
+    transform: translateX(0%);
   }
   to {
     opacity: 0;
+    transform: translateX(-30px);
   }
 }
 @keyframes fadeInFromLeft {
