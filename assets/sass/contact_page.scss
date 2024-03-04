@@ -17,6 +17,7 @@
     opacity: 0;
     text-align: center;
     width: 300px;
+    max-width: 80%;
     height: 50px;
     @include reusables.flex(row, center, center, 10px);
     border-radius: 10px;

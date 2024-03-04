@@ -62,21 +62,21 @@
     font-size: 1.4rem;
     transition: transform 1s ease-in-out;
     color: var(--primary);
-    width: 100%;
+    //width: 100%;
     text-align: center;
 
     @media screen and (max-width: 768px) {
-        width: 100vw;
         margin-left: 10%;
     }
 
     &.marked {
         transform: scale(1.4);
         font-weight: 400;
+        width:fit-content;
 
         @media screen and (max-width: 768px) {
+            width:fit-content !important;
             font-weight: 400;
-            width: 100vw;
         }
     }
 }
