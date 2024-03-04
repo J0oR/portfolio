@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function swap() {
         current.classList.add('fade-out-to-left');
-        current.style.zIndex = 1;
         next.classList.add('fade-in-from-right');
         current.style.zIndex = 1;
 

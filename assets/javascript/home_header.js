@@ -20,50 +20,38 @@ document.addEventListener('DOMContentLoaded', function () {
 /****************** PHOTO ANIMATIONS ******************/
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    var images = document.getElementsByClassName("header-img");
-    var imgIndexes = [0, 1, 2];
-    var currentImg, coveredImg;
+let imagesArray = [
+    { title: 'Y', img: './assets/images/yellow.jpeg' },
+    { title: 'G', img: './assets/images/blue.jpeg' },
+    { title: 'B', img: './assets/images/green.jpeg' }
+]
 
-    // set initial opacity
-    for (var i = 0; i < images.length; ++i) {
-        images[i].style.opacity = 1;
-    }
+document.addEventListener('DOMContentLoaded', function () {
+
+    var currentImg = document.querySelector('.top');
+    var coveredImg = document.querySelector('.bottom');
 
     async function changeImage() {
-        //select current top image and put it on top with z-index
-        currentImg = imgIndexes[2];
-        images[currentImg].style.zIndex = 2;
+        currentImg.style.zIndex = 1;
+        currentImg.classList.add('header-image-fade-out');
+        coveredImg.style.zIndex = 0;
+        coveredImg.classList.add('header-image-fade-in');
 
-        // rearrange the images indexes order
-        imgIndexes = imgIndexes.map(index => (index + 1) % 3);
+        rearrangeImagesArray(imagesArray);
 
-        // select the next image  and put it behind
-        coveredImg = imgIndexes[2];
-        images[coveredImg].style.zIndex = 1;
+        coveredImg.src = imagesArray[1].img;
+        coveredImg.style.zIndex = 1;
+        coveredImg.classList.remove('header-image-fade-out');
+        currentImg.style.zIndex = 0;
+        currentImg.classList.remove('header-image-fade-in');
 
-        await transition();
+        [currentImg, coveredImg] = [coveredImg, currentImg];
 
-        // put faded image at stack's bottom and reset its opacity for the next round
-        images[currentImg].style.zIndex = 0;
-        images[currentImg].style.opacity = 1;
     }
 
-
-    // reduce current image opacity gradually down to 0
-    function transition() {
-        return new Promise(resolve => {
-
-            var id = setInterval(changeOpacity, 50);
-
-            function changeOpacity() {
-                images[currentImg].style.opacity -= 0.1;
-                if (images[currentImg].style.opacity <= 0) {
-                    clearInterval(id);
-                    resolve();
-                }
-            }
-        })
+    function rearrangeImagesArray(arr) {
+        const firstElement = arr.pop();
+        arr.unshift(firstElement);
     }
 
     changeImage();
@@ -80,7 +68,6 @@ document.addEventListener('scroll', function () {
 
     if (isInViewport(intro_text_container)) {
         intro_text_container.style.animation = fading_animation;
-        //text.style.animation = fading_animation;
     }
 });
 

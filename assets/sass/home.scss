@@ -103,8 +103,17 @@
         position: absolute;
         border-radius: 50%;
         border: 1px solid var(--secondary-border);
-        opacity: 0;
+        opacity: 1;
+        
     }
+}
+
+.header-image-fade-out{
+    animation: fadeOut 0.75s ease-in-out forwards;
+}
+.header-image-fade-in{
+    opacity: 1;
+    animation: fadeIn 0.75s ease-in-out forwards;
 }
 
 

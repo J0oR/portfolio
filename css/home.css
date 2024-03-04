@@ -576,21 +576,17 @@ footer::before {
 @keyframes fadeInFromRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
   }
   to {
     opacity: 1;
-    transform: translateX(0%);
   }
 }
 @keyframes fadeOutToLeft {
   from {
     opacity: 1;
-    transform: translateX(0%);
   }
   to {
     opacity: 0;
-    transform: translateX(-30px);
   }
 }
 @keyframes fadeInFromLeft {
@@ -615,6 +611,22 @@ footer::before {
   100% {
     object-position: right;
     opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 /***************************** Home header ***********************************/
@@ -738,7 +750,16 @@ footer::before {
   position: absolute;
   border-radius: 50%;
   border: 1px solid var(--secondary-border);
-  opacity: 0;
+  opacity: 1;
+}
+
+.header-image-fade-out {
+  animation: fadeOut 0.75s ease-in-out forwards;
+}
+
+.header-image-fade-in {
+  opacity: 1;
+  animation: fadeIn 0.75s ease-in-out forwards;
 }
 
 /********************************* HOME INTRO **************************************/
