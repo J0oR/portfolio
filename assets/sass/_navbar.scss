@@ -16,7 +16,7 @@
 
 .visible {
     background-color: var(--navbar);
-    background-color: hsla(161, 22%, 35%, 0.7);
+    //background-color: hsla(161, 22%, 35%, 0.7);
     backdrop-filter: blur(20px) saturate(1.7);
     @extend %shadow-effect;
 }
