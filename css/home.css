@@ -822,6 +822,12 @@ footer::before {
 }
 
 /************************ Home portfolio preview ***********************************/
+@media screen and (max-width: 576px) {
+  .home-portfolio {
+    margin-bottom: unset !important;
+  }
+}
+
 .portfolio-preview {
   display: flex;
   flex-direction: row;
@@ -843,12 +849,22 @@ footer::before {
   transition: transform 0.3s ease-in-out;
   height: 300px;
 }
+@media screen and (min-width: 769px) {
+  .portfolio-preview-card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .portfolio-preview-card {
+    width: 68%;
+    height: 200px;
+  }
+}
 .portfolio-preview-card .portfolio-preview-img {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
   object-fit: cover;
   border-radius: 20px;
   width: 100%;
-  height: 300px;
   height: 100%;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -871,11 +887,6 @@ footer::before {
   font-weight: 400 !important;
   font-size: 1.2rem;
   border-radius: 20px;
-}
-@media screen and (min-width: 769px) {
-  .portfolio-preview-card {
-    width: 50%;
-  }
 }
 
 .current:hover .card-title, .next:hover .card-title {
