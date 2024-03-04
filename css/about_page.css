@@ -63,11 +63,11 @@ body {
   background-color: var(--primary);
   font-size: 18px;
   color: var(--text);
+  scroll-behavior: smooth;
   font-family: "Exo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  scroll-behavior: smooth;
 }
 
 section {
@@ -81,7 +81,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   section:first-of-type {
-    margin-top: 120px !important;
+    margin-top: 150px !important;
   }
 }
 @media screen and (min-width: 769px) {
@@ -119,9 +119,6 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
-  /*  p{
-      font-size: 1.5rem;
-  } */
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -132,19 +129,6 @@ section .section-title {
   .container {
     padding: 10px;
   }
-}
-
-.text {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 2 !important;
-  /* font-family: "Exo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 2 !important; */
 }
 
 .nav-container {
@@ -163,6 +147,7 @@ section .section-title {
 .visible {
   background-color: var(--navbar);
   backdrop-filter: blur(20px) saturate(1.7);
+  margin: 0 auto;
 }
 
 nav {
@@ -583,6 +568,17 @@ footer::before {
   to {
     opacity: 1;
     transform: translateY(0%);
+  }
+}
+@keyframes growFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(6%);
+    width: 80%;
+  }
+  to {
+    opacity: 1;
+    width: 90%;
   }
 }
 @keyframes fadeInFromRight {

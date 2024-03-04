@@ -22,14 +22,6 @@
   transform: scale(1.2);
 }
 
-.portfolio-preview-card .card-title {
-  font-family: "Exo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 2 !important;
-}
-
 @media screen and (max-width: 768px) {
   .portfolio-preview-card {
     width: 80vw;
@@ -63,11 +55,11 @@ body {
   background-color: var(--primary);
   font-size: 18px;
   color: var(--text);
+  scroll-behavior: smooth;
   font-family: "Exo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  scroll-behavior: smooth;
 }
 
 section {
@@ -81,7 +73,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   section:first-of-type {
-    margin-top: 120px !important;
+    margin-top: 150px !important;
   }
 }
 @media screen and (min-width: 769px) {
@@ -119,9 +111,6 @@ section .section-title {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 100px;
-  /*  p{
-      font-size: 1.5rem;
-  } */
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -132,19 +121,6 @@ section .section-title {
   .container {
     padding: 10px;
   }
-}
-
-.text {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 2 !important;
-  /* font-family: "Exo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 2 !important; */
 }
 
 .nav-container {
@@ -163,6 +139,7 @@ section .section-title {
 .visible {
   background-color: var(--navbar);
   backdrop-filter: blur(20px) saturate(1.7);
+  margin: 0 auto;
 }
 
 nav {
@@ -585,6 +562,17 @@ footer::before {
     transform: translateY(0%);
   }
 }
+@keyframes growFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(6%);
+    width: 80%;
+  }
+  to {
+    opacity: 1;
+    width: 90%;
+  }
+}
 @keyframes fadeInFromRight {
   from {
     opacity: 0;
@@ -632,6 +620,7 @@ footer::before {
 /***************************** Home header ***********************************/
 .header-section {
   background-color: var(--secondary);
+  border: 1px solid var(--secondary-border);
 }
 
 .header-container {
@@ -748,7 +737,7 @@ footer::before {
   width: 280px;
   position: absolute;
   border-radius: 50%;
-  border: 2px solid var(--secondary-border);
+  border: 1px solid var(--secondary-border);
   opacity: 0;
 }
 
@@ -772,13 +761,13 @@ footer::before {
   border-bottom-left-radius: 120px;
   border: 1px solid var(--secondary-border);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0;
   padding: 20px 0;
   opacity: 0;
-  height: 250px;
+  height: fit-content;
 }
 @media screen and (max-width: 576px) {
   .rectangle {
@@ -788,7 +777,6 @@ footer::before {
 }
 
 .intro-text {
-  width: 60%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -796,13 +784,13 @@ footer::before {
   align-items: flex-start;
   gap: 0;
   gap: 15px;
-  align-self: center;
-  position: absolute;
-  margin: 0 auto;
+  font-size: 1.2rem;
+  margin-right: 25%;
 }
 @media screen and (max-width: 576px) {
   .intro-text {
-    width: 80%;
+    width: 90%;
+    margin-right: 10%;
   }
 }
 .intro-text p {
@@ -844,7 +832,7 @@ footer::before {
 }
 @media screen and (max-width: 576px) {
   .portfolio-preview-card {
-    width: 68%;
+    max-width: calc(80vw - 50px);
     height: 200px;
   }
 }

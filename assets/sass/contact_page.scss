@@ -61,7 +61,6 @@ form {
     max-width: 800px !important;
     @include reusables.flex(column, center, center);
     gap: 30px;
-    @extend %normal-text;
 
     @media screen and (max-width: 768px) {
         padding: 0;

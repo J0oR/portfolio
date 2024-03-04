@@ -36,6 +36,20 @@
     }
 }
 
+@keyframes growFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(6%);
+        width: 80%;
+    }
+
+    to {
+        opacity: 1;
+        width: 90%;
+    }
+}
+
+
 
 @keyframes fadeInFromRight {
     from {

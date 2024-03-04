@@ -117,15 +117,12 @@
     }
 
     p {
-        @extend %normal-text;
 
         font-size: 1rem !important;
         word-wrap: break-word;
         width: 80%;
         transition: all 0.5s ease-in-out;
         align-self: center;
-        //max-width: 50%;
-
     }
 }
 

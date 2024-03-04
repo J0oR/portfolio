@@ -10,12 +10,13 @@
 
 .header-section {
     background-color: var(--secondary);
+    border: 1px solid var(--secondary-border);
 }
 
 .header-container {
     height: 340px;
     @include reusables.flex(row, center, center);
-
+    
     @media screen and (max-width: 768px) {
         @include reusables.flex(column, space-around, center, 0);
         height: 600px;
@@ -24,11 +25,10 @@
 }
 
 .features-box {
-   // flex: 1;
     @include reusables.flex(row, center, center, 0);
     animation: fadeInFromBottom 1s ease-in-out forwards;
-
     flex-basis: 50%;
+
     @media screen and (max-width: 768px) {
         flex-basis: 40%;
         order: 2;
@@ -62,7 +62,6 @@
     font-size: 1.4rem;
     transition: transform 1s ease-in-out;
     color: var(--primary);
-    //width: 100%;
     text-align: center;
 
     @media screen and (max-width: 768px) {
@@ -85,7 +84,6 @@
 
 .image-container {
     @include reusables.flex(row, center, center);
-    //flex: 1;
     flex-basis: 50%;
     width: 100%;
     height: 100%;
@@ -100,12 +98,11 @@
     @include reusables.flex(row, center, center);
     animation: fadeInFromTop 1s ease-in-out forwards;
 
-
     .header-img {
         width: 280px;
         position: absolute;
         border-radius: 50%;
-        border: 2px solid var(--secondary-border);
+        border: 1px solid var(--secondary-border);
         opacity: 0;
     }
 }
@@ -116,7 +113,6 @@
 
 .home-intro-section {
     height: 350px;
-
     @include reusables.flex(row, center, center);
 }
 
@@ -129,30 +125,27 @@
     border-top-left-radius: 120px;
     border-bottom-left-radius: 120px;
     border: 1px solid var(--secondary-border);
-    @include reusables.flex(column, center, center);
+    @include reusables.flex(row, center, center);
     padding: 20px 0;
     opacity: 0;
-    height: 250px;
+    height: fit-content;
 
     @media screen and (max-width: 576px) {
         width: 90%;
         margin-left: 10%;
     }
-   
-
 }
 
 .intro-text {
-    width: 60%;
     padding: 20px;
     @include reusables.flex(column, center, flex-start);
     gap: 15px;
-    align-self: center;
-    position: absolute;
-    margin: 0 auto;
+    font-size: 1.2rem;
+    margin-right: 25%;
 
     @media screen and (max-width: 576px) {
-        width: 80%;
+        width: 90%;
+        margin-right: 10%;
     }
 
     p {
@@ -193,8 +186,9 @@
     @media screen and (min-width: 769px) {
         width: 50%;
     }
+
     @media screen and (max-width: 576px) {
-        width: 68%;
+        max-width: calc(80vw - 50px);
         height: 200px;
     }
     
@@ -203,11 +197,8 @@
         object-fit: cover;
         border-radius: 20px;
         width: 100%;
-        //height: 300px;
         height: 100%;
         transition: box-shadow 0.3s ease-in-out;
-
-        
     }
     
     .card-title {
@@ -222,22 +213,17 @@
         color: var(--text-2);
         @include reusables.flex(row, center, center);
         transition: opacity 0.3s ease-in-out;
-        @extend %normal-text;
         font-weight: 400 !important;
         font-size: 1.2rem;
         border-radius: 20px;
     }
-
-    
 }
-
 
 .current:hover, .next:hover {
     .card-title {
         opacity: 1;
         z-index: 100;
     }
-
 }
 
 .fade-out-to-left{

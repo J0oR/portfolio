@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         [current, next] = [next, current];
 
         current.classList.remove('fade-out-to-left');
-        current.style.zIndex = 20;
+        current.style.zIndex = 2;
         next.style.zIndex = 1;
         next.classList.remove('fade-in-from-right');
     }
