@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('scroll', function () {
     const intro_text_container = document.querySelector('.rectangle');
     const text = document.querySelector('.intro-text');
-    const fading_animation = "fadeInFromLeft 1s ease-in-out forwards";
+    const fading_animation = "fadeInFromRight 1s ease-in-out forwards";
 
     if (isInViewport(intro_text_container)) {
         intro_text_container.style.animation = fading_animation;
