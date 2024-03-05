@@ -857,7 +857,7 @@ footer::before {
 }
 @media screen and (max-width: 576px) {
   .portfolio-preview-card {
-    max-width: calc(80vw - 50px);
+    max-width: calc(80vw - 100px);
     height: 200px;
   }
 }
