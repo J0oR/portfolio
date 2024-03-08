@@ -133,17 +133,22 @@ form {
         border-radius: 10px;
         border: none;
         @extend %shadow-effect;
-        transition: all 0.05s ease-in-out;
         background-color: var(--text);
         font-size: 1rem;
         color: var(--primary);
         padding: 15px 50px;
-
+        transition: transform 0.3s ease-in-out;
 
         &:active {
-            transform: translateY(4px);
+            transform: translateY(5px);
             box-shadow: none;
         }
+
+        &:hover, &:focus{
+            outline: 2px solid var(--tertiary);
+            color: var(--tertiary);
+            background-color: var(--secondary);
+        } 
     }
 }
 

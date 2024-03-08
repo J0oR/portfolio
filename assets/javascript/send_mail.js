@@ -10,98 +10,105 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
 document.getElementById('contact-form').setAttribute('autocomplete', 'off');
 
 
-function sendMail() {
+var firstName, lastName, email, subject, message;
+const inputError = document.querySelector('.form_input_error');
 
-    scrollToMessageArea();
 
-    var input_error = document.querySelector(".form_input_error");
 
-    var params = {
-        from_name: sanitizeInput(document.getElementById("form_name").value) + " " + sanitizeInput(document.getElementById("form_lastname").value),
-        email_id: sanitizeInput(document.getElementById("form_email").value),
-        subject: sanitizeInput(document.getElementById("form_subject").value),
-        message: sanitizeInput(document.getElementById("form_message").value)
-    };
+/*************************** UTILITY FUNCTIONS *************************/
 
-    if (validateForm()) {
-        emailjs.send('service_oy42a15', 'template_xdjh6jr', params).then(function () {
-            input_error.textContent = encodeHTML("Message sent!");
-            input_error.classList.add("form_input_error_visible");
-            input_error.classList.add("success");
-            resetForm();
-        }, function (error) {
-            input_error.classList.remove("success");
-            input_error.classList.add("form_input_error_visible");
-            input_error.textContent = encodeHTML("There was an error while sending your message!\nPlease try again.");
-        });
-    }
+
+function sanitizeInput(input) {
+    return input.replace(/<[^>]*>/g, '').replace(/[&<>"'`=\/\\]/g, '');
 }
 
 function encodeHTML(input) {
     return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-
 function scrollToMessageArea() {
-    var targetElement = document.querySelector('.form_input_error');
-
-    var offset = targetElement.offsetTop;
-
+    const offset = inputError.offsetTop;
     document.documentElement.scrollTop = offset + 400;
 }
 
 
-
-
-/* VALIDATION */
-
-function sanitizeInput(input) {
-    return input.replace(/<[^>]*>/g, '')
-                .replace(/[&<>"'`=\/\\]/g, '');
+function showMessage(message, outcome){
+    inputError.textContent = encodeHTML(message);
+    inputError.classList.toggle('success', outcome);
+    inputError.classList.add("form_input_error_visible");
+    scrollToMessageArea();
 }
 
 
+function getInput() {
+    firstName = document.getElementById("form_name").value;
+    lastName = document.getElementById("form_lastname").value;
+    email = document.getElementById("form_email").value;
+    subject = document.getElementById("form_subject").value;
+    message = document.getElementById("form_message").value;
+}
+
+
+/*************************** Main Function *************************/
+
+
+function sendMail() {
+
+    getInput();
+    const passed = validateForm();
+
+    if (passed) {
+
+        const params = {
+            from_name: sanitizeInput(firstName) + " " + sanitizeInput(lastName),
+            email_id: sanitizeInput(email),
+            subject: sanitizeInput(subject),
+            message: sanitizeInput(message)
+        };
+
+        emailjs.send('service_oy42a15', 'template_xdjh6jr', params)
+        .then(() => {
+            showMessage("Message sent!", true);
+            resetForm();
+        })
+        .catch((error) => {
+            showMessage("There was an error while sending your message!\nPlease try again.", false);
+        });
+    }
+}
+
+
+/************************************ VALIDATION ***********************************/
+
+
+function validateInput(value, regex, fieldName, fieldId) {
+    let errorMessage = "";
+    
+    if (value === "") {
+        errorMessage = `${fieldName} must be filled out.`;
+    } else if (!regex.test(value)) {
+        errorMessage = `Invalid ${fieldName} format.`;
+    }
+
+    if (errorMessage) {
+        document.getElementById(fieldId).focus();
+        showMessage(errorMessage, false);
+        return false;
+    }
+    return true;
+}
+
 function validateForm() {
-    var name = sanitizeInput(document.getElementById("form_name").value);
-    var surname = sanitizeInput(document.getElementById("form_lastname").value);
-    var email = sanitizeInput(document.getElementById("form_email").value);
-    var subject = sanitizeInput(document.getElementById("form_subject").value);
-    var message = sanitizeInput(document.getElementById("form_message").value);
-    var input_error = document.querySelector(".form_input_error");
-    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    const subjectRegex = /^[a-zA-Z0-9\s]+$/;
+    const messageRegex = /^[\s\S]*$/;
 
-
-    input_error.textContent = "";
-    // Simple checks for empty fields
-    if (name === "") {
-        input_error.textContent = encodeHTML("Name must be filled out");
-        document.getElementById("form_name").focus();
-    }
-
-    else if (surname === "") {
-        input_error.textContent = encodeHTML("Surname must be filled out");
-        document.getElementById("form_lastname").focus();
-    }
-    else if (email === "") {
-        input_error.textContent = encodeHTML("Email must be filled out");
-        document.getElementById("form_email").focus();
-    }
-    else if (!emailRegex.test(email)) {
-        input_error.textContent = encodeHTML("Invalid email format");
-        document.getElementById("form_email").focus();
-    }
-    else if (subject === "") {
-        input_error.textContent = encodeHTML("Subject must be filled out");
-        document.getElementById("form_subject").focus();
-    }
-    else if (message === "") {
-        input_error.textContent = encodeHTML("Message must be filled out");
-        document.getElementById("form_message").focus();
-    }
-
-    if (input_error.innerHTML != "") {
-        input_error.classList.add("form_input_error_visible");
-        input_error.classList.remove("success");
+    if (!validateInput(firstName, nameRegex, "Name", "form_name") ||
+        !validateInput(lastName, nameRegex, "Last name", "form_lastname") ||
+        !validateInput(email, emailRegex, "Email", "form_email") ||
+        !validateInput(subject, subjectRegex, "Subject", "form_subject") ||
+        !validateInput(message, messageRegex, "Message", "form_message")) {
         return false;
     }
 
@@ -110,49 +117,38 @@ function validateForm() {
 }
 
 
-/*************************** INPUT ERROR RESET *************************/
+/*************************** RESET FORM AND OUTCOME MESSAGE *************************/
 
-document.getElementById('contact-form').addEventListener('input', function (event) {
-    resetError(event.target);
+
+document.querySelectorAll('input, textarea').forEach(function (element) {
+    element.addEventListener('input', resetError);
+    element.addEventListener('click', resetError);
 });
 
-document.getElementById('contact-form').addEventListener('click', function (event) {
-    resetError(event.target);
-});
-
-function resetError(target) {
-    var input_error = document.querySelector(".form_input_error");
-
-    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-        input_error.textContent = "";
-        input_error.classList.remove("form_input_error_visible");
-        input_error.classList.remove("success");
-    }
+function resetError() {
+    inputError.classList.remove('form_input_error_visible', 'success');
 }
-
 
 function resetForm() {
-    document.getElementById("form_name").value = "";
-    document.getElementById("form_lastname").value = "";
-    document.getElementById("form_email").value = "";
-    document.getElementById("form_subject").value = "";
-    document.getElementById("form_message").value = "";
+    const inputFields = ['form_name', 'form_lastname', 'form_email', 'form_subject', 'form_message'];
+    inputFields.forEach(field => {
+        document.getElementById(field).value = '';
+    });
 }
 
 
-/************** ONLINE PROFILES ************/
+/******************************** ONLINE PROFILES *********************************/
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const profiles = document.querySelectorAll('.online-profile');
 
     profiles.forEach(profile => {
-
         // Listen for the animationend event
         profile.addEventListener('animationend', () => {
             // Remove the animation class after the animation is complete
             profile.classList.add('after-animation-end');
         });
     });
-
 });
 

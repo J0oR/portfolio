@@ -5,14 +5,6 @@
 @use './animations';
 
 
-@mixin flex_layout($dir: row, $just: center, $align: center) {
-    display: flex;
-    flex-direction: $dir;
-    justify-content: $just;
-    align-items: $align;
-}
-
-
 /********* ABOUT ME *********/
 
 
@@ -33,7 +25,6 @@
         }
     }
 }
-
 
 
 /********** CV TIMELINE **********/
@@ -137,7 +128,6 @@
 
 .tags-container {
     p {
-        @extend %normal-text;
         @extend %phone-80-percent;
     }
 
