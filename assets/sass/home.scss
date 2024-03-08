@@ -196,10 +196,7 @@
         width: 50%;
     }
 
-    @media screen and (max-width: 576px) {
-        max-width: calc(80vw - 100px);
-        height: 200px;
-    }
+    
     
     .portfolio-preview-img {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
@@ -237,7 +234,15 @@
 
 .fade-out-to-left{
     animation: fadeOutToLeft 1s ease-in-out forwards;
+
+    @media screen and (max-width: 576px) {
+        animation: fadeOutToBottom 1s ease-in-out forwards; 
+    }
 }
 .fade-in-from-right{
-    animation: fadeInFromRight 1s ease-in-out forwards;
+    animation: fadeInFromRight 1s ease-in-out forwards; 
+
+    @media screen and (max-width: 576px) {
+        animation: fadeInFromTop 1s ease-in-out forwards; 
+    }
 }
