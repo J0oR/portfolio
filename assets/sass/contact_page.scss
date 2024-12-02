@@ -84,13 +84,14 @@ form {
 
 
     %form-input-field {
+
         padding: 20px;
         border: none;
         border-radius: 10px;
         background-color: var(--secondary);
         outline: 1px solid var(--secondary-border);
         color: var(--tertiary);
-        font-size: 1rem;
+        font: inherit;
 
         @media screen and (max-width: 768px) {
             max-width: 80vw !important;
@@ -104,7 +105,7 @@ form {
         }
 
         &::placeholder {
-            color: var(--primary);
+            color: rgb(186, 186, 186);
         }
     }
 
@@ -144,11 +145,12 @@ form {
             box-shadow: none;
         }
 
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
             outline: 2px solid var(--tertiary);
             color: var(--tertiary);
             background-color: var(--secondary);
-        } 
+        }
     }
 }
 
