@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 let imagesArray = [
-    { title: 'Y', img: './assets/images/yellow.jpeg' },
-    { title: 'G', img: './assets/images/blue.jpeg' },
-    { title: 'B', img: './assets/images/green.jpeg' }
+    { title: 'Y', img: './assets/images/hero/blue.webp' },
+    { title: 'G', img: './assets/images/hero/green.webp' },
+    { title: 'B', img: './assets/images/hero/pink.webp' }
 ]
 
 document.addEventListener('DOMContentLoaded', function () {

@@ -100,10 +100,16 @@
 
     .header-img {
         width: 280px;
+        height: 280px;
+        object-fit: cover;
         position: absolute;
+          object-position: 42%;
+
         border-radius: 50%;
-        border: 1px solid var(--secondary-border);
+        //border: 1px solid var(--secondary-border);
         opacity: 1;
+
+        
         
     }
 }

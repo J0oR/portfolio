@@ -46,10 +46,27 @@ footer {
 
 .copyright {
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
 
     @media screen and (max-width: 576px) {
         width: 100%;
         text-align: center;
+    }
+
+    .s2i, .footer-name {
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--tertiary);
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            color: var(--text-2);
+        }
     }
 }
 
