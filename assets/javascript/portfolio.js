@@ -3,6 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     elements.forEach(function(element, index) {
         element.style.animation = "horizontalLoop 6s linear infinite";
-        element.style.animationDelay = (index * 0.5) + "s";
+        element.style.animationDelay = (index * 0.3) + "s";
     });
 });

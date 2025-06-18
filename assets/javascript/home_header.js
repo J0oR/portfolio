@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /****************** INTRO SLIDING ANIMATION ******************/
 
-
+/* 
 document.addEventListener('scroll', function () {
     const intro_text_container = document.querySelector('.rectangle');
     const fading_animation = "growFromRight 1s ease-in-out forwards";
@@ -84,3 +84,4 @@ function isInViewport(element, margin = 300) {
         rect.right >= centerX - margin
     );
 }
+ */
