@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const projectsArray = [
-        { title: 'Heat Lens', img: './assets/images/projects/heatLens.png' },
-        { title: 'Rooted Recipes', img: './assets/images/projects/rooted.png' },
-        { title: 'Hacker News feed', img: './assets/images/projects/hackerNews.png' },
-        { title: 'Typescript Store demo', img: './assets/images/projects/ts-store-demo.png' },
-        { title: 'Javascript Timer', img: './assets/images/projects/js-timer.png' },
-        { title: 'Javascript Calculator', img: './assets/images/calculator.png' },
-        { title: 'Javascript Drum Machine', img: './assets/images/drum_machine.png' },
-        { title: 'Markdown Previewer', img: './assets/images/markdown.png' },
-        { title: 'Quote Generator', img: './assets/images/quote.png' },
-        { title: 'Work Clock', img: './assets/images/work clock.png' },
-        { title: 'Tecnical Documentation Page', img: './assets/images/techpage.png' },
+        { title: 'Heat Lens', img: './assets/images/projects/heatLens.webp' },
+        { title: 'Rooted Recipes', img: './assets/images/projects/rooted.webp' },
+        { title: 'Hacker News feed', img: './assets/images/projects/hackerNews.webp' },
+        { title: 'Typescript Store demo', img: './assets/images/projects/ts-store-demo.webp' },
+        { title: 'Javascript Timer', img: './assets/images/projects/js-timer.webp' },
+        { title: 'Javascript Calculator', img: './assets/images/projects/calculator.webp' },
+        { title: 'Javascript Drum Machine', img: './assets/images/projects/drum_machine.webp' },
+        { title: 'Markdown Previewer', img: './assets/images/projects/markdown.webp' },
+        { title: 'Quote Generator', img: './assets/images/projects/quote.webp' },
+        { title: 'Work Clock', img: './assets/images/projects/work clock.webp' },
+        { title: 'Tecnical Documentation Page', img: './assets/images/projects/techpage.webp' },
     ];
 
     let currentIndex = 1;

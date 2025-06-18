@@ -110,13 +110,20 @@
 }
 
 .rectangle {
-    height: 40vh;
-    opacity: 0;
-  border: 2px solid var(--tertiary);
+    opacity: 1;
+    background-color: var()--primary;
   color: var(--text-2);
   @include reusables.flex(row, center, center);
   border-radius: 25px;
   max-width: 800px !important;
+    animation: glow 3s infinite linear;
+    padding: 50px;
+
+  
+      @media screen and (max-width: 768px) {
+        width: 90vw;
+      }
+
   
 }
 
@@ -128,6 +135,15 @@
   text-align: center;
   p{
     width: 100%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 1px var(--tertiary), 0 0 5px var(--tertiary),  0 0 10px var(--tertiary), 0 0 20px var(--tertiary);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--tertiary), 0 0 30px var(--tertiary), 0 0 60px var(--tertiary), 0 0 90px var(--tertiary);
   }
 }
 
