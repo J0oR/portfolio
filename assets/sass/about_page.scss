@@ -16,12 +16,13 @@
         font-size: 1.3rem;
         color: var(--text-2);
         font-weight: 300;
-        width: 65%;
+        max-width: 800px;
         line-height: 2;
         text-align: left;
 
         @media only screen and (max-width: 768px) {
-            width: 80%;
+            width: 90%;
+            text-align: justify;
         }
     }
 }

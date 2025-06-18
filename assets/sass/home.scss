@@ -1,254 +1,213 @@
-@use './general';
-@use './navbar';
-@use './footer';
-@use './reusables';
-@use './animations';
-
+@use "./general";
+@use "./navbar";
+@use "./footer";
+@use "./reusables";
+@use "./animations";
 
 /***************************** Home header ***********************************/
 
-
 .header-section {
-    background-color: var(--secondary);
-    border: 1px solid var(--secondary-border);
 }
 
 .header-container {
-    height: 340px;
-    @include reusables.flex(row, center, center);
-    
-    @media screen and (max-width: 768px) {
-        @include reusables.flex(column, space-around, center, 0);
-        height: 600px;
-        padding: 0;
-    }
+  @include reusables.flex(column, center, center, 50px);
+  height: 70vh;
+  padding: 40px;
 }
 
 .features-box {
-    @include reusables.flex(row, center, center, 0);
-    animation: fadeInFromBottom 1s ease-in-out forwards;
-    flex-basis: 50%;
+  @include reusables.flex(row, center, center, 0);
+  animation: fadeInFromBottom 1s ease-in-out forwards;
+  width: 100%;
 
-    @media screen and (max-width: 768px) {
-        flex-basis: 40%;
-        order: 2;
-        width: 100%;
-    }
-}
-
-
-.features-list {
-    height: 500px;
-    width: 250px;
+  .features-list {
+    width: 100%;
     background-color: var(--tertiary);
     border-radius: 20px;
     list-style-type: none;
-    @include reusables.flex(column, center, center, 20px);
+    @include reusables.flex(row, center, center, 0px);
     color: var(--primary);
+    position: relative;
 
-    @media screen and (max-width: 768px) {
-        height: 180px;
-        width: 90%;
-        padding: 20px 0;
-        margin-right: 10%;
-        position: relative;
-        border-radius: 0;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-    }
-}
-
-.feature {
-    font-size: 1.4rem;
-    transition: transform 1s ease-in-out;
-    color: var(--primary);
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-        margin-left: 10%;
+    @media screen and (max-width: 576px) {
+      flex-direction: column;
     }
 
-    &.marked {
-        transform: scale(1.4);
+    .feature {
+      font-size: 1.4rem;
+      transition: all 1s ease-in-out;
+      color: var(--tertiary);
+      opacity: 0;
+      position: absolute;
+
+      &.marked {
+        opacity: 1;
         font-weight: 400;
-        width:fit-content;
+        width: fit-content;
 
         @media screen and (max-width: 768px) {
-            width:fit-content !important;
-            font-weight: 400;
+          width: fit-content !important;
+          font-weight: 400;
         }
+      }
     }
+  }
 }
-
-
 
 .image-container {
-    @include reusables.flex(row, center, center);
-    flex-basis: 50%;
-    width: 100%;
-    height: 100%;
+  @include reusables.flex(column, center, center, 50px);
+  flex-basis: 50%;
+  width: 100%;
+  height: 100%;
 
-    @media screen and (max-width: 768px) {
-        flex-basis: 60%;
-    }
+  @media screen and (max-width: 768px) {
+    flex-basis: 60%;
+  }
 
-}
-
-.images-list {
+  .images-list {
     @include reusables.flex(row, center, center);
     animation: fadeInFromTop 1s ease-in-out forwards;
+    height: 300px;
+    position: relative;
 
     .header-img {
-        width: 280px;
-        height: 280px;
-        object-fit: cover;
-        position: absolute;
-          object-position: 42%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      position: absolute;
+      object-position: 42%;
 
-        border-radius: 50%;
-        //border: 1px solid var(--secondary-border);
+      border-radius: 50%;
+      //border: 1px solid var(--secondary-border);
+      opacity: 1;
+
+      &.header-image-fade-out {
+        animation: fadeOut 0.75s ease-in-out forwards;
+      }
+      &.header-image-fade-in {
         opacity: 1;
-
-        
-        
+        animation: fadeIn 0.75s ease-in-out forwards;
+      }
     }
-}
+  }
 
-.header-image-fade-out{
-    animation: fadeOut 0.75s ease-in-out forwards;
-}
-.header-image-fade-in{
-    opacity: 1;
-    animation: fadeIn 0.75s ease-in-out forwards;
-}
+  .name,
+  .role {
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
 
+  .name {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+}
 
 /********************************* HOME INTRO **************************************/
 
-
 .home-intro-section {
-    height: 350px;
-    @include reusables.flex(row, center, center);
+  height: 50vh;
+  @include reusables.flex(row, center, center);
 }
 
 .rectangle {
-    background-color: var(--secondary);
-    font-size: 1.5rem;
-    color: var(--tertiary);
-    width: 80%;
-    margin-left: 20%;
-    border-top-left-radius: 120px;
-    border-bottom-left-radius: 120px;
-    border: 1px solid var(--secondary-border);
-    @include reusables.flex(row, center, center);
-    padding: 20px 0;
+    height: 40vh;
     opacity: 0;
-    height: fit-content;
-
-    @media screen and (max-width: 576px) {
-        width: 90%;
-        margin-left: 10%;
-    }
+  border: 2px solid var(--tertiary);
+  color: var(--text-2);
+  @include reusables.flex(row, center, center);
+  border-radius: 25px;
+  max-width: 800px !important;
+  
 }
 
 .intro-text {
-    padding: 20px;
-    @include reusables.flex(column, center, flex-start);
-    gap: 15px;
-    font-size: 1.2rem;
-    margin-right: 25%;
-
-    @media screen and (max-width: 576px) {
-        width: 90%;
-        margin-right: 10%;
-    }
-
-    p {
-        width: 100%;
-    }
+  padding: 20px;
+  @include reusables.flex(column, center, flex-start);
+  gap: 15px;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  text-align: center;
+  p{
+    width: 100%;
+  }
 }
-
-
 
 /************************ Home portfolio preview ***********************************/
 
-.home-portfolio{
-    @media screen and (max-width: 576px) {
-        margin-bottom: unset !important;
-    }
-    
+.home-portfolio {
+  @media screen and (max-width: 576px) {
+    margin-bottom: 300px;
+  }
 }
 
 .portfolio-preview {
-    @include reusables.flex(row, center, center);
-    height: 400px;
-    gap: 55px;
-    position: relative;
+  @include reusables.flex(row, center, center);
+  height: 400px;
+  gap: 55px;
+  position: relative;
 
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 50px;
-    }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+  }
 }
 
 .portfolio-preview-card {
-    text-decoration: none;
+  text-decoration: none;
+  position: absolute;
+  @extend %phone-80-percent;
+  transition: transform 0.3s ease-in-out;
+  height: 300px;
+
+  @media screen and (min-width: 769px) {
+    width: 50%;
+  }
+
+  .portfolio-preview-img {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
+    object-fit: cover;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .card-title {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    @extend %phone-80-percent;
-    transition: transform 0.3s ease-in-out;
-    height: 300px;
-
-    @media screen and (min-width: 769px) {
-        width: 50%;
-    }
-
-    
-    
-    .portfolio-preview-img {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.295);
-        object-fit: cover;
-        border-radius: 20px;
-        width: 100%;
-        height: 100%;
-        transition: box-shadow 0.3s ease-in-out;
-    }
-    
-    .card-title {
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: hsla(158, 100%, 0%, 0.6);
-        padding: 10px;
-        color: var(--text-2);
-        @include reusables.flex(row, center, center);
-        transition: opacity 0.3s ease-in-out;
-        font-weight: 400 !important;
-        font-size: 1.2rem;
-        border-radius: 20px;
-    }
+    top: 0;
+    left: 0;
+    background: hsla(158, 100%, 0%, 0.6);
+    padding: 10px;
+    color: var(--text-2);
+    @include reusables.flex(row, center, center);
+    transition: opacity 0.3s ease-in-out;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
+    border-radius: 20px;
+  }
 }
 
-.current:hover, .next:hover {
-    .card-title {
-        opacity: 1;
-        z-index: 100;
-    }
+.current:hover,
+.next:hover {
+  .card-title {
+    opacity: 1;
+    z-index: 100;
+  }
 }
 
-.fade-out-to-left{
-    animation: fadeOutToLeft 1s ease-in-out forwards;
+.fade-out-to-left {
+  animation: fadeOutToLeft 1s ease-in-out forwards;
 
-    @media screen and (max-width: 576px) {
-        animation: fadeOutToBottom 1s ease-in-out forwards; 
-    }
+  @media screen and (max-width: 576px) {
+    animation: fadeOutToBottom 1s ease-in-out forwards;
+  }
 }
-.fade-in-from-right{
-    animation: fadeInFromRight 1s ease-in-out forwards; 
+.fade-in-from-right {
+  animation: fadeInFromRight 1s ease-in-out forwards;
 
-    @media screen and (max-width: 576px) {
-        animation: fadeInFromTop 1s ease-in-out forwards; 
-    }
+  @media screen and (max-width: 576px) {
+    animation: fadeInFromTop 1s ease-in-out forwards;
+  }
 }
